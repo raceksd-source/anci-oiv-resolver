@@ -36,11 +36,11 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/david-mellafe-z/anci-oiv-resolver"
+    "url": "https://github.com/raceksdsource/anci-oiv-resolver"
   },
-  "homepage": "https://github.com/david-mellafe-z/anci-oiv-resolver#readme",
+  "homepage": "https://github.com/raceksdsource/anci-oiv-resolver#readme",
   "bugs": {
-    "url": "https://github.com/david-mellafe-z/anci-oiv-resolver/issues"
+    "url": "https://github.com/raceksdsource/anci-oiv-resolver/issues"
   },
   "engines": {
     "node": ">=18.0.0"
