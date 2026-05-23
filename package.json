@@ -48,7 +48,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/raceksd-source/anci-oiv-resolver"
+    "url": "git+https://github.com/raceksd-source/anci-oiv-resolver.git"
   },
   "homepage": "https://github.com/raceksd-source/anci-oiv-resolver#readme",
   "bugs": {
