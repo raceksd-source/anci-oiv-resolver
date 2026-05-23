@@ -176,6 +176,17 @@ describe('getCoverageStats', () => {
   });
 });
 
+describe('CMF domain fix · v0.1.1 regression guard', () => {
+  it('resolves CMF to cmfchile.cl NOT cmf.cl (plastics company false-positive)', () => {
+    const r = resolveBytable('60810000-8');
+    assert.ok(r, 'CMF should be in table');
+    assert.equal(r!.domain, 'cmfchile.cl', 'CMF canonical domain must be cmfchile.cl, NOT cmf.cl (CMF Industrial)');
+    assert.equal(r!.sector, 'administracion_estado');
+    assert.equal(r!.confidence, 1.0);
+    assert.notEqual(r!.domain, 'cmf.cl', 'cmf.cl is CMF Industrial plastics — MUST NOT resolve to this');
+  });
+});
+
 describe('Block D expansion spot-checks', () => {
   it('resolves LATAM Airlines (new transporte entry)', () => {
     const r = resolveBytable('81869200-K');
