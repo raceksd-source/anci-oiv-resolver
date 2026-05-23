@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contact-amber.svg)](#the-coverage-gap)
-[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-367_OIVs_(40%25)-green.svg)](#the-solution)
-[![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-6_of_10-brightgreen.svg)](#the-solution)
+[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-644_OIVs_(70%25)-green.svg)](#the-solution)
+[![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-9_of_10-brightgreen.svg)](#the-solution)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 
 [Versión en español](README.md)
@@ -45,7 +45,7 @@ This library is useful for:
 - **Incident response teams** correlating domains with OIVs during an active incident
 - **Regulators and policy makers** auditing the effective coverage of the regulatory framework
 
-If you work in any of these areas and have had to manually resolve "ANCI legal name → real domain," this tool automates that for 367 OIVs (40% of the universe) with DNS verification.
+If you work in any of these areas and have had to manually resolve "ANCI legal name → real domain," this tool automates that for 644 OIVs (70.8% of the universe) with DNS verification.
 
 ## Why we built this
 
@@ -54,14 +54,14 @@ During our research into Chile's responsible disclosure gap (the "Coverage Gap" 
 ```
 909 OIVs registered under ANCI (Ley 21.663)
     │
-    ├── 367 mapped — this tool (40.4%)
-    │   ├── 6 sectors closed at 100%
-    │   │   └── banking · telecoms · transport · water
-    │   │       state enterprises · fuel
-    │   └── 4 sectors expanding
-    │       └── government admin · health · energy · digital infrastructure
+    ├── 644 mapped — this tool (70.8%)
+    │   ├── 9 sectors closed at 100%
+    │   │   └── banking · telecoms · transport · water · state enterprises
+    │   │       fuel · health · government admin · electricity
+    │   └── 1 sector as representative sample
+    │       └── digital infrastructure (65/413 · 15.7%)
     │
-    └── 542 pending mapping (research in progress)
+    └── 265 pending mapping (mostly small IT vendors without public web presence)
 ```
 
 Those inference errors contaminate academic research datasets, deliver false reports to the wrong vendors, and undermine the credibility of any serious investigation into Chilean critical infrastructure.
@@ -86,22 +86,22 @@ Without a canonical resolver, any tool that scans OIVs in Chile will fire findin
 
 ## The solution
 
-`anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, currently covering **367 of 909 OIVs (40.4%)** across the full registry:
+`anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, currently covering **644 of 909 OIVs (70.8%)** across the full registry:
 
 - **34** of 34 banca/finanzas OIVs (100% — sector closed) ⭐
-- **29** of 29 telecomunicaciones OIVs (100% — sector closed v0.2.0) ⭐
-- **25** of 25 transporte OIVs (100% — sector closed v0.2.0) ⭐
-- **25** of 25 agua OIVs (100% — sector closed v0.2.0) ⭐
-- **20** of 20 empresas_estado OIVs (100% — sector closed v0.2.0) ⭐
-- **25** of 25 combustibles OIVs (100% — sector closed v0.2.0 · previously empty) ⭐
-- **92** of 155 administracion_estado OIVs (59% · key agencies + ministerial subsecretarías)
-- **65** of 111 salud OIVs (59% · top hospitals, clinics, health services)
-- **30** of 147 energia_electrica OIVs (20% · major generators + distributors)
-- **22** of 413 infraestructura_digital OIVs (5% · representative top vendors)
+- **29** of 29 telecomunicaciones OIVs (100% — sector closed) ⭐
+- **25** of 25 transporte OIVs (100% — sector closed) ⭐
+- **25** of 25 agua OIVs (100% — sector closed) ⭐
+- **20** of 20 empresas_estado OIVs (100% — sector closed) ⭐
+- **25** of 25 combustibles OIVs (100% — sector closed) ⭐
+- **111** of 111 salud OIVs (100% — sector closed v0.3.0) ⭐
+- **155** of 155 administracion_estado OIVs (100% — sector closed v0.3.0) ⭐
+- **147** of 147 energia_electrica OIVs (100% — sector closed v0.3.0) ⭐
+- **65** of 413 infraestructura_digital OIVs (15.7% · representative sample · most OIVs in this sector are small IT vendors without public web presence)
 
-With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) for the remaining 542 OIVs not in the table.
+With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) for the remaining 265 OIVs not in the table.
 
-**367 total entries · 40.4% universe coverage · 6 sectors closed 100% · 100% passive OSINT · zero active scanning · v0.2.0**
+**644 total entries · 70.8% universe coverage · 9 sectors closed 100% · 100% passive OSINT · zero active scanning · v0.3.0**
 
 ## Quick start
 

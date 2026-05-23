@@ -8,11 +8,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- v0.3.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
-- v0.3.0 · Reverse lookup (`resolveByDomain`)
-- v0.3.0 · TXT record verify (SPF/DMARC/security.txt)
-- v0.3.0 · Zenodo software DOI live
-- Continue to 500+ entries · 55% universe coverage (Q3 2026)
+- v0.4.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
+- v0.4.0 · Reverse lookup (`resolveByDomain`)
+- v0.4.0 · TXT record verify (SPF/DMARC/security.txt)
+- v0.4.0 · Zenodo software DOI live
+- infraestructura_digital deeper sample (Q3 2026)
+
+## [0.3.0] - 2026-05-23
+
+### Added
+- **277 new DNS-verified entries** (367→644 total · 70.8% universe coverage of 909 OIVs)
+- **salud sector CLOSED** 62→111 (100%): all 49 missing hospitals and institutions added, including Hospital Clínico San Borja Arriarán (hcsba.cl), Hospital Urgencia Pública (urgencias.cl), Instituto Nacional del Cáncer (inc.cl), Instituto Neurocirugía Asenjo (asenjo.cl), Hospital El Pino, Hospital de San Fernando, IMARED Puerto Montt, Hospital de Linares, Hospital Franco Ravera, Hospital Calama, Hospital Coquimbo, Hospital de los Andes, Hospital Las Higueras · NXDOMAINs documented honestly for hospitals without public web presence
+- **administracion_estado sector CLOSED** 79→155 (100%): all 76 missing entries added including Defensa Civil, IGM (igmchile.cl), DGMN, Subsecretaría de Energía (minenergia.cl), SUBTEL (subtel.cl), MINEDUC, MINCIENCIA, SUBPESCA, Bienes Nacionales, SENAME, 14 Servicios de Salud regionales, 10 subsecretarías ministériales, reinsercionjuvenil.cl, casinos.cl · NXDOMAINs documented for entities without standalone domains
+- **energia_electrica sector CLOSED** 30→147 (100%): 117 entries added — Interchile (interchile.cl), Cerro Dominador CSP (cerrodominador.cl), AELA Generación (aela.cl), Guacolda Energía (guacoldaenergia.cl), ENAP Refinerías (enap.com), Mantos Copper (mantoscopper.com), Eletrans group (eletrans.cl), Pacific Hydro, Besalco, Copihue, Centella, Nueva Atacama, ON-GROUP, Tecnocap, Torino, WPD Malleco, CONAFE (conafe.cl), all cooperativas · SPEs without public domains documented as NXDOMAIN
+- **combustibles sector** completed with 2 missing entries: ENAP Refinería Aconcagua (enap.cl), ABIGAS S.A. (abigas.cl) → 25/25 (100% closed)
+- **infraestructura_digital sample** expanded 22→65: NEC Chile (nec.cl), Kyndryl (kyndryl.cl), Equinix (equinix.cl), Unisys (unisys.cl), Softland (softland.cl), Red Hat (redhat.cl), Iron Mountain, Intersystems, Novis, Intercity, Fintoc (fintoc.cl), Flow (flow.cl), Defontana (defontana.cl), BUK (buk.cl), Fintual, Rayen Salud, Modyo, i-MED, Dlocal, Koywe, Unholster, Google Chile, Amazon AWS Chile, Scala DC, Thales · with honest note that 413-entity sector cannot be fully mapped
+- `_meta.sectors_closed` updated to 9 sectors (was 6): added salud, administracion_estado, energia_electrica
+- `_meta.coverage_pct` = 70.8
+- 41 new regression tests (v0.3.0 spot-checks across all 4 expanded sectors)
+
+### Changed
+- `package.json` version bumped 0.2.0 → 0.3.0
+- `_meta.version` bumped to `v0.3.0-data`
+- `_meta.total_entries` = 644 · verified = 445 · unverified = 199
+- Test thresholds updated: total ≥640, salud =111, admin =155, energia =147, infra ≥60
+- README.md stats updated to v0.3.0
+
+### Coverage at v0.3.0
+- banca_finanzas: 34/34 (100% closed)
+- telecomunicaciones: 29/29 (100% closed)
+- transporte: 25/25 (100% closed)
+- agua: 25/25 (100% closed)
+- empresas_estado: 20/20 (100% closed)
+- combustibles: 25/25 (100% closed)
+- salud: 111/111 (100% closed · NEW ✓)
+- administracion_estado: 155/155 (100% closed · NEW ✓)
+- energia_electrica: 147/147 (100% closed · NEW ✓)
+- infraestructura_digital: 65/413 (15.7% · representative sample only)
+- **TOTAL: 644 entries · 70.8% of 909 OIVs registered**
 
 ## [0.2.0] - 2026-05-23
 
