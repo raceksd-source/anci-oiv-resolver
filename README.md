@@ -155,7 +155,7 @@ If you use this tool in research, please cite:
   title     = {anci-oiv-resolver: Canonical Chilean OIV Domain Resolver},
   year      = {2026},
   publisher = {GitHub},
-  howpublished = {\url{https://github.com/raceksdsource/anci-oiv-resolver}},
+  howpublished = {\url{https://github.com/raceksd-source/anci-oiv-resolver}},
   note      = {Companion: "Coverage Gap in Chilean Critical Infrastructure Cybersecurity" (Zenodo DOI pending)}
 }
 ```
