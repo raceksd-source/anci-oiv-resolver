@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - v0.2.0 · TXT record verify (SPF/DMARC/security.txt)
 - v0.2.0 · Zenodo software DOI live
 
+## [0.1.1] - 2026-05-23
+
+### Fixed
+- Resolver mapping bug · `cmf.cl` (CMF Industrial plastics company) was incorrectly mapped to Comisión para el Mercado Financiero. Correct canonical domain is `cmfchile.cl`. DNS verified: A record 152.230.198.86 · cert `O=Comision para el Mercado Financiero CN=www.cmfchile.cl` (DigiCert EV). Per Opus #157 zero-day audit.
+
+### Changed
+- `_meta.version` bumped to `v0.1.1-data` in known-domains.json
+
 ## [0.1.0] - 2026-05-23
 
 ### Added
