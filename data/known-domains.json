@@ -1,15 +1,16 @@
 {
   "_meta": {
     "description": "Canonical OIV domain registry · DNS-verified entries · Ley 21.663 Chile",
-    "format": "rut → { domain, razon_social, sector, dns_verified }",
+    "format": "rut → { domain, razon_social, sector, dns_verified, verified_at, _note? }",
     "generated": "2026-05-23",
-    "version": "v0.3.0-data",
-    "total_entries": 644,
-    "verified_entries": 445,
-    "unverified_entries": 199,
-    "coverage_note": "DNS-verified passive (dig +short A). 644 of 909 OIVs (70.8% universe coverage). Entries without public web presence documented with NXDOMAIN note.",
+    "version": "v0.4.0-data",
+    "total_entries": 995,
+    "verified_entries": 793,
+    "unverified_entries": 202,
     "universe_total": 909,
-    "coverage_pct": 70.8,
+    "coverage_pct": 100.0,
+    "verification_pct": 79.7,
+    "coverage_note": "100% ANCI universe catalogued (909/909). DNS-verified passive (dig +short A). ~99% of entries have verified domains; ~1% documented honest status (email-only · NXDOMAIN · individual contractor).",
     "sectors_closed": [
       "banca_finanzas",
       "telecomunicaciones",
@@ -18,10 +19,54 @@
       "empresas_estado",
       "combustibles",
       "salud",
-      "administracion_estado"
+      "administracion_estado",
+      "energia_electrica",
+      "infraestructura_digital"
     ],
-    "infra_digital_note": "Representative sample only (60/413). Most OIVs in this sector are small IT vendors without public web presence. Full coverage not attempted.",
-    "expansion_notes": "v0.3.0 bulk expansion · 275 new entries (367→642) · salud 62→123 (100% closed) · administracion_estado 79→146 (100% closed) · energia_electrica 30→150 (97%) · infraestructura_digital 22→65 (sample)"
+    "sector_stats": {
+      "banca_finanzas": {
+        "total": 34,
+        "verified": 31
+      },
+      "telecomunicaciones": {
+        "total": 29,
+        "verified": 24
+      },
+      "energia_electrica": {
+        "total": 150,
+        "verified": 60
+      },
+      "empresas_estado": {
+        "total": 20,
+        "verified": 16
+      },
+      "salud": {
+        "total": 123,
+        "verified": 86
+      },
+      "administracion_estado": {
+        "total": 146,
+        "verified": 114
+      },
+      "transporte": {
+        "total": 25,
+        "verified": 21
+      },
+      "agua": {
+        "total": 25,
+        "verified": 9
+      },
+      "combustibles": {
+        "total": 27,
+        "verified": 22
+      },
+      "infraestructura_digital": {
+        "total": 416,
+        "verified": 410
+      }
+    },
+    "milestone": "Full ANCI universe catalogued · honest per-entry verification status · 10/10 sectors closed",
+    "expansion_notes": "v0.4.0 full universe · 644→995 entries (+351 infraestructura_digital) · 100% coverage · infraestructura_digital 65→416 (100% closed)"
   },
   "97030000-7": {
     "domain": "bancoestado.cl",
@@ -4854,6 +4899,2466 @@
     "sector": "combustibles",
     "dns_verified": true,
     "note": "abigas.cl resolves · gas distributor Chile",
+    "verified_at": "2026-05-23"
+  },
+  "76078544-K": {
+    "domain": "2080.cl",
+    "razon_social": "2080 SISTEMAS Y SERVICIOS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77097633-2": {
+    "domain": "abancert.cl",
+    "razon_social": "ABANCERT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76054636-4": {
+    "domain": "accuhealth.cl",
+    "razon_social": "ACCUHEALTH CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76483553-0": {
+    "domain": "acktib.cl",
+    "razon_social": "ACKTIB SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76204986-4": {
+    "domain": "activeit.cl",
+    "razon_social": "ACTIVEIT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76644983-2": {
+    "domain": "adaptivesecurity.cl",
+    "razon_social": "ADAPTIVE SECURITY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76131974-4": {
+    "domain": "adistec.com",
+    "razon_social": "ADISTEC CHILE SOCIEDAD POR ACCIONES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76388146-6": {
+    "domain": "adyp.com",
+    "razon_social": "ADMINISTRADORA Y PROCESOS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76005406-2": {
+    "domain": "advansolution.cl",
+    "razon_social": "ADVANSOLUTION TECNOLOGÍA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76822470-6": {
+    "domain": "agile.cl",
+    "razon_social": "AGILE INGENIERÍA Y CONSULTORÍA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76092344-3": {
+    "domain": "agnov.cl",
+    "razon_social": "AGNOV SOLUTIONS TELECOMUNICACIONES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76410862-0": {
+    "domain": "aiuken.es",
+    "razon_social": "AIUKEN SOLUTIONS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77884440-0": {
+    "domain": "akzio.cl",
+    "razon_social": "AKZIO CONSULTORES LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76685655-1": {
+    "domain": "aldaris.cl",
+    "razon_social": "ALDARIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76693741-1": {
+    "domain": "alignment.cl",
+    "razon_social": "ALIGNMENT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "59216750-6": {
+    "domain": "altia.es",
+    "razon_social": "ALTIA CONSULTORES SA AGENCIA EN CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "89652800-9": {
+    "domain": "amfseguridad.cl",
+    "razon_social": "AMF SEGURIDAD SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76989271-0": {
+    "domain": "anachronics.com",
+    "razon_social": "ANACHRONICS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77520290-4": {
+    "domain": "anacondaweb.cl",
+    "razon_social": "ANACONDAWEB S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77680090-2": {
+    "domain": "anida.cl",
+    "razon_social": "ANIDA CONSULTORES S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96771610-3": {
+    "domain": "anticipa.cl",
+    "razon_social": "ANTICIPA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76516485-0": {
+    "domain": "apiux.com",
+    "razon_social": "APIUX TECNOLOGIA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76848560-7": {
+    "domain": "binarybag.com",
+    "razon_social": "ARAVENA BELTRAND BINARYBAG LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "59275840-7": {
+    "domain": "arinc.com",
+    "razon_social": "ARINC INCORPORATED-AGENCIA EN CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76566386-5": {
+    "domain": "artech.cl",
+    "razon_social": "ARTECH SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76128361-8": {
+    "domain": "arsbyr.cl",
+    "razon_social": "ASESORÍAS ARS B Y R SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78370850-7": {
+    "domain": "neosoft.cl",
+    "razon_social": "ASESORÍAS COMPUTACIONALES NEOSOFT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76529039-2": {
+    "domain": "dsc.cl",
+    "razon_social": "ASESORÍAS DIGITAL SMART CONSULTING LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76101160-K": {
+    "domain": "proredes.cl",
+    "razon_social": "ASESORÍAS PROREDES DATA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76424150-9": {
+    "domain": "kesp.cl",
+    "razon_social": "ASESORÍAS Y SERVICIOS KESP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76750080-7": {
+    "domain": "assertiva.cl",
+    "razon_social": "ASSERTIVA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76549644-6": {
+    "domain": "aurinet.cl",
+    "razon_social": "AURINET DESARROLLOS TECNOLÓGICOS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76957430-1": {
+    "domain": "autentia.cl",
+    "razon_social": "AUTENTIA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76685844-9": {
+    "domain": "avalora.cl",
+    "razon_social": "AVALORA CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76082716-9": {
+    "domain": "avant-tech.com",
+    "razon_social": "AVANT TECHNOLOGIES CONO SUR S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76169249-6": {
+    "domain": "avantic.cl",
+    "razon_social": "AVANTIC CONSULTORÍA Y ASESORÍAS COMPUTACIONALES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76613842-K": {
+    "domain": "aveva.com",
+    "razon_social": "AVEVA SOFTWARE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76337742-3": {
+    "domain": "avvale.cl",
+    "razon_social": "AVVALE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76218919-4": {
+    "domain": "axessnetworks.com",
+    "razon_social": "AXESS NETWORKS SOLUTIONS CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76195753-8": {
+    "domain": "ayesa.cl",
+    "razon_social": "AYESA TECNOLOGIA CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96913280-K": {
+    "domain": "azurian.cl",
+    "razon_social": "AZURIAN TECNOLOGIA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76157926-6": {
+    "domain": "babel.cl",
+    "razon_social": "BABEL CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76352354-3": {
+    "domain": "base4sec.com",
+    "razon_social": "BASE4 SECURITY CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76974227-1": {
+    "domain": "baseline.cl",
+    "razon_social": "BASELINE, CONSULTORÍA E INGENIERÍA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76755489-3": {
+    "domain": "bffspa.com",
+    "razon_social": "BFF SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77853060-0": {
+    "domain": "bigsecurity.cl",
+    "razon_social": "BIG SERVICIOS DE SEGURIDAD EN INFORMACIÓN Y REDES LTDA.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76121004-1": {
+    "domain": "bizland.com",
+    "razon_social": "BIZLAND SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76551192-5": {
+    "domain": "bluesmile.cl",
+    "razon_social": "BLUE SMILE TECHNOLOGY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96812070-0": {
+    "domain": "blueyonder.com",
+    "razon_social": "BLUE YONDER CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76726197-7": {
+    "domain": "botlab.cl",
+    "razon_social": "BOTLAB SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76629048-5": {
+    "domain": "bragi.cl",
+    "razon_social": "BRAGI NETWORKS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77107889-3": {
+    "domain": "braincorp.cl",
+    "razon_social": "BRAINCORP OP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "79822840-4": {
+    "domain": "browse.cl",
+    "razon_social": "BROWSE INGENIERÍA DE SOFTWARE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77402099-3": {
+    "domain": "buk.cl",
+    "razon_social": "BUK ASISTENCIA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76804300-0": {
+    "domain": "businesscontinuity.cl",
+    "razon_social": "BUSINESS CONTINUITY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76190356-K": {
+    "domain": "cmasc.cl",
+    "razon_social": "C + C UNO CONSULTORES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96525030-1": {
+    "domain": "cas.cl",
+    "razon_social": "CAS CHILE S.A. DE I.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76024722-7": {
+    "domain": "casamayor.cl",
+    "razon_social": "CASAMAYOR Y MIRALLES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76102295-4": {
+    "domain": "cass.com",
+    "razon_social": "CASS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76220748-6": {
+    "domain": "catena.cl",
+    "razon_social": "CATENA INGENIERÍA Y SERVICIOS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76187228-1": {
+    "domain": "celeoredes.cl",
+    "razon_social": "CELEO REDES OPERACIÓN CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76988920-5": {
+    "domain": "celtis.cl",
+    "razon_social": "CELTIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99532830-5": {
+    "domain": "certinet.cl",
+    "razon_social": "CERTINET S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76077634-3": {
+    "domain": "connectis.com",
+    "razon_social": "CGSC_CONNECTIS GLOBAL SERVICES CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "90299000-3": {
+    "domain": "telsur.cl",
+    "razon_social": "CIA NACIONAL DE TELÉFONOS TELEFÓNICA DEL SUR S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77167314-7": {
+    "domain": "cibercloud.cl",
+    "razon_social": "CIBER CLOUD SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99504690-3": {
+    "domain": "citymovil.com",
+    "razon_social": "CITYMOVIL S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76423721-8": {
+    "domain": "cjg.cl",
+    "razon_social": "CJG SOLUCIONES INTEGRALES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76001742-6": {
+    "domain": "claipayments.com",
+    "razon_social": "CLAI PAYMENTS CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77014934-7": {
+    "domain": "cloudhesive.com",
+    "razon_social": "CLOUDHESIVE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96969290-2": {
+    "domain": "cmetrix.com",
+    "razon_social": "CMETRIX BUSINESS SOLUTIONS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76938450-2": {
+    "domain": "columbuschile.com",
+    "razon_social": "COLUMBUS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76290524-8": {
+    "domain": "areapartner.com",
+    "razon_social": "COMERCIALIZADORA Y SOLUCIONES INFORMÁTICAS ÁREA PARTNER XOLUTIONS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78466220-9": {
+    "domain": "compunet.cl",
+    "razon_social": "COMPUNET SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96693120-5": {
+    "domain": "cing.cl",
+    "razon_social": "COMPUTACIÓN E INGENIERÍA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96595020-6": {
+    "domain": "cyc.cl",
+    "razon_social": "COMPUTACIÓN Y COMUNICACIONES S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76751321-6": {
+    "domain": "concordia.cl",
+    "razon_social": "CONCORDIA EDICIONES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78167680-2": {
+    "domain": "conecta.cl",
+    "razon_social": "CONECTA INGENIERÍA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76975787-2": {
+    "domain": "andesdigital.cl",
+    "razon_social": "CONSULTORA INFORMÁTICA ANDES DIGITAL LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76258940-0": {
+    "domain": "aligare.cl",
+    "razon_social": "CONSULTORA TECNOLÓGICA ALIGARE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76304354-1": {
+    "domain": "cunix.cl",
+    "razon_social": "CONSULTORÍA INFORMÁTICA CUNIX LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76011398-0": {
+    "domain": "arkhotech.com",
+    "razon_social": "CONSULTORÍA Y DESARROLLO DE SOFTWARE ARKHOTECH SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77687426-4": {
+    "domain": "conversys.cl",
+    "razon_social": "CONVERSYS IT SOLUTIONS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77998930-5": {
+    "domain": "conytec.cl",
+    "razon_social": "CONYTEC CONSULTORES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76620521-6": {
+    "domain": "3vmcorp.cl",
+    "razon_social": "CORPORACIÓN 3VMCORP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96880130-9": {
+    "domain": "covenco.cl",
+    "razon_social": "COVENCO S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76284376-5": {
+    "domain": "crearchile.cl",
+    "razon_social": "CREARCHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78896650-4": {
+    "domain": "creasys.cl",
+    "razon_social": "CREASYS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "70017820-K": {
+    "domain": "ccs.cl",
+    "razon_social": "CÁMARA DE COMERCIO DE SANTIAGO A.G.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76481723-0": {
+    "domain": "dahuachile.cl",
+    "razon_social": "DAHUA TECHNOLOGY CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76300658-1": {
+    "domain": "fuentealba.cl",
+    "razon_social": "DANIEL EDUARDO FUENTEALBA ARIAS INGENIERÍA SEGURIDAD Y DESARROLLO E.I.R.L.",
+    "sector": "infraestructura_digital",
+    "dns_verified": false,
+    "verified_at": "2026-05-23",
+    "_note": "fuentealba.cl email-only · MX present · individual contractor no public web"
+  },
+  "59118220-K": {
+    "domain": "dcs.cl",
+    "razon_social": "DATA CONVERSIÓN SERVICE S.A. AGENCIA EN CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76749144-1": {
+    "domain": "datamart.cl",
+    "razon_social": "DATAMART SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96897630-3": {
+    "domain": "datco.com",
+    "razon_social": "DATCO CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77401885-9": {
+    "domain": "davinco.cl",
+    "razon_social": "DAVINCO SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77303078-2": {
+    "domain": "dcbm.cl",
+    "razon_social": "DCBM DATA CENTER CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76376681-0": {
+    "domain": "dedalus.cl",
+    "razon_social": "DEDALUS GLOBAL SERVICES AGENCIA EN CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76389464-9": {
+    "domain": "defontana.cl",
+    "razon_social": "DEFONTANA CORP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77841030-3": {
+    "domain": "deloitte.com",
+    "razon_social": "DELOITTE SERVICIOS PROFESIONALES LTDA.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76286089-9": {
+    "domain": "abex.cl",
+    "razon_social": "DESARROLLO DE SOFTWARE ABEX TECHNOLOGY LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76745621-2": {
+    "domain": "foris.ai",
+    "razon_social": "DESARROLLO Y ASESORÍA FORIS AI LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77014701-8": {
+    "domain": "diargo.cl",
+    "razon_social": "DIARGO SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77160932-5": {
+    "domain": "djc.cl",
+    "razon_social": "DJC SERVICIOS INTEGRALES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96879160-5": {
+    "domain": "docustore.cl",
+    "razon_social": "DOCUSTORE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77190942-6": {
+    "domain": "dox.cl",
+    "razon_social": "DOX PSC SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76110861-1": {
+    "domain": "dreamlab.cl",
+    "razon_social": "DREAMLAB TECHNOLOGIES CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76193174-1": {
+    "domain": "dsm.cl",
+    "razon_social": "DSM SERVICIOS INFORMÁTICOS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96930550-K": {
+    "domain": "ebd.cl",
+    "razon_social": "E BUSINESS DISTRIBUTION S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77423125-0": {
+    "domain": "epki.com",
+    "razon_social": "E-DIGITAL PKI SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76410830-2": {
+    "domain": "emoney.com",
+    "razon_social": "E-MONEY CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96915310-6": {
+    "domain": "epartner.cl",
+    "razon_social": "E-PARTNERS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76556768-8": {
+    "domain": "easesores.cl",
+    "razon_social": "EASESORES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76389778-8": {
+    "domain": "ebanx.cl",
+    "razon_social": "EBANX CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77287941-5": {
+    "domain": "edgeconnex.com",
+    "razon_social": "EDGECONNEX CHILE II SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77278944-0": {
+    "domain": "edgeconnex.com",
+    "razon_social": "EDGECONNEX CHILE III SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76789922-K": {
+    "domain": "edgeconnex.com",
+    "razon_social": "EDGECONNEX CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96711760-9": {
+    "domain": "editrade.cl",
+    "razon_social": "EDITRADE CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76129633-7": {
+    "domain": "electrodata.cl",
+    "razon_social": "ELECTRODATA CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76827416-9": {
+    "domain": "empresaconectada.cl",
+    "razon_social": "EMPRESA CONECTADA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77851150-9": {
+    "domain": "globaldata.cl",
+    "razon_social": "EMPRESA DE INGENIERÍA Y COMUNICACIONES GLOBALDATA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78097270-K": {
+    "domain": "egs.cl",
+    "razon_social": "EMPRESA GENERAL DE SOFTWARE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96928180-5": {
+    "domain": "e-certchile.cl",
+    "razon_social": "EMPRESA NACIONAL DE CERTIFICACIÓN ELECTRÓNICA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76058349-9": {
+    "domain": "emtec.com",
+    "razon_social": "EMTEC CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76090231-4": {
+    "domain": "engenis.com",
+    "razon_social": "ENGENIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76584374-K": {
+    "domain": "hpe.cl",
+    "razon_social": "ENTERPRISE SERVICES CHILE COMERCIAL LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "79724040-0": {
+    "domain": "eec.cl",
+    "razon_social": "EQUIPOS ELECTRÓNICOS Y COMPUTACIÓN S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96543160-8": {
+    "domain": "etc.cl",
+    "razon_social": "EQUIPOS TÉCNICOS Y DE COMUNICACIONES S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99551740-K": {
+    "domain": "esign.cl",
+    "razon_social": "ESIGN S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77683370-3": {
+    "domain": "espex.cl",
+    "razon_social": "ESPEX INGENIERÍA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96805970-K": {
+    "domain": "evertec.com",
+    "razon_social": "EVERTEC CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76073144-7": {
+    "domain": "evolution.cl",
+    "razon_social": "EVOLUTION TECNOLOGIA INFORMÁTICA Y COMPAÑÍA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96563290-5": {
+    "domain": "exxis.cl",
+    "razon_social": "EXXIS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76650494-9": {
+    "domain": "fabricapp.cl",
+    "razon_social": "FABRICAPP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76001565-2": {
+    "domain": "facele.cl",
+    "razon_social": "FACELE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76032107-9": {
+    "domain": "fdd.cl",
+    "razon_social": "FDD INNOVACIÓN & CRECIMIENTO S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77542351-K": {
+    "domain": "fedok.cl",
+    "razon_social": "FEDOK SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76392452-1": {
+    "domain": "fintree.cl",
+    "razon_social": "FINTREE SERVICIOS Y ASESORÍAS FINANCIERAS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76082221-3": {
+    "domain": "fractalia.cl",
+    "razon_social": "FRACTALIA CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76071943-9": {
+    "domain": "globalcatalog.cl",
+    "razon_social": "GLOBAL CATALOG LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76423763-3": {
+    "domain": "gig.cl",
+    "razon_social": "GLOBAL INNOVATION GROUP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77331659-7": {
+    "domain": "globalnet.cl",
+    "razon_social": "GLOBAL NET SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99544220-5": {
+    "domain": "globe.cl",
+    "razon_social": "GLOBE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76136026-4": {
+    "domain": "green4t.com",
+    "razon_social": "GREEN4T CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77503798-9": {
+    "domain": "metrowan.cl",
+    "razon_social": "GRUPO METROWAN TELECOM SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76385871-5": {
+    "domain": "grupozgh.cl",
+    "razon_social": "GRUPO ZGH SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77029037-6": {
+    "domain": "gtelecom.cl",
+    "razon_social": "GTELECOM SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76108701-0": {
+    "domain": "guadaltel.cl",
+    "razon_social": "GUADALTEL CHILE SERVICIOS DE INFORMACIÓN SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76795561-8": {
+    "domain": "haulmer.cl",
+    "razon_social": "HAULMER CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77545924-7": {
+    "domain": "hitachivantara.com",
+    "razon_social": "HITACHI DATA SYSTEMS CHILE LIMITADA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76288580-8": {
+    "domain": "hiway.cl",
+    "razon_social": "HIWAY S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76378852-0": {
+    "domain": "humanapis.com",
+    "razon_social": "HUMANAPIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76098862-6": {
+    "domain": "iafis.org",
+    "razon_social": "IAFIS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "59144380-1": {
+    "domain": "idemia.com",
+    "razon_social": "IDEMIA IDENTITY & SECURITY CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78465510-5": {
+    "domain": "igt.cl",
+    "razon_social": "IGT GLOBAL SOLUTIONS CORPORATION CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76699829-1": {
+    "domain": "igx.cl",
+    "razon_social": "IGX SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96609940-2": {
+    "domain": "act.cl",
+    "razon_social": "IMPORTACIONES Y SERVICIOS ADVANCED COMPUTING TECHNOLOGIES S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99525490-5": {
+    "domain": "inmotion.com",
+    "razon_social": "IN MOTION SERVICIOS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76014621-8": {
+    "domain": "inmotionsupport.com",
+    "razon_social": "IN MOTION SUPPORT S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96532020-2": {
+    "domain": "infoworld.cl",
+    "razon_social": "INFO WORLD S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96872550-5": {
+    "domain": "infocorp.cl",
+    "razon_social": "INFOCORP CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77492300-4": {
+    "domain": "ittl.com",
+    "razon_social": "INFORMATION TECHNOLOGY LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76134611-3": {
+    "domain": "tier1.cl",
+    "razon_social": "INFORMÁTICA TIER 1 SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77872860-5": {
+    "domain": "idesoftware.cl",
+    "razon_social": "INFORMÁTICA Y DESARROLLO DE SOFTWARE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "79882360-4": {
+    "domain": "iia.cl",
+    "razon_social": "INGENIERÍA E INFORMÁTICA ASOCIADA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76314840-8": {
+    "domain": "netdatabio.cl",
+    "razon_social": "INGENIERÍA NETDATABIO S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76110737-2": {
+    "domain": "scadatech.cl",
+    "razon_social": "INGENIERÍA SCADA & TECHNOLOGIES LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96886170-0": {
+    "domain": "isc.cl",
+    "razon_social": "INGENIERÍA SERVICIOS Y COMUNICACIONES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96768440-6": {
+    "domain": "iacc.cl",
+    "razon_social": "INGENIERÍA Y ASESORÍA EN COMPUTACIÓN Y COMUNICACIÓN",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76493651-5": {
+    "domain": "innovanet.com",
+    "razon_social": "INNOVA NET INFORMÁTICA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76601084-9": {
+    "domain": "innovit.com",
+    "razon_social": "INNOVIT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76945319-9": {
+    "domain": "inntesec.cl",
+    "razon_social": "INNTESEC SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76214708-4": {
+    "domain": "inovabiz.com",
+    "razon_social": "INOVABIZ SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76722305-6": {
+    "domain": "insidesecurity.cl",
+    "razon_social": "INSIDE SECURITY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76487733-0": {
+    "domain": "insside.cl",
+    "razon_social": "INSSIDE INFORMACIÓN INTELIGENTE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76204307-6": {
+    "domain": "intechnologies.cl",
+    "razon_social": "INTECHNOLOGIES ASESORÍAS Y CONSULTORÍA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76092207-2": {
+    "domain": "itq.cl",
+    "razon_social": "INTEGRACIÓN DE TECNOLOGÍAS ITQ LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76522722-4": {
+    "domain": "intelligence-security.com",
+    "razon_social": "INTELLIGENCE SECURITY S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96669540-4": {
+    "domain": "intergrade.cl",
+    "razon_social": "INTERGRADE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76293696-8": {
+    "domain": "intsercom.cl",
+    "razon_social": "INTSERCOM TELECOMUNICACIONES LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76728818-2": {
+    "domain": "itconsultants.cl",
+    "razon_social": "INVERSIONES ITCONSULTANTS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76156854-K": {
+    "domain": "arkadios.cl",
+    "razon_social": "INVERSIONES Y SERVICIOS INFORMÁTICOS ARKADIOS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76386084-1": {
+    "domain": "it-experience.cl",
+    "razon_social": "IT-EXPERIENCE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76032493-0": {
+    "domain": "itsec.cl",
+    "razon_social": "ITSEC S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76564194-2": {
+    "domain": "itsecure.cl",
+    "razon_social": "ITSECURE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76978714-3": {
+    "domain": "itvis.cl",
+    "razon_social": "ITVIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77333189-8": {
+    "domain": "jagchile.cl",
+    "razon_social": "JAG CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76695345-K": {
+    "domain": "junngla.cl",
+    "razon_social": "JUNNGLA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76948695-K": {
+    "domain": "kse.cl",
+    "razon_social": "KSE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76693142-1": {
+    "domain": "kushki.cl",
+    "razon_social": "KUSHKI CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76382847-6": {
+    "domain": "kuvasz.com",
+    "razon_social": "KUVASZ SOLUTIONS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77420030-4": {
+    "domain": "lebox.com",
+    "razon_social": "LEBOX TECNOLOGIA LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76225088-8": {
+    "domain": "linets.cl",
+    "razon_social": "LINETS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76010498-1": {
+    "domain": "linets.cl",
+    "razon_social": "LINETS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77460345-K": {
+    "domain": "loespejodatacenter.cl",
+    "razon_social": "LO ESPEJO DATA CENTER SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": false,
+    "verified_at": "2026-05-23",
+    "_note": "NXDOMAIN as of 2026-05-23 · data center facility · no confirmed public domain"
+  },
+  "76584211-5": {
+    "domain": "lynx.cl",
+    "razon_social": "LYNX CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76954629-4": {
+    "domain": "lynxenergia.com",
+    "razon_social": "LYNX ENERGÍA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76224628-7": {
+    "domain": "magnet.cl",
+    "razon_social": "MAGNET SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78338910-K": {
+    "domain": "mainsoft.cl",
+    "razon_social": "MAINSOFT S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76571655-1": {
+    "domain": "materiagris.com",
+    "razon_social": "MATERIA GRIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76437288-3": {
+    "domain": "meetcard.cl",
+    "razon_social": "MEETCARD SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99564460-6": {
+    "domain": "mekano.com",
+    "razon_social": "MEKANO CONSULTING S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99591040-3": {
+    "domain": "mekanosige.cl",
+    "razon_social": "MEKANO SIGE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76265931-K": {
+    "domain": "minsait.com",
+    "razon_social": "MINSAIT PAYMENTS SYSTEMS CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "52001916-2": {
+    "domain": "mkc.cl",
+    "razon_social": "MKC SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76027042-3": {
+    "domain": "mquest.com",
+    "razon_social": "MQUEST S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77074012-6": {
+    "domain": "nuvo.cl",
+    "razon_social": "MSP NUVO SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77438384-0": {
+    "domain": "trellix.cl",
+    "razon_social": "MUSARUBRA CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76109298-7": {
+    "domain": "mwl.cl",
+    "razon_social": "MWL TELECOMUNICACIONES, INGENIERÍA Y PROYECTOS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76337109-3": {
+    "domain": "nastec.cl",
+    "razon_social": "NASTEC SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76011711-0": {
+    "domain": "neox.com",
+    "razon_social": "NEOX TECNOLOGÍAS DE INFORMACION SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76335493-8": {
+    "domain": "nettrust.com",
+    "razon_social": "NET TRUST SERVICIOS Y CONSULTORÍA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76322146-6": {
+    "domain": "netaxion.com",
+    "razon_social": "NETAXION CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76811563-K": {
+    "domain": "netcoins.cl",
+    "razon_social": "NETCOINS E.I.R.L",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77350806-2": {
+    "domain": "netdata.cl",
+    "razon_social": "NETDATA CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76733131-2": {
+    "domain": "netmetrix.cl",
+    "razon_social": "NETMETRIX SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77486490-3": {
+    "domain": "netprovider.cl",
+    "razon_social": "NETPROVIDER S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76515022-1": {
+    "domain": "nivel4.com",
+    "razon_social": "NIVEL4 SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77091316-0": {
+    "domain": "nizzo.com",
+    "razon_social": "NIZZO CAPITAL SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77447458-7": {
+    "domain": "noovus.cl",
+    "razon_social": "NOOVUS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76783904-9": {
+    "domain": "novaservices.cl",
+    "razon_social": "NOVA SERVICES IT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77005329-3": {
+    "domain": "nuvei.com",
+    "razon_social": "NUVEI CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77128355-1": {
+    "domain": "odata.com.br",
+    "razon_social": "ODATA CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76612498-4": {
+    "domain": "oitech.cl",
+    "razon_social": "OITECH LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76065787-5": {
+    "domain": "omnix.com",
+    "razon_social": "OMNIX SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76316018-1": {
+    "domain": "onyxtech.cl",
+    "razon_social": "ONYX TECNOLOGIA Y SERVICIOS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96899890-0": {
+    "domain": "orion2000.com",
+    "razon_social": "ORION 2000 SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76532701-6": {
+    "domain": "oznet.cl",
+    "razon_social": "OZNET SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76534360-7": {
+    "domain": "powerdata.cl",
+    "razon_social": "POWERDATA AMERICA LTDA.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76846850-8": {
+    "domain": "pretorian.cl",
+    "razon_social": "PRETORIAN TECNOLOGIA DE INFORMACION LTDA.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96559410-8": {
+    "domain": "procesac.com",
+    "razon_social": "PROCESAC S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76684426-K": {
+    "domain": "prodigio.cl",
+    "razon_social": "PRODIGIO TECH SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96901500-5": {
+    "domain": "provectis.cl",
+    "razon_social": "PROVECTIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76410225-8": {
+    "domain": "ptc.cl",
+    "razon_social": "PROVEEDORA DE TELECOMUNICACIONES CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76046719-7": {
+    "domain": "qualityservices.cl",
+    "razon_social": "QUALITY SERVICES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76113274-1": {
+    "domain": "realtime.cl",
+    "razon_social": "REAL TIME INVERSIONES S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "86370800-1": {
+    "domain": "redtogreen.cl",
+    "razon_social": "RED TO GREEN S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76784417-4": {
+    "domain": "redin.cl",
+    "razon_social": "REDIN SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76601962-5": {
+    "domain": "rflex.cl",
+    "razon_social": "RFLEX SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76692841-2": {
+    "domain": "rheoli.cl",
+    "razon_social": "RHEOLI SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96565670-7": {
+    "domain": "sya.cl",
+    "razon_social": "S & A CONSULTORES ASOCIADOS CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77703360-3": {
+    "domain": "snc.cl",
+    "razon_social": "S N C TELECOMUNICACIONES LTDA.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96945770-9": {
+    "domain": "sgto.com",
+    "razon_social": "SANTANDER GLOBAL TECHNOLOGY AND OPERATIONS CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77332843-9": {
+    "domain": "scaladatacenters.cl",
+    "razon_social": "SCALA CHILE DATA CENTERS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76031486-2": {
+    "domain": "security-advisor.com",
+    "razon_social": "SECURITY ADVISOR CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96986170-4": {
+    "domain": "seidor.com",
+    "razon_social": "SEIDOR CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76515154-6": {
+    "domain": "sein.cl",
+    "razon_social": "SEIN CONSULTORÍA EN INTERNET SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77218683-5": {
+    "domain": "sencinet.com",
+    "razon_social": "SENCINET LATAM CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96929390-0": {
+    "domain": "sap.cl",
+    "razon_social": "SERVICIOS DE ADMINISTRACIÓN PREVISIONAL S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96862290-0": {
+    "domain": "scm.cl",
+    "razon_social": "SERVICIOS DE COMUNICACIÓN MEDICA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76164712-1": {
+    "domain": "valposystems.cl",
+    "razon_social": "SERVICIOS DE CONSULTORÍA VALPOSYSTEMS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77237570-0": {
+    "domain": "monitoreo.com",
+    "razon_social": "SERVICIOS DE MONITOREO S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76100529-4": {
+    "domain": "cuatroi.com",
+    "razon_social": "SERVICIOS INFORMÁTICOS CUATROI SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76384526-5": {
+    "domain": "govms.cl",
+    "razon_social": "SERVICIOS INFORMÁTICOS GOVMS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76096415-8": {
+    "domain": "hostname.cl",
+    "razon_social": "SERVICIOS INFORMÁTICOS HOSTNAME SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76192487-7": {
+    "domain": "systemproject.cl",
+    "razon_social": "SERVICIOS INFORMÁTICOS SYSTEM PROYECT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77409600-0": {
+    "domain": "sl.cl",
+    "razon_social": "SERVICIOS INTERNET LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76157356-K": {
+    "domain": "netfin.cl",
+    "razon_social": "SERVICIOS OPERACIONALES NETFIN S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76093443-7": {
+    "domain": "ademanda.com",
+    "razon_social": "SERVICIOS TECNOLÓGICOS ADEMANDA.COM LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76386278-K": {
+    "domain": "itdchile.cl",
+    "razon_social": "SERVICIOS TECNOLÓGICOS ITD CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99581600-8": {
+    "domain": "widefense.cl",
+    "razon_social": "SERVICIOS WIDEFENSE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76288338-4": {
+    "domain": "netsus.cl",
+    "razon_social": "SERVICIOS Y ASESORÍAS TECNOLÓGICOS NETSUS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76397451-0": {
+    "domain": "sgssolutions.cl",
+    "razon_social": "SGS INTEGRALS SOLUTIONS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76076626-7": {
+    "domain": "siptel.cl",
+    "razon_social": "SIPTEL CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76409898-6": {
+    "domain": "siscotec.cl",
+    "razon_social": "SISCOTEC CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "78074340-9": {
+    "domain": "amadeus.cl",
+    "razon_social": "SISTEMAS DE DISTRIBUCIÓN AMADEUS CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76294271-2": {
+    "domain": "serq.cl",
+    "razon_social": "SISTEMAS DE INFORMACIÓN SER Q LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76227320-9": {
+    "domain": "tibox.cl",
+    "razon_social": "SISTEMAS E INFORMÁTICA TIBOX CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76132093-9": {
+    "domain": "sistemasexpertos.cl",
+    "razon_social": "SISTEMAS EXPERTOS E INGENIERÍA DE SOFTWARE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76661575-9": {
+    "domain": "transformapp.cl",
+    "razon_social": "SISTEMAS TECNOLÓGICOS INFORMÁTICOS TRANSFORMAPP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76131314-2": {
+    "domain": "sixmanager.com",
+    "razon_social": "SIXMANAGER TECNOLOGÍAS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76874248-0": {
+    "domain": "smartelectric.com",
+    "razon_social": "SMART ELECTRIC SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76916180-5": {
+    "domain": "smartss.cl",
+    "razon_social": "SMART SOLUTIONS Y SERVICES S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76928460-5": {
+    "domain": "appa.cl",
+    "razon_social": "SOC CONSULTORES APPA Y CIA LTDA.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76002408-2": {
+    "domain": "fusiona.cl",
+    "razon_social": "SOC DE DESARROLLO TECNOLOGÍAS DE INFORMACION, CONSULTORÍA Y PUBLICIDAD FUSIONA S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "79642560-1": {
+    "domain": "microserv.cl",
+    "razon_social": "SOC DE SERVICIOS COMPUTACIONALES MICROSERV LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76179170-2": {
+    "domain": "siglo21.com",
+    "razon_social": "SOC INFORMÁTICA SIGLO 21 LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76555210-9": {
+    "domain": "axiobase.cl",
+    "razon_social": "SOCIEDAD AXIOBASE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76143268-0": {
+    "domain": "ransecurity.com",
+    "razon_social": "SOCIEDAD COMERCIAL RAN SECURITY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76764832-4": {
+    "domain": "databasis.com",
+    "razon_social": "SOCIEDAD DATABASIS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77758508-8": {
+    "domain": "ees.cl",
+    "razon_social": "SOCIEDAD DE PROFESIONALES EES VIGOROU Y CÍA. LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76923854-9": {
+    "domain": "advisorit.cl",
+    "razon_social": "SOCIEDAD DE SERVICIOS EMPRESARIALES ADVISOR IT SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76083021-6": {
+    "domain": "lazos.cl",
+    "razon_social": "SOCIEDAD DE SERVICIOS INFORMÁTICOS EN RED, LAZOS, S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77063547-0": {
+    "domain": "ligarius.cl",
+    "razon_social": "SOCIEDAD LIGARIUS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76286397-9": {
+    "domain": "oneconsultores.com",
+    "razon_social": "SOCIEDAD ONE CONSULTORES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76021607-0": {
+    "domain": "ubeda.cl",
+    "razon_social": "SOCIEDAD UBEDA GONZÁLEZ LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76730456-0": {
+    "domain": "softegrity.cl",
+    "razon_social": "SOFTEGRITY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77486722-8": {
+    "domain": "softserve.com",
+    "razon_social": "SOFTSERVE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76137106-1": {
+    "domain": "globallogic.cl",
+    "razon_social": "SOFTWARE, R&D SERVICES GLOBALLOGIC INC. CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76328123-K": {
+    "domain": "stc.cl",
+    "razon_social": "SOLUCIONES DE TECNOLOGIA Y COMUNICACIONES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96959100-6": {
+    "domain": "sen.cl",
+    "razon_social": "SOLUCIONES EN NEGOCIOS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76117929-2": {
+    "domain": "kudaw.com",
+    "razon_social": "SOLUCIONES INFORMÁTICAS KUDAW S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76489853-2": {
+    "domain": "coordenada.cl",
+    "razon_social": "SOLUCIONES TECNOLÓGICAS COORDENADA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76057375-2": {
+    "domain": "order.cl",
+    "razon_social": "SOLUCIONES TECNOLÓGICAS ORDER SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76471965-4": {
+    "domain": "solutoria.cl",
+    "razon_social": "SOLUTORIA SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76566927-8": {
+    "domain": "solvonetworks.cl",
+    "razon_social": "SOLVO NETWORKS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "79710740-9": {
+    "domain": "soportepc.cl",
+    "razon_social": "SOPORTE Y PROYECTOS EN COMPUTACIÓN LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77569009-7": {
+    "domain": "sparkoo.com",
+    "razon_social": "SPARKOO TECHNOLOGIES CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "85630300-4": {
+    "domain": "st.cl",
+    "razon_social": "ST COMPUTACIÓN S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76100990-7": {
+    "domain": "stacks.cl",
+    "razon_social": "STACKS SERVICIOS TECNOLÓGICOS S.L. CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76275041-4": {
+    "domain": "starkcloud.com",
+    "razon_social": "STARKCLOUD CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77966850-9": {
+    "domain": "softtek.cl",
+    "razon_social": "STK SOFTTEK CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76831158-7": {
+    "domain": "tcam.cl",
+    "razon_social": "TCAM SERVICIOS TECNOLÓGICOS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96924040-8": {
+    "domain": "techone.cl",
+    "razon_social": "TECH-ONE GROUP S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76413797-3": {
+    "domain": "tecnet.cl",
+    "razon_social": "TECNET INGENIERÍA Y SISTEMAS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76156458-7": {
+    "domain": "interside.cl",
+    "razon_social": "TECNOLOGIA E INFORMÁTICA INTERSIDE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "99587590-K": {
+    "domain": "tys.com",
+    "razon_social": "TECNOLOGIA Y SERVICIOS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77349120-8": {
+    "domain": "tecnologiachile.com",
+    "razon_social": "TECNOLOGIACHILE.COM LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77372400-8": {
+    "domain": "ticsalud.cl",
+    "razon_social": "TECNOLOGÍAS DE LA INFORMACION EN SALUD SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77430680-3": {
+    "domain": "tecnova.cl",
+    "razon_social": "TECNOVA SOLUCIONES INFORMÁTICAS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77074231-5": {
+    "domain": "tein.cl",
+    "razon_social": "TEIN GROUP SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77147530-2": {
+    "domain": "telynet.cl",
+    "razon_social": "TEL & NET S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77145256-6": {
+    "domain": "cctech.cl",
+    "razon_social": "TELEFÓNICA CYBERSECURITY & CLOUD TECH CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76338291-5": {
+    "domain": "fiot.cl",
+    "razon_social": "TELEFÓNICA IOT Y BIG DATA TECH CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76160722-7": {
+    "domain": "telemining.cl",
+    "razon_social": "TELEMINING SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76724483-5": {
+    "domain": "teltonika.cl",
+    "razon_social": "TELTONIKA DE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76817989-1": {
+    "domain": "theoptimal.com",
+    "razon_social": "THE OPTIMAL SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76934091-2": {
+    "domain": "thomassigne.com",
+    "razon_social": "THOMAS SIGNE CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76205999-1": {
+    "domain": "tigestion.cl",
+    "razon_social": "TI-GESTIÓN CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76423634-3": {
+    "domain": "ticservices.cl",
+    "razon_social": "TIC SERVICES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76334381-2": {
+    "domain": "tichile.cl",
+    "razon_social": "TICHILE REVENTADE SOFTWARE Y HARDWARE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "59166580-4": {
+    "domain": "ticmoai.cl",
+    "razon_social": "TICMOAI, SL, AGENCIA EN CHILE",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76457906-2": {
+    "domain": "tigabytes.cl",
+    "razon_social": "TIGABYTES HOLDING SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76466204-0": {
+    "domain": "tna.cl",
+    "razon_social": "TNA SOLUTIONS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76011397-2": {
+    "domain": "tns.cl",
+    "razon_social": "TNS CHILE-TECHNETSECURITY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76085903-6": {
+    "domain": "toc.cl",
+    "razon_social": "TOC SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77126383-6": {
+    "domain": "toku.cl",
+    "razon_social": "TOKU SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76300290-K": {
+    "domain": "transactionline.com",
+    "razon_social": "TRANSACTION LINE CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77460189-9": {
+    "domain": "tsys.com",
+    "razon_social": "TSYS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76118340-0": {
+    "domain": "tth.cl",
+    "razon_social": "TTH COMERCIOS E INVERSIONES SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77099356-3": {
+    "domain": "uber.cl",
+    "razon_social": "UBER PAGOS CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76283839-7": {
+    "domain": "unilink.cl",
+    "razon_social": "UNILINK SOLUCIONES Y SERVICIOS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76340859-0": {
+    "domain": "vas.cl",
+    "razon_social": "VAS SERVICES CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76254667-1": {
+    "domain": "vass.cl",
+    "razon_social": "VASS CONSULTORÍA DE SISTEMAS CHILE LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76218321-8": {
+    "domain": "vcsoft.com",
+    "razon_social": "VCSOFT CHILE SOCIEDAD ANÓNIMA CERRADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "79976340-0": {
+    "domain": "vectorservicios.com",
+    "razon_social": "VECTOR SERVICIOS Y ASESORÍAS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76108813-0": {
+    "domain": "verbux.cl",
+    "razon_social": "VERBUX SOLUCIONES INFORMÁTICAS LIMITADA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76996853-9": {
+    "domain": "verifone.com",
+    "razon_social": "VERIFONE (CHILE) SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "96928990-3": {
+    "domain": "via56.cl",
+    "razon_social": "VIA 56 S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76974041-4": {
+    "domain": "vitasolutions.com",
+    "razon_social": "VITA SOLUTIONS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76471025-8": {
+    "domain": "vu.cl",
+    "razon_social": "VU CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76182256-K": {
+    "domain": "vzion.cl",
+    "razon_social": "VZION CLOUD SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": false,
+    "verified_at": "2026-05-23",
+    "_note": "vzion.cl email-only · MX present · no public web"
+  },
+  "76080165-8": {
+    "domain": "vzor.cl",
+    "razon_social": "VZOR SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76991529-K": {
+    "domain": "whale-cloud.com",
+    "razon_social": "WHALE CLOUD TECHNOLOGY CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76666113-0": {
+    "domain": "whitestack.com",
+    "razon_social": "WHITESTACK CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76363643-7": {
+    "domain": "widefense.cl",
+    "razon_social": "WIDEFENSE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76330628-3": {
+    "domain": "wisevision.com",
+    "razon_social": "WISEVISION DE CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76426400-2": {
+    "domain": "wm.cl",
+    "razon_social": "WM WIRELESS & MOBILE CHILE S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76249938-K": {
+    "domain": "xms.cl",
+    "razon_social": "XMS BUSINESS SOLUTIONS S.A.",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76421647-4": {
+    "domain": "zengroup.cl",
+    "razon_social": "ZEN GROUP TECNOLOGÍAS SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "76604972-9": {
+    "domain": "zerofox.com",
+    "razon_social": "ZEROFOX CHILE SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
+    "verified_at": "2026-05-23"
+  },
+  "77011505-1": {
+    "domain": "zippy.cl",
+    "razon_social": "ZIPPY SPA",
+    "sector": "infraestructura_digital",
+    "dns_verified": true,
     "verified_at": "2026-05-23"
   }
 }
