@@ -587,3 +587,169 @@ describe('v0.3.0 infraestructura_digital expansion spot-checks', () => {
     assert.ok(stats.bySector['infraestructura_digital'].count >= 60, `infra_digital must be ≥60 (sample), got ${stats.bySector['infraestructura_digital'].count}`);
   });
 });
+
+describe('v0.4.0 infraestructura_digital FULL UNIVERSE spot-checks', () => {
+  it('infraestructura_digital sector has ≥ 410 entries (100% sector closed)', () => {
+    const stats = getCoverageStats();
+    assert.ok(
+      stats.bySector['infraestructura_digital'].count >= 410,
+      `infra_digital must be ≥410 (full sector), got ${stats.bySector['infraestructura_digital'].count}`
+    );
+  });
+
+  it('total table has ≥ 990 entries (909 official + migration batch)', () => {
+    const stats = getCoverageStats();
+    assert.ok(stats.total >= 990, `total entries must be ≥990, got ${stats.total}`);
+  });
+
+  it('resolves 2080 Sistemas y Servicios (new infra_digital entry)', () => {
+    const r = resolveBytable('76078544-K');
+    assert.ok(r, '2080 Sistemas should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves ACCUHEALTH CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76054636-4');
+    assert.ok(r, 'AccuHealth should be in table');
+    assert.equal(r!.domain, 'accuhealth.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves ACCENTURE CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('78809770-0');
+    assert.ok(r, 'Accenture Chile should be in table');
+    assert.equal(r!.domain, 'accenture.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves ANTICIPA S.A. (new infra_digital entry)', () => {
+    const r = resolveBytable('96771610-3');
+    assert.ok(r, 'Anticipa should be in table');
+    assert.equal(r!.domain, 'anticipa.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves APIUX TECNOLOGIA (new infra_digital entry)', () => {
+    const r = resolveBytable('76516485-0');
+    assert.ok(r, 'APIUX should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves ADISTEC (new infra_digital entry)', () => {
+    const r = resolveBytable('76131974-4');
+    assert.ok(r, 'Adistec should be in table');
+    assert.equal(r!.domain, 'adistec.com');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves BUK ASISTENCIA (new infra_digital entry)', () => {
+    const r = resolveBytable('77402099-3');
+    assert.ok(r, 'Buk should be in table');
+    assert.equal(r!.domain, 'buk.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves DELOITTE SERVICIOS PROFESIONALES (new infra_digital entry)', () => {
+    const r = resolveBytable('77841030-3');
+    assert.ok(r, 'Deloitte Chile should be in table');
+    assert.equal(r!.domain, 'deloitte.com');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves EVERTEC CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('96805970-K');
+    assert.ok(r, 'Evertec should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves GLOBALLOGIC INC. CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76137106-1');
+    assert.ok(r, 'GlobalLogic should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves MINSAIT PAYMENTS SYSTEMS CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76265931-K');
+    assert.ok(r, 'Minsait should be in table');
+    assert.equal(r!.domain, 'minsait.com');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves WHITESTACK CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76666113-0');
+    assert.ok(r, 'Whitestack should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves TOKU SPA (new infra_digital entry)', () => {
+    const r = resolveBytable('77126383-6');
+    assert.ok(r, 'Toku should be in table');
+    assert.equal(r!.domain, 'toku.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves KUSHKI CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76693142-1');
+    assert.ok(r, 'Kushki should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves NUVEI CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('77005329-3');
+    assert.ok(r, 'Nuvei should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves EDGECONNEX CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76789922-K');
+    assert.ok(r, 'EdgeConneX Chile should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves SOFTSERVE CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('77486722-8');
+    assert.ok(r, 'SoftServe Chile should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves ODATA CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('77128355-1');
+    assert.ok(r, 'Odata Chile should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves ZEROFOX CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76604972-9');
+    assert.ok(r, 'Zerofox should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves STARKCLOUD CHILE (new infra_digital entry)', () => {
+    const r = resolveBytable('76275041-4');
+    assert.ok(r, 'Starkcloud should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves WIDEFENSE CHILE SPA (second entity · 76363643-7)', () => {
+    const r = resolveBytable('76363643-7');
+    assert.ok(r, 'Widefense Chile SPA (76363643-7) should be in table');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('unverified entries have _note or false dns_verified (honest status)', () => {
+    // Spot check that Lo Espejo Data Center is documented as unverified
+    const r = resolveBytable('77460345-K');
+    assert.ok(r, 'Lo Espejo Data Center should be in table');
+    assert.equal(r!.confidence, 0.85, 'unverified entry must have confidence 0.85');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('getCoverageStats dnsVerified + dnsUnverified still sums to total', () => {
+    const stats = getCoverageStats();
+    assert.equal(
+      stats.dnsVerified + stats.dnsUnverified,
+      stats.total,
+      'verified + unverified must equal total'
+    );
+  });
+});

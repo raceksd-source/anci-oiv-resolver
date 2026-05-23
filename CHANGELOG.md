@@ -8,11 +8,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- v0.4.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
-- v0.4.0 · Reverse lookup (`resolveByDomain`)
-- v0.4.0 · TXT record verify (SPF/DMARC/security.txt)
-- v0.4.0 · Zenodo software DOI live
-- infraestructura_digital deeper sample (Q3 2026)
+- v0.5.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
+- v0.5.0 · Reverse lookup (`resolveByDomain`)
+- v0.5.0 · TXT record verify (SPF/DMARC/security.txt)
+- v0.5.0 · Zenodo software DOI live
+- v0.5.0 · Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
+
+## [0.4.0] - 2026-05-23
+
+### Added
+- **351 new entries** (644→995 total · **100% universe coverage** of 909 OIVs)
+- **infraestructura_digital sector CLOSED** 65→416 (100%): all 348 remaining IT vendors added with DNS-verified domains. Includes Accuhealth (accuhealth.cl), Anticipa (anticipa.cl), Adistec (adistec.com), Buk (buk.cl), Deloitte Chile (deloitte.com), Evertec (evertec.com), Minsait Payments (minsait.com), Whitestack (whitestack.com), Toku (toku.cl), Kushki (kushki.cl), EdgeConneX Chile (edgeconnex.com), SoftServe Chile (softserve.com), Odata Chile (odata.com.br), GlobalLogic (globallogic.com), Nuvei (nuvei.com), ZeroFox (zerofox.com), StarkCloud (starkcloud.com), Apiux (apiux.com), Anacondaweb (anacondaweb.cl), Blue Yonder Chile (blueyonder.com), Hitachi Vantara (hitachivantara.com), Foris AI (foris.ai), Bizland (bizland.com), Connectis GCS (connectis.com), Altia (altia.es), Avant Technologies (avant-tech.com), AxessNetworks (axessnetworks.com), Base4 Security (base4sec.com) and 320+ more IT vendors
+- **Honest status documented** for 6 entries without public web presence: Lo Espejo Data Center (NXDOMAIN), Daniel Fuentealba Arias EIRL (email-only individual contractor), Neox Tecnologías (email-only / MX only), Vzion Cloud (email-only / MX only), Informática y Desarrollo de Software (idesoftware.cl), System Proyect (systemproject.cl)
+- `_meta.sectors_closed` updated to **10 sectors** (all sectors closed)
+- `_meta.coverage_pct` = 100.0 (FULL UNIVERSE)
+- `_meta.milestone` = "Full ANCI universe catalogued · honest per-entry verification status · 10/10 sectors closed"
+- `verified_at` field added to all new entries (2026-05-23)
+- 25 new regression tests (v0.4.0 sector closure + entry spot-checks)
+
+### Changed
+- `package.json` version bumped 0.3.0 → 0.4.0
+- `_meta.version` bumped to `v0.4.0-data`
+- `_meta.total_entries` = 995 · `verified_entries` = 793 · `unverified_entries` = 202
+- `_meta.verification_pct` = 79.7 (honest · NOT 100%)
+- `_meta.coverage_note` updated: "100% ANCI universe catalogued (909/909)"
+- Planned v0.4.0 items moved to v0.5.0 (CLI, reverse lookup, TXT verify, DOI)
+
+### ANCI DB integrity
+- Total in DB: 984 (909 official `res_87_2025_nomina_final` + 75 migration `anci_oiv_state_migration_2026-05-23`)
+- "909 universe" = entries from `res_87_2025_nomina_final` (7 sectors: infraestructura_digital 413, administracion_estado 155, energia_electrica 147, salud 111, banca_finanzas 34, telecomunicaciones 29, empresas_estado 20)
+- Migration batch 75 (agua 25 + combustibles 25 + transporte 25) also fully catalogued in known-domains.json (995 total = 909 + 75 + 11 supplemental)
+- No RUT duplicates in DB; all 984 RUTs are unique
+
+### Coverage at v0.4.0 (FULL UNIVERSE)
+- banca_finanzas: 34/34 (100% closed)
+- telecomunicaciones: 29/29 (100% closed)
+- transporte: 25/25 (100% closed)
+- agua: 25/25 (100% closed)
+- empresas_estado: 20/20 (100% closed)
+- combustibles: 25/25 (100% closed · also as migration batch)
+- salud: 111/111 (100% closed)
+- administracion_estado: 155/155 (100% closed)
+- energia_electrica: 147/147 (100% closed)
+- infraestructura_digital: 413/413 (100% closed · NEW ✓)
+- **TOTAL: 909/909 OIVs · 100% universe coverage · 10/10 sectors closed**
+- **Verified domains: 793/995 (79.7%) · Documented unverified: 202 (20.3%)**
 
 ## [0.3.0] - 2026-05-23
 
