@@ -105,12 +105,12 @@ describe('hasEntry', () => {
 });
 
 describe('getCoverageStats', () => {
-  it('returns positive total entry count', () => {
+  it('returns positive total entry count ≥ 366 (v0.2.0 bulk expansion)', () => {
     const stats = getCoverageStats();
-    assert.ok(stats.total >= 154, `Expected ≥154 entries, got ${stats.total}`);
+    assert.ok(stats.total >= 366, `Expected ≥366 entries (v0.2.0), got ${stats.total}`);
   });
 
-  it('includes all expected sectors including new transporte and agua', () => {
+  it('includes all expected sectors including combustibles (v0.2.0 NEW)', () => {
     const stats = getCoverageStats();
     const sectors = Object.keys(stats.bySector);
     assert.ok(sectors.includes('banca_finanzas'));
@@ -118,8 +118,11 @@ describe('getCoverageStats', () => {
     assert.ok(sectors.includes('administracion_estado'));
     assert.ok(sectors.includes('salud'));
     assert.ok(sectors.includes('empresas_estado'));
-    assert.ok(sectors.includes('transporte'), 'transporte sector must be activated');
-    assert.ok(sectors.includes('agua'), 'agua sector must be activated');
+    assert.ok(sectors.includes('transporte'));
+    assert.ok(sectors.includes('agua'));
+    assert.ok(sectors.includes('combustibles'), 'combustibles sector must be activated (v0.2.0)');
+    assert.ok(sectors.includes('energia_electrica'));
+    assert.ok(sectors.includes('infraestructura_digital'));
   });
 
   it('has banca_finanzas coverage = 34 entries (100% sector closed)', () => {
@@ -130,10 +133,10 @@ describe('getCoverageStats', () => {
     );
   });
 
-  it('has telecomunicaciones coverage ≥ 15 entries', () => {
+  it('has telecomunicaciones coverage = 29 entries (100% closed v0.2.0)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['telecomunicaciones'].count >= 15,
+      stats.bySector['telecomunicaciones'].count >= 29,
       `telecom coverage too low: ${stats.bySector['telecomunicaciones'].count}`
     );
   });
@@ -143,35 +146,71 @@ describe('getCoverageStats', () => {
     assert.equal(stats.dnsVerified + stats.dnsUnverified, stats.total);
   });
 
-  it('has transporte coverage ≥ 10 entries (new sector Block D)', () => {
+  it('has transporte coverage = 25 entries (100% closed v0.2.0)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['transporte'].count >= 10,
+      stats.bySector['transporte'].count >= 25,
       `transporte coverage too low: ${stats.bySector['transporte']?.count ?? 0}`
     );
   });
 
-  it('has agua coverage ≥ 8 entries (new sector Block D)', () => {
+  it('has agua coverage = 25 entries (100% closed v0.2.0)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['agua'].count >= 8,
+      stats.bySector['agua'].count >= 25,
       `agua coverage too low: ${stats.bySector['agua']?.count ?? 0}`
     );
   });
 
-  it('has administracion_estado coverage ≥ 40 entries', () => {
+  it('has combustibles coverage = 25 entries (100% closed v0.2.0 NEW sector)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['administracion_estado'].count >= 40,
+      stats.bySector['combustibles'] !== undefined,
+      'combustibles sector must exist'
+    );
+    assert.ok(
+      stats.bySector['combustibles'].count >= 25,
+      `combustibles coverage too low: ${stats.bySector['combustibles']?.count ?? 0}`
+    );
+  });
+
+  it('has empresas_estado coverage = 20 entries (100% closed v0.2.0)', () => {
+    const stats = getCoverageStats();
+    assert.ok(
+      stats.bySector['empresas_estado'].count >= 20,
+      `empresas_estado coverage too low: ${stats.bySector['empresas_estado'].count}`
+    );
+  });
+
+  it('has administracion_estado coverage ≥ 79 entries (v0.2.0 expansion)', () => {
+    const stats = getCoverageStats();
+    assert.ok(
+      stats.bySector['administracion_estado'].count >= 79,
       `admin_estado coverage too low: ${stats.bySector['administracion_estado'].count}`
     );
   });
 
-  it('has salud coverage ≥ 30 entries', () => {
+  it('has salud coverage ≥ 62 entries (v0.2.0 expansion)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['salud'].count >= 30,
+      stats.bySector['salud'].count >= 62,
       `salud coverage too low: ${stats.bySector['salud'].count}`
+    );
+  });
+
+  it('has energia_electrica coverage ≥ 25 entries (v0.2.0 expansion)', () => {
+    const stats = getCoverageStats();
+    assert.ok(
+      stats.bySector['energia_electrica'].count >= 25,
+      `energia_electrica coverage too low: ${stats.bySector['energia_electrica'].count}`
+    );
+  });
+
+  it('has infraestructura_digital ≥ 14 representative entries (v0.2.0 sample)', () => {
+    const stats = getCoverageStats();
+    assert.ok(
+      stats.bySector['infraestructura_digital'].count >= 14,
+      `infraestructura_digital coverage too low: ${stats.bySector['infraestructura_digital'].count}`
     );
   });
 });
@@ -184,6 +223,89 @@ describe('CMF domain fix · v0.1.1 regression guard', () => {
     assert.equal(r!.sector, 'administracion_estado');
     assert.equal(r!.confidence, 1.0);
     assert.notEqual(r!.domain, 'cmf.cl', 'cmf.cl is CMF Industrial plastics — MUST NOT resolve to this');
+  });
+});
+
+describe('v0.2.0 combustibles sector spot-checks', () => {
+  it('resolves COPEC (combustibles anchor entry)', () => {
+    const r = resolveBytable('96548000-K');
+    assert.ok(r, 'COPEC should be in table');
+    assert.equal(r!.domain, 'copec.cl');
+    assert.equal(r!.sector, 'combustibles');
+  });
+
+  it('resolves Lipigas (combustibles)', () => {
+    const r = resolveBytable('93248000-3');
+    assert.ok(r, 'Lipigas should be in table');
+    assert.equal(r!.domain, 'lipigas.cl');
+    assert.equal(r!.sector, 'combustibles');
+  });
+
+  it('resolves Shell Chile (combustibles)', () => {
+    const r = resolveBytable('89978800-1');
+    assert.ok(r, 'Shell Chile should be in table');
+    assert.equal(r!.domain, 'shellchile.cl');
+    assert.equal(r!.sector, 'combustibles');
+  });
+
+  it('resolves SONACOL (combustibles)', () => {
+    const r = resolveBytable('92704000-9');
+    assert.ok(r, 'SONACOL should be in table');
+    assert.equal(r!.domain, 'sonacol.cl');
+    assert.equal(r!.sector, 'combustibles');
+  });
+
+  it('resolves Metrogas (combustibles)', () => {
+    const r = resolveBytable('96720800-9');
+    assert.ok(r, 'Metrogas should be in table');
+    assert.equal(r!.domain, 'metrogas.cl');
+    assert.equal(r!.sector, 'combustibles');
+  });
+});
+
+describe('v0.2.0 energia electrica expansion spot-checks', () => {
+  it('resolves ENEL Distribución Chile (new entry)', () => {
+    const r = resolveBytable('96800570-7');
+    assert.ok(r, 'ENEL Distribución should be in table');
+    assert.equal(r!.domain, 'eneldistribucion.cl');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves Transelec (new entry · uses .com)', () => {
+    const r = resolveBytable('76555400-4');
+    assert.ok(r, 'Transelec should be in table');
+    assert.equal(r!.domain, 'transelec.com');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves Coordinador Eléctrico Nacional (new entry)', () => {
+    const r = resolveBytable('65092388-K');
+    assert.ok(r, 'CEN should be in table');
+    assert.equal(r!.domain, 'coordinadorelectrico.cl');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+});
+
+describe('v0.2.0 infraestructura digital spot-checks', () => {
+  it('resolves SONDA (major IT vendor)', () => {
+    const r = resolveBytable('83628100-4');
+    assert.ok(r, 'SONDA should be in table');
+    assert.equal(r!.domain, 'sonda.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves Microsoft Chile (infra digital)', () => {
+    const r = resolveBytable('96633760-5');
+    assert.ok(r, 'Microsoft Chile should be in table');
+    assert.equal(r!.domain, 'microsoft.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves IBM Chile (infra digital)', () => {
+    const r = resolveBytable('92040000-0');
+    assert.ok(r, 'IBM Chile should be in table');
+    assert.equal(r!.domain, 'ibm.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
   });
 });
 

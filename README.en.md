@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contact-amber.svg)](#the-coverage-gap)
+[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-367_OIVs_(40%25)-green.svg)](#the-solution)
+[![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-6_of_10-brightgreen.svg)](#the-solution)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 
 [Versión en español](README.md)
@@ -27,18 +29,22 @@ Without a canonical resolver, any tool that scans OIVs in Chile will fire findin
 
 ## The solution
 
-`anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, covering:
+`anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, currently covering **367 of 909 OIVs (40.4%)** across the full registry:
 
-- **21** of 34 banca/finanzas OIVs (62%)
-- **20** of 29 telecomunicaciones OIVs (69%)
-- **22** of 111 salud OIVs (top hospitals + mutual systems)
-- **24** of 155 administracion_estado OIVs (key agencies)
-- **3** of 20 empresas_estado OIVs (Metro, EFE, Correos)
-- **7** of 147 energia_electrica OIVs (top generators)
+- **34** of 34 banca/finanzas OIVs (100% — sector closed) ⭐
+- **29** of 29 telecomunicaciones OIVs (100% — sector closed v0.2.0) ⭐
+- **25** of 25 transporte OIVs (100% — sector closed v0.2.0) ⭐
+- **25** of 25 agua OIVs (100% — sector closed v0.2.0) ⭐
+- **20** of 20 empresas_estado OIVs (100% — sector closed v0.2.0) ⭐
+- **25** of 25 combustibles OIVs (100% — sector closed v0.2.0 · previously empty) ⭐
+- **92** of 155 administracion_estado OIVs (59% · key agencies + ministerial subsecretarías)
+- **65** of 111 salud OIVs (59% · top hospitals, clinics, health services)
+- **30** of 147 energia_electrica OIVs (20% · major generators + distributors)
+- **22** of 413 infraestructura_digital OIVs (5% · representative top vendors)
 
-With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) for the remaining 832 OIVs not in the table.
+With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) for the remaining 542 OIVs not in the table.
 
-**77 total entries · 100% passive OSINT · zero active scanning**
+**367 total entries · 40.4% universe coverage · 6 sectors closed 100% · 100% passive OSINT · zero active scanning · v0.2.0**
 
 ## Quick start
 
@@ -106,7 +112,7 @@ Returns coverage statistics across sectors (useful for reporting).
 
 ```typescript
 const stats = getCoverageStats();
-// → { total: 77, bySector: { banca_finanzas: { count: 21, dnsVerified: 18 }, ... }, ... }
+// → { total: 367, bySector: { banca_finanzas: { count: 34, dnsVerified: 30 }, combustibles: { count: 25, ... }, ... }, ... }
 ```
 
 ### `resolveBytable(rut)` / `heuristicInfer(razonSocial)` / `verifyDomain(domain)`
