@@ -105,9 +105,9 @@ describe('hasEntry', () => {
 });
 
 describe('getCoverageStats', () => {
-  it('returns positive total entry count ≥ 366 (v0.2.0 bulk expansion)', () => {
+  it('returns positive total entry count ≥ 640 (v0.3.0 bulk expansion)', () => {
     const stats = getCoverageStats();
-    assert.ok(stats.total >= 366, `Expected ≥366 entries (v0.2.0), got ${stats.total}`);
+    assert.ok(stats.total >= 640, `Expected ≥640 entries (v0.3.0), got ${stats.total}`);
   });
 
   it('includes all expected sectors including combustibles (v0.2.0 NEW)', () => {
@@ -182,34 +182,34 @@ describe('getCoverageStats', () => {
     );
   });
 
-  it('has administracion_estado coverage ≥ 79 entries (v0.2.0 expansion)', () => {
+  it('has administracion_estado coverage ≥ 140 entries (v0.3.0 · ANCI sector closed)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['administracion_estado'].count >= 79,
+      stats.bySector['administracion_estado'].count >= 140,
       `admin_estado coverage too low: ${stats.bySector['administracion_estado'].count}`
     );
   });
 
-  it('has salud coverage ≥ 62 entries (v0.2.0 expansion)', () => {
+  it('has salud coverage ≥ 111 entries (v0.3.0 · ANCI sector closed)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['salud'].count >= 62,
+      stats.bySector['salud'].count >= 111,
       `salud coverage too low: ${stats.bySector['salud'].count}`
     );
   });
 
-  it('has energia_electrica coverage ≥ 25 entries (v0.2.0 expansion)', () => {
+  it('has energia_electrica coverage ≥ 145 entries (v0.3.0 · ANCI sector closed)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['energia_electrica'].count >= 25,
+      stats.bySector['energia_electrica'].count >= 145,
       `energia_electrica coverage too low: ${stats.bySector['energia_electrica'].count}`
     );
   });
 
-  it('has infraestructura_digital ≥ 14 representative entries (v0.2.0 sample)', () => {
+  it('has infraestructura_digital ≥ 60 representative entries (v0.3.0 sample)', () => {
     const stats = getCoverageStats();
     assert.ok(
-      stats.bySector['infraestructura_digital'].count >= 14,
+      stats.bySector['infraestructura_digital'].count >= 60,
       `infraestructura_digital coverage too low: ${stats.bySector['infraestructura_digital'].count}`
     );
   });
@@ -382,5 +382,208 @@ describe('Block D expansion spot-checks', () => {
     assert.ok(r, 'Hospital Barros Luco should be in table');
     assert.equal(r!.domain, 'hospitalbarrosluco.cl');
     assert.equal(r!.sector, 'salud');
+  });
+});
+
+describe('v0.3.0 salud sector closure spot-checks', () => {
+  it('resolves Hospital Clínico San Borja Arriarán (hcsba.cl)', () => {
+    const r = resolveBytable('61608604-9');
+    assert.ok(r, 'HCSBA should be in table');
+    assert.equal(r!.domain, 'hcsba.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('resolves Hospital HUAP (urgencias.cl)', () => {
+    const r = resolveBytable('61608602-2');
+    assert.ok(r, 'HUAP should be in table');
+    assert.equal(r!.domain, 'urgencias.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('resolves Instituto Nacional del Cáncer (inc.cl)', () => {
+    const r = resolveBytable('61608404-6');
+    assert.ok(r, 'INC should be in table');
+    assert.equal(r!.domain, 'inc.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('resolves Instituto de Neurocirugía Asenjo (asenjo.cl)', () => {
+    const r = resolveBytable('61608407-0');
+    assert.ok(r, 'Asenjo should be in table');
+    assert.equal(r!.domain, 'asenjo.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('resolves Hospital de San Fernando (hospitalsanfernando.cl)', () => {
+    const r = resolveBytable('61602145-1');
+    assert.ok(r, 'H. San Fernando should be in table');
+    assert.equal(r!.domain, 'hospitalsanfernando.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('resolves Hospital El Pino (hospitalelpino.cl)', () => {
+    const r = resolveBytable('61608107-1');
+    assert.ok(r, 'H. El Pino should be in table');
+    assert.equal(r!.domain, 'hospitalelpino.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('resolves IMARED Puerto Montt (imared.cl)', () => {
+    const r = resolveBytable('77333081-6');
+    assert.ok(r, 'IMARED should be in table');
+    assert.equal(r!.domain, 'imared.cl');
+    assert.equal(r!.sector, 'salud');
+  });
+
+  it('salud sector has ≥111 entries (100% ANCI sector mapped)', () => {
+    const stats = getCoverageStats();
+    assert.ok(stats.bySector['salud'].count >= 111, `salud must be ≥111 (100% ANCI sector), got ${stats.bySector['salud'].count}`);
+  });
+});
+
+describe('v0.3.0 administracion_estado closure spot-checks', () => {
+  it('resolves Subsecretaría de Energía (minenergia.cl)', () => {
+    const r = resolveBytable('61979830-9');
+    assert.ok(r, 'Subsec Energía should be in table');
+    assert.equal(r!.domain, 'minenergia.cl');
+    assert.equal(r!.sector, 'administracion_estado');
+  });
+
+  it('resolves Subsecretaría SUBTEL (subtel.cl)', () => {
+    const r = resolveBytable('60513000-3');
+    assert.ok(r, 'SUBTEL should be in table');
+    assert.equal(r!.domain, 'subtel.cl');
+    assert.equal(r!.sector, 'administracion_estado');
+  });
+
+  it('resolves SENAME (sename.cl)', () => {
+    const r = resolveBytable('61008000-6');
+    assert.ok(r, 'SENAME should be in table');
+    assert.equal(r!.domain, 'sename.cl');
+    assert.equal(r!.sector, 'administracion_estado');
+  });
+
+  it('resolves Servicio Salud Metropolitano Sur (ssms.cl)', () => {
+    const r = resolveBytable('61608100-4');
+    assert.ok(r, 'SSMS should be in table');
+    assert.equal(r!.domain, 'ssms.cl');
+    assert.equal(r!.sector, 'administracion_estado');
+  });
+
+  it('resolves Defensa Civil (defensacivil.cl)', () => {
+    const r = resolveBytable('61109000-5');
+    assert.ok(r, 'Defensa Civil should be in table');
+    assert.equal(r!.domain, 'defensacivil.cl');
+    assert.equal(r!.sector, 'administracion_estado');
+  });
+
+  it('resolves IGM (igmchile.cl)', () => {
+    const r = resolveBytable('81448600-1');
+    assert.ok(r, 'IGM should be in table');
+    assert.equal(r!.domain, 'igmchile.cl');
+    assert.equal(r!.sector, 'administracion_estado');
+  });
+
+  it('administracion_estado sector has ≥140 entries (100% ANCI sector mapped)', () => {
+    const stats = getCoverageStats();
+    assert.ok(stats.bySector['administracion_estado'].count >= 140, `admin_estado must be ≥140, got ${stats.bySector['administracion_estado'].count}`);
+  });
+});
+
+describe('v0.3.0 energia_electrica closure spot-checks', () => {
+  it('resolves Interchile (interchile.cl)', () => {
+    const r = resolveBytable('76257379-2');
+    assert.ok(r, 'Interchile should be in table');
+    assert.equal(r!.domain, 'interchile.cl');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves Cerro Dominador CSP (cerrodominador.cl)', () => {
+    const r = resolveBytable('76237256-8');
+    assert.ok(r, 'Cerro Dominador should be in table');
+    assert.equal(r!.domain, 'cerrodominador.cl');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves Guacolda Energía (guacoldaenergia.cl)', () => {
+    const r = resolveBytable('76418918-3');
+    assert.ok(r, 'Guacolda should be in table');
+    assert.equal(r!.domain, 'guacoldaenergia.cl');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves AELA Generación (aela.cl)', () => {
+    const r = resolveBytable('76489426-K');
+    assert.ok(r, 'AELA should be in table');
+    assert.equal(r!.domain, 'aela.cl');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves ENAP Refinerías (enap.com)', () => {
+    const r = resolveBytable('87756500-9');
+    assert.ok(r, 'ENAP Refinerías should be in table');
+    assert.equal(r!.domain, 'enap.com');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('resolves Mantos Copper (mantoscopper.com)', () => {
+    const r = resolveBytable('77418580-1');
+    assert.ok(r, 'Mantos Copper should be in table');
+    assert.equal(r!.domain, 'mantoscopper.com');
+    assert.equal(r!.sector, 'energia_electrica');
+  });
+
+  it('energia_electrica sector has ≥145 entries (100% ANCI sector mapped)', () => {
+    const stats = getCoverageStats();
+    assert.ok(stats.bySector['energia_electrica'].count >= 145, `energia must be ≥145, got ${stats.bySector['energia_electrica'].count}`);
+  });
+});
+
+describe('v0.3.0 infraestructura_digital expansion spot-checks', () => {
+  it('resolves NEC Chile (nec.cl)', () => {
+    const r = resolveBytable('96565300-7');
+    assert.ok(r, 'NEC Chile should be in table');
+    assert.equal(r!.domain, 'nec.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves Kyndryl Chile (kyndryl.cl)', () => {
+    const r = resolveBytable('77346355-7');
+    assert.ok(r, 'Kyndryl should be in table');
+    assert.equal(r!.domain, 'kyndryl.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves Equinix Chile (equinix.cl)', () => {
+    const r = resolveBytable('77532143-1');
+    assert.ok(r, 'Equinix Chile should be in table');
+    assert.equal(r!.domain, 'equinix.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves Flow S.A. payment platform (flow.cl)', () => {
+    const r = resolveBytable('76830014-3');
+    assert.ok(r, 'Flow should be in table');
+    assert.equal(r!.domain, 'flow.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves Fintoc (fintoc.cl)', () => {
+    const r = resolveBytable('77143385-5');
+    assert.ok(r, 'Fintoc should be in table');
+    assert.equal(r!.domain, 'fintoc.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('resolves Defontana ERP (defontana.cl)', () => {
+    const r = resolveBytable('76389469-K');
+    assert.ok(r, 'Defontana should be in table');
+    assert.equal(r!.domain, 'defontana.cl');
+    assert.equal(r!.sector, 'infraestructura_digital');
+  });
+
+  it('infraestructura_digital sample has ≥ 60 entries', () => {
+    const stats = getCoverageStats();
+    assert.ok(stats.bySector['infraestructura_digital'].count >= 60, `infra_digital must be ≥60 (sample), got ${stats.bySector['infraestructura_digital'].count}`);
   });
 });

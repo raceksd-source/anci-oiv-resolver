@@ -5,8 +5,8 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contacto_verificable-orange.svg)](#el-coverage-gap)
-[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-367_OIVs_mapped_(40%25)-green.svg)](#la-solución)
-[![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-6_de_10-brightgreen.svg)](#la-solución)
+[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-644_OIVs_mapped_(70%25)-green.svg)](#la-solución)
+[![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-9_de_10-brightgreen.svg)](#la-solución)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 [![CFP](https://img.shields.io/badge/LASCON_2026-en_evaluación-blue.svg)]()
 
@@ -46,7 +46,7 @@ Esta librería es útil para:
 - **Equipos de respuesta a incidentes** que correlacionan dominios con OIVs durante un incidente activo
 - **Reguladores y policy makers** que auditan la cobertura efectiva del marco normativo
 
-Si trabajas en alguna de estas áreas y has tenido que resolver "razón social ANCI → dominio real" manualmente, este tool lo automatiza para 367 OIVs (40% del universo) con verificación DNS.
+Si trabajas en alguna de estas áreas y has tenido que resolver "razón social ANCI → dominio real" manualmente, este tool lo automatiza para 644 OIVs (70.8% del universo) con verificación DNS.
 
 ## ¿Por qué construimos esto?
 
@@ -55,14 +55,14 @@ Durante la investigación de la brecha de divulgación responsable en Chile (el 
 ```
 909 OIVs registrados ANCI (Ley 21.663)
     │
-    ├── 367 mapeados — este tool (40.4%)
-    │   ├── 6 sectores cerrados 100%
-    │   │   └── banca · telecomunicaciones · transporte · agua
-    │   │       empresas_estado · combustibles
-    │   └── 4 sectores en expansión
-    │       └── administración_estado · salud · energía · infraestructura digital
+    ├── 644 mapeados — este tool (70.8%)
+    │   ├── 9 sectores cerrados 100%
+    │   │   └── banca · telecomunicaciones · transporte · agua · empresas_estado
+    │   │       combustibles · salud · administración_estado · energía_eléctrica
+    │   └── 1 sector en expansión (muestra representativa)
+    │       └── infraestructura digital (65/413 · 15.7%)
     │
-    └── 542 pendientes de mapeo (investigación en curso)
+    └── 265 pendientes de mapeo (mayormente IT vendors pequeños sin web pública)
 ```
 
 Esos errores de inferencia contaminan datasets de research académico, llenan inboxes de vendors equivocados con reportes falsos, y minan la credibilidad de cualquier investigación seria sobre infraestructura crítica chilena.
@@ -89,22 +89,22 @@ Sin un resolver canónico, cualquier herramienta que escanee OIVs chilenos gener
 
 ## La solución
 
-`anci-oiv-resolver` provee un mapping **RUT → dominio canónico** validado vía DNS, cubriendo actualmente **367 de 909 OIVs (40.4%)** en el universo del registro:
+`anci-oiv-resolver` provee un mapping **RUT → dominio canónico** validado vía DNS, cubriendo actualmente **644 de 909 OIVs (70.8%)** en el universo del registro:
 
 - **34 de 34** banca/finanzas OIVs (100% — sector cerrado) ⭐
-- **29 de 29** telecomunicaciones OIVs (100% — sector cerrado v0.2.0) ⭐
-- **25 de 25** transporte OIVs (100% — sector cerrado v0.2.0) ⭐
-- **25 de 25** agua OIVs (100% — sector cerrado v0.2.0) ⭐
-- **20 de 20** empresas_estado OIVs (100% — sector cerrado v0.2.0) ⭐
-- **25 de 25** combustibles OIVs (100% — sector cerrado v0.2.0 · antes vacío) ⭐
-- **92 de 155** administración_estado OIVs (59% — expandido v0.2.0)
-- **65 de 111** salud OIVs (59% — hospitales públicos + clínicas privadas)
-- **30 de 147** energía eléctrica OIVs (20% — generadoras y distribuidoras principales)
-- **22 de 413** infraestructura digital OIVs (5% — muestra representativa top vendors)
+- **29 de 29** telecomunicaciones OIVs (100% — sector cerrado) ⭐
+- **25 de 25** transporte OIVs (100% — sector cerrado) ⭐
+- **25 de 25** agua OIVs (100% — sector cerrado) ⭐
+- **20 de 20** empresas_estado OIVs (100% — sector cerrado) ⭐
+- **25 de 25** combustibles OIVs (100% — sector cerrado) ⭐
+- **111 de 111** salud OIVs (100% — sector cerrado v0.3.0) ⭐
+- **155 de 155** administración_estado OIVs (100% — sector cerrado v0.3.0) ⭐
+- **147 de 147** energía eléctrica OIVs (100% — sector cerrado v0.3.0) ⭐
+- **65 de 413** infraestructura digital OIVs (15.7% — muestra representativa · sector de 412 IT vendors pequeños)
 
 Con fallback heurístico mejorado (normalización de acentos + strip de sufijos legales + brand-override map) cuando el RUT no está en la tabla.
 
-**367 entradas totales · 40.4% cobertura universo · 6 sectores cerrados al 100% · 100% OSINT pasivo · cero escaneo activo · v0.2.0**
+**644 entradas totales · 70.8% cobertura universo · 9 sectores cerrados al 100% · 100% OSINT pasivo · cero escaneo activo · v0.3.0**
 
 ## Instalación rápida
 
@@ -150,7 +150,7 @@ const resolved = await resolveBatch(oivs, { verify: true });
 import { getCoverageStats } from 'anci-oiv-resolver';
 
 const stats = getCoverageStats();
-// → { total: 367, bySector: { banca_finanzas: { count: 34, dnsVerified: 30 }, combustibles: { count: 25, ... }, telecomunicaciones: { count: 29, ... }, ... } }
+// → { total: 644, bySector: { banca_finanzas: { count: 34 }, salud: { count: 111 }, administracion_estado: { count: 155 }, energia_electrica: { count: 147 }, ... } }
 ```
 
 ### CLI demo
