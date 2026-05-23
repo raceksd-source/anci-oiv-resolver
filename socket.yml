@@ -1,0 +1,40 @@
+version: 2
+
+projectIgnorePaths:
+  - "test/**"
+  - "examples/**"
+  - "node_modules/**"
+  - "dist/**"
+
+issueRules:
+  # CRITICAL · block PR merge
+  malware: error
+  gptMalware: error
+  installScripts: error
+  obfuscatedCode: error
+  shellAccess: error
+  envVars: error
+  filesystemAccess: error
+  networkAccess: error
+  bidi: error
+
+  # HIGH · warn but don't block
+  newAuthor: warn
+  unstableOwnership: warn
+  typosquat: warn
+  criticalCVE: error
+  highCVE: warn
+
+  # MEDIUM · informational
+  telemetry: warn
+  unpublished: warn
+
+  # LOW · suppress noise (TS toolchain noisy)
+  trivialPackage: ignore
+  unstableDependency: ignore
+  unmaintained: ignore
+
+githubApp:
+  enabled: true
+  pullRequestAlertsEnabled: true
+  projectReportsEnabled: true

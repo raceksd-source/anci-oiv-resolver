@@ -1,4 +1,5 @@
 version: 2
+
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -8,23 +9,60 @@ updates:
       time: "09:00"
       timezone: "America/Santiago"
     open-pull-requests-limit: 5
-    reviewers:
-      - "raceksd-source"
+    versioning-strategy: "increase-if-necessary"
     labels:
       - "dependencies"
       - "automated"
     commit-message:
       prefix: "chore(deps)"
       include: "scope"
+    # Group routine updates to reduce PR noise
+    groups:
+      typescript-toolchain:
+        patterns:
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "tsx"
+        update-types:
+          - "minor"
+          - "patch"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+        update-types:
+          - "minor"
+          - "patch"
+      types:
+        patterns:
+          - "@types/*"
+        update-types:
+          - "minor"
+          - "patch"
+    # Pin TypeScript at 5.x — TS 6 breaks @typescript-eslint v8 (see closed PR #7)
+    # Pin @types/node <25 — exceeds engines.node >=18 (see closed PR #9)
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/node"
+        versions: [">=25"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
-    reviewers:
-      - "raceksd-source"
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Santiago"
+    open-pull-requests-limit: 3
     labels:
       - "github-actions"
       - "automated"
     commit-message:
       prefix: "chore(ci)"
+      include: "scope"
+    groups:
+      actions-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"

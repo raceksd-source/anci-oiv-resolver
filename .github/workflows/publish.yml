@@ -1,0 +1,119 @@
+name: Publish to npm
+
+# Triggered by semver tag push (vX.Y.Z, vX.Y.Z-rc.N, etc.)
+# Tag must be created AFTER bumping package.json version and merging to main.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+  # Manual dispatch for emergency re-publish of existing tag
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to publish (e.g., v0.5.0). Must already exist.'
+        required: true
+
+# Never two publish runs racing on same tag
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Build, test, publish (provenance)
+    runs-on: ubuntu-latest
+
+    # id-token:write enables Trusted Publishing OIDC + provenance attestation
+    # contents:read is the minimum to checkout. No write access.
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Harden runner (StepSecurity)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
+      - name: Checkout (tag ref)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+          fetch-depth: 0
+
+      - name: Setup Node.js 22 (LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          # registry-url REQUIRED for setup-node to write the .npmrc
+          # that OIDC handshake needs
+          registry-url: 'https://registry.npmjs.org'
+          always-auth: true
+
+      - name: Upgrade npm to >=11.5.1 (Trusted Publishing requirement)
+        # Node 22 ships npm 10.x. Trusted Publishing OIDC needs npm >= 11.5.1
+        run: npm install -g npm@latest
+
+      - name: Verify versions
+        run: |
+          npm --version
+          node --version
+
+      - name: Install dependencies (clean)
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test (no live DNS — matches prepublishOnly)
+        run: npm run test:no-dns
+        env:
+          SKIP_LIVE_DNS: '1'
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify build artifacts
+        run: |
+          test -f dist/index.js || (echo "::error::dist/index.js missing" && exit 1)
+          test -f dist/index.d.ts || (echo "::error::dist/index.d.ts missing" && exit 1)
+
+      - name: Verify tag matches package.json version
+        run: |
+          PKG_VERSION="v$(node -p "require('./package.json').version")"
+          TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          if [ "${{ github.event.inputs.tag }}" != "" ]; then
+            TAG_VERSION="${{ github.event.inputs.tag }}"
+          fi
+          echo "package.json version: $PKG_VERSION"
+          echo "git tag:              $TAG_VERSION"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "::error::Tag $TAG_VERSION does not match package.json $PKG_VERSION"
+            exit 1
+          fi
+
+      # PRIMARY: Trusted Publishing (token-less, OIDC) + provenance via sigstore
+      # Requires: Trusted Publisher configured at npmjs.com/package/anci-oiv-resolver/access
+      - name: Publish to npm (Trusted Publishing + provenance)
+        run: npm publish --provenance --access public
+        env:
+          NPM_CONFIG_PROVENANCE: 'true'
+
+      # FALLBACK (commented): only if Trusted Publishing is not yet configured.
+      # If you uncomment, uncomment AND ensure NPM_TOKEN secret is a valid granular token.
+      # - name: Publish to npm (NPM_TOKEN fallback)
+      #   run: npm publish --provenance --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     NPM_CONFIG_PROVENANCE: 'true'
+
+      - name: Publish receipt
+        run: |
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          echo "Published anci-oiv-resolver@${PKG_VERSION} to npm"
+          echo "https://www.npmjs.com/package/anci-oiv-resolver/v/${PKG_VERSION}"
