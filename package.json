@@ -1,0 +1,62 @@
+{
+  "name": "anci-oiv-resolver",
+  "version": "0.1.0",
+  "description": "Canonical Chilean OIV registry name → domain resolver. Eliminates false-positive OSINT findings under Ley 21.663 (Marco Nacional de Ciberseguridad).",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsx --test test/*.test.ts",
+    "test:live": "tsx --test test/*.test.ts",
+    "test:no-dns": "SKIP_LIVE_DNS=1 tsx --test test/*.test.ts",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run test:no-dns"
+  },
+  "keywords": [
+    "chile",
+    "cybersecurity",
+    "oiv",
+    "anci",
+    "ley-21663",
+    "osint",
+    "dns",
+    "ciberseguridad",
+    "critical-infrastructure"
+  ],
+  "author": "David Mellafe Z. <david@reizan.io>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/david-mellafe-z/anci-oiv-resolver"
+  },
+  "homepage": "https://github.com/david-mellafe-z/anci-oiv-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/david-mellafe-z/anci-oiv-resolver/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "files": [
+    "dist/",
+    "data/",
+    "LICENSE",
+    "README.md"
+  ]
+}
