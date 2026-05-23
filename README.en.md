@@ -11,6 +11,63 @@
 
 [Versión en español](README.md)
 
+## What are OIVs and why does this matter?
+
+**Operadores de Importancia Vital (OIVs)** — literally "Operators of Vital Importance" — are organizations formally recognized by the Chilean State as **critical to national security**. Ley 21.663 (Marco Nacional de Ciberseguridad · 2024) designates 909 organizations under this category, including:
+
+| Sector | Representative examples |
+|--------|------------------------|
+| **Banking/Finance** | BCI · BancoEstado · Santander · Banco de Chile · Santiago Stock Exchange |
+| **Public health** | FONASA · Regional hospitals · Ministry of Health |
+| **Private health** | Clínica Las Condes · Hospital Alemán · Clínica Indisa |
+| **Energy** | Enel · ENAP · Colbún · AES Andes · CGE |
+| **Telecommunications** | ENTEL · Movistar · VTR · WOM · GTD |
+| **Water** | Aguas Andinas · ESSBIO · ESSAL · Aguas del Altiplano |
+| **Transport** | Metro · LATAM Airlines · EFE (rail) · highway concessions |
+| **Fuel** | COPEC · Shell · Gas Natural · Sonacol |
+| **Government** | SII (tax authority) · ANCI · ONEMI · CMF · Civil Registry |
+| **Digital infrastructure** | Sonda · Microsystem · critical IT vendors |
+
+The **Agencia Nacional de Ciberseguridad (ANCI)** — Chile's national cybersecurity agency — supervises these organizations under the new law, imposing obligations for:
+- Cyber risk management
+- Incident notification within defined timeframes
+- Periodic security audits
+- Operational continuity planning
+
+## Who is this resolver for?
+
+This library is useful for:
+
+- **Security researchers** who need to resolve canonical OIV domains before conducting passive OSINT research (primary use case)
+- **Compliance consultants** advising OIVs on their obligations under Ley 21.663
+- **Technology journalists** verifying organizational identities in cybersecurity or critical infrastructure investigations
+- **Academics** studying the cybersecurity exposure gap in Chilean critical infrastructure
+- **Incident response teams** correlating domains with OIVs during an active incident
+- **Regulators and policy makers** auditing the effective coverage of the regulatory framework
+
+If you work in any of these areas and have had to manually resolve "ANCI legal name → real domain," this tool automates that for 367 OIVs (40% of the universe) with DNS verification.
+
+## Why we built this
+
+During our research into Chile's responsible disclosure gap (the "Coverage Gap" — see companion paper), we found that **automated tools that infer domains from legal entity names fail systematically**. The registered OIV universe breaks down as follows:
+
+```
+909 OIVs registered under ANCI (Ley 21.663)
+    │
+    ├── 367 mapped — this tool (40.4%)
+    │   ├── 6 sectors closed at 100%
+    │   │   └── banking · telecoms · transport · water
+    │   │       state enterprises · fuel
+    │   └── 4 sectors expanding
+    │       └── government admin · health · energy · digital infrastructure
+    │
+    └── 542 pending mapping (research in progress)
+```
+
+Those inference errors contaminate academic research datasets, deliver false reports to the wrong vendors, and undermine the credibility of any serious investigation into Chilean critical infrastructure.
+
+`anci-oiv-resolver` provides a verified RUT → canonical domain mapping, eliminating those systematic false positives.
+
 ## El problema
 
 De los **909 operadores de importancia vital (OIVs)** registrados bajo Ley 21.663, solo el **1.3% tiene canal de contacto verificable** para reportar una vulnerabilidad. Solo el 3.5% tiene attack surface mapeado públicamente. **Esta es la primera capa estructural del Coverage Gap.**
