@@ -12,6 +12,63 @@
 
 [English README](README.en.md)
 
+## ¿Qué son los OIVs y por qué importa?
+
+Los **Operadores de Importancia Vital (OIVs)** son organizaciones reconocidas formalmente por el Estado de Chile como **críticas para la seguridad nacional**. La Ley 21.663 (Marco Nacional de Ciberseguridad · 2024) designa 909 organizaciones bajo esta categoría, incluyendo:
+
+| Sector | Ejemplos representativos |
+|--------|--------------------------|
+| **Banca/Finanzas** | BCI · BancoEstado · Santander · Banco de Chile · Bolsa de Comercio |
+| **Salud pública** | FONASA · Hospitales regionales · MINSAL |
+| **Salud privada** | Clínica Las Condes · Hospital Alemán · Clínica Indisa |
+| **Energía** | Enel · ENAP · Colbún · AES Andes · CGE |
+| **Telecomunicaciones** | ENTEL · Movistar · VTR · WOM · GTD |
+| **Agua** | Aguas Andinas · ESSBIO · ESSAL · Aguas del Altiplano |
+| **Transporte** | Metro · LATAM · EFE · concesionarias de autopistas |
+| **Combustibles** | COPEC · Shell · Gas Natural · Sonacol |
+| **Gobierno** | SII · ANCI · ONEMI · CMF · Registro Civil |
+| **Infraestructura digital** | Sonda · Microsystem · IT vendors críticos |
+
+La **Agencia Nacional de Ciberseguridad (ANCI)** supervisa estas organizaciones bajo la nueva ley, estableciendo obligaciones de:
+- Gestión de riesgo cibernético
+- Notificación de incidentes en plazos definidos
+- Auditorías de seguridad periódicas
+- Planes de continuidad operacional
+
+## ¿Para quién es este resolver?
+
+Esta librería es útil para:
+
+- **Investigadores de ciberseguridad** que necesitan resolver dominios canónicos de OIVs antes de hacer research pasivo OSINT (caso de uso primario)
+- **Consultores de cumplimiento normativo** que asesoran OIVs en obligaciones bajo Ley 21.663
+- **Periodistas tecnológicos** que verifican identidades organizacionales en investigaciones sobre ciberseguridad o infraestructura crítica
+- **Académicos** que estudian la brecha de exposición cibernética en infraestructura crítica chilena
+- **Equipos de respuesta a incidentes** que correlacionan dominios con OIVs durante un incidente activo
+- **Reguladores y policy makers** que auditan la cobertura efectiva del marco normativo
+
+Si trabajas en alguna de estas áreas y has tenido que resolver "razón social ANCI → dominio real" manualmente, este tool lo automatiza para 367 OIVs (40% del universo) con verificación DNS.
+
+## ¿Por qué construimos esto?
+
+Durante la investigación de la brecha de divulgación responsable en Chile (el "Coverage Gap" · ver paper companion), encontramos que **las herramientas automáticas que infieren dominios desde razones sociales fallan sistemáticamente**. El universo de OIVs registrados se distribuye así:
+
+```
+909 OIVs registrados ANCI (Ley 21.663)
+    │
+    ├── 367 mapeados — este tool (40.4%)
+    │   ├── 6 sectores cerrados 100%
+    │   │   └── banca · telecomunicaciones · transporte · agua
+    │   │       empresas_estado · combustibles
+    │   └── 4 sectores en expansión
+    │       └── administración_estado · salud · energía · infraestructura digital
+    │
+    └── 542 pendientes de mapeo (investigación en curso)
+```
+
+Esos errores de inferencia contaminan datasets de research académico, llenan inboxes de vendors equivocados con reportes falsos, y minan la credibilidad de cualquier investigación seria sobre infraestructura crítica chilena.
+
+`anci-oiv-resolver` provee un mapping verificado RUT → dominio canónico, eliminando esos falsos positivos sistemáticos.
+
 ## El problema
 
 De los **909 Operadores de Importancia Vital (OIVs)** registrados formalmente bajo la Ley 21.663 (Marco Nacional de Ciberseguridad), solo el **1.3% tiene un canal de contacto verificable** para recibir un reporte de divulgación responsable. Solo el 3.5% tiene un attack surface map público. Solo el 2.8% cumple con las condiciones mínimas para iniciar un proceso de disclosure coordinado bajo ISO/IEC 29147.
