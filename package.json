@@ -24,14 +24,26 @@
   "keywords": [
     "chile",
     "cybersecurity",
+    "ciberseguridad",
     "oiv",
     "anci",
     "ley-21663",
+    "marco-nacional-ciberseguridad",
     "osint",
     "dns",
-    "ciberseguridad",
-    "critical-infrastructure"
+    "critical-infrastructure",
+    "infraestructura-critica",
+    "vulnerability-disclosure",
+    "divulgacion-responsable",
+    "iso-29147",
+    "passive-osint",
+    "domain-resolver",
+    "rut"
   ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/raceksd-source"
+  },
   "author": "David Mellafe Z. <david@reizan.io>",
   "license": "Apache-2.0",
   "repository": {
