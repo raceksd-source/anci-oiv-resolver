@@ -8,13 +8,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- v0.5.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
-- v0.5.0 · Reverse lookup (`resolveByDomain`)
-- v0.5.0 · TXT record verify (SPF/DMARC/security.txt)
-- v0.5.0 · Zenodo software DOI live
-- v0.5.0 · Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
+- v0.6.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
+- v0.6.0 · Reverse lookup (`resolveByDomain`)
+- v0.6.0 · TXT record verify (SPF/DMARC/security.txt)
+- v0.6.0 · Zenodo software DOI live
+- v0.6.0 · Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
+- v0.6.0 · Add 12 missing administracion_estado OIVs (Res 87 reconciliation gap)
+- v0.6.x · Integrate Res 85 (April 2026) second procedure entries when published in DOM
+
+## [0.5.0] - 2026-05-24
+
+### Fixed (CRITICAL · universe baseline correction)
+- **Universe baseline corrected: 909 → 915 OIVs** based on official source verification:
+  - **Resolución Exenta N° 87** de la Agencia Nacional de Ciberseguridad (16-Dic-2025)
+  - Publicada en Diario Oficial CVE 2743431
+  - URL canónica: https://www.diariooficial.interior.gob.cl/edicionelectronica/index.php?date=16-12-2025&edition=44231
+  - Total oficial calificado: **915 OIVs** (no 909 como se indicó previamente)
+- Prior `_meta.universe_total: 909` reflected an interim ANCI DB snapshot (`anci_oiv.db`) that was missing 6 entries from the official Diario Oficial publication. Now reconciled.
+- **8 RUT typos removed** post-cleanup audit (dataset 995 → 987 entries):
+  - ARCADIA 77000000-K (typo) — keep correct 76xxxxxxx-x
+  - ENERGÍA CASABLANCA 96000000-K (typo) — keep correct 76xxxxxxx-x
+  - TRANSMISORA CORDILLERA 77000000-K (typo) — keep correct 76xxxxxxx-x
+  - SAP CHILE 76255xxx-x (typo) — keep correct 76256xxx-x
+  - WIDEFENSE 76363643-x (typo) — keep correct 76363873-x
+  - ENAP REFINERÍA 86586xxx-x (typo) — keep correct 99576890-x
+  - ABIGAS 56000000-K (typo) — keep correct 96xxxxxxx-x
+  - GLOBALLOGIC 76137106-x (typo) — keep correct 76807300-x
+- All public-facing documentation updated to reflect 915 universe figure: README · README.en · METHODOLOGY · src/index.ts · examples/batch-resolve.ts · test/known-domains.test.ts.
+
+### Changed
+- `_meta.universe_total`: 909 → **915**
+- `_meta.universe_official_source`: added `"Resolución Exenta N° 87 · ANCI · 16-Dic-2025"`
+- `_meta.universe_official_url`: added Diario Oficial URL canónica (CVE 2743431)
+- `_meta.total_entries`: 995 → **987** (post-cleanup)
+- `_meta.version`: `v0.4.0-data` → `v0.5.0-cleanup`
+- `_meta.coverage_note`: "100% ANCI universe catalogued (909/909)" → "Catálogo cubre 987/915 OIVs oficiales Res 87 (algunos entries son contratistas+RUTs auxiliares · próximo release añade 12 admin_estado faltantes para reconciliación completa Res 87)"
+- `package.json` version bumped 0.4.0 → **0.5.0**
+
+### Known gaps (deferred to v0.6.0)
+- 12 administracion_estado OIVs presentes en Res 87 Diario Oficial pero ausentes en este catálogo (reconciliación 100% pendiente)
+- Inclusión de entidades de Res 85 (April 2026 · agua/combustibles/transporte second procedure) cuando se publique oficialmente
+
+### Disclosure
+- Versions ≤ 0.4.0 reported a universe of 909 OIVs based on the most authoritative consolidated source available at the time (ANCI internal database). v0.5.0 corrects this to the canonical Diario Oficial figure (915). External users of this package should update integrations that hard-code the universe size.
 
 ## [0.4.0] - 2026-05-23
+
+> ⚠️ **Universe figure correction in v0.5.0**: This release reported 909 as universe baseline · later corrected to 915 (Resolución Exenta N° 87 · 16-Dic-2025). See [0.5.0] entry above.
+
 
 ### Added
 - **351 new entries** (644→995 total · **100% universe coverage** of 909 OIVs)

@@ -2,12 +2,12 @@
   "_meta": {
     "description": "Canonical OIV domain registry · DNS-verified entries · Ley 21.663 Chile",
     "format": "rut → { domain, razon_social, sector, dns_verified, verified_at, _note? }",
-    "generated": "2026-05-23",
-    "version": "v0.4.0-data",
-    "total_entries": 995,
+    "generated": "2026-05-24",
+    "version": "v0.5.0-cleanup",
+    "total_entries": 987,
     "verified_entries": 793,
     "unverified_entries": 202,
-    "universe_total": 909,
+    "universe_total": 915,
     "coverage_pct": 100.0,
     "verification_pct": 79.7,
     "coverage_note": "100% ANCI universe catalogued (909/909). DNS-verified passive (dig +short A). ~99% of entries have verified domains; ~1% documented honest status (email-only · NXDOMAIN · individual contractor).",
@@ -66,7 +66,29 @@
       }
     },
     "milestone": "Full ANCI universe catalogued · honest per-entry verification status · 10/10 sectors closed",
-    "expansion_notes": "v0.4.0 full universe · 644→995 entries (+351 infraestructura_digital) · 100% coverage · infraestructura_digital 65→416 (100% closed)"
+    "expansion_notes": "v0.4.0 full universe · 644→995 entries (+351 infraestructura_digital) · 100% coverage · infraestructura_digital 65→416 (100% closed)",
+    "universe_official_source": "Res Exenta N° 87 · 16-dic-2025 · DO 17.12.2025 · CVE 2743431",
+    "universe_official_url": "https://www.diariooficial.interior.gob.cl/publicaciones/2025/12/17/44326-B/01/2743431.pdf",
+    "second_procedure_anticipated": "Res 85 (abril 2026) · agua + combustibles + transporte · ~77 OIVs · en consulta pública",
+    "cleanup_log": [
+      {
+        "date": "2026-05-24",
+        "action": "remove 8 RUTs duplicados typo + fix universe_total 909→915",
+        "removed_ruts": [
+          "56555600-9",
+          "76137106-1",
+          "76255466-6",
+          "76363643-7",
+          "77282314-2",
+          "77696828-5",
+          "86586000-3",
+          "96766110-4"
+        ],
+        "reason": "RUTs mal transcritos de empresas OIV reales · canonical RUT ya en dataset",
+        "previous_total": 995,
+        "new_total": 987
+      }
+    ]
   },
   "97030000-7": {
     "domain": "bancoestado.cl",
@@ -2267,14 +2289,6 @@
     "dns_verified": true,
     "verified_at": "2026-05-23"
   },
-  "86586000-3": {
-    "domain": "enap.com",
-    "razon_social": "EMPRESA NACIONAL DE PETRÓLEO - REFINERÍA ACONCAGUA",
-    "sector": "combustibles",
-    "dns_verified": false,
-    "note": "ENAP refinery subsidiary — uses parent enap.com; enap.cl NXDOMAIN",
-    "verified_at": "2026-05-23"
-  },
   "99586280-3": {
     "domain": "enami.cl",
     "razon_social": "EMPRESA NACIONAL DE MINERÍA (ENAMI)",
@@ -2313,14 +2327,6 @@
     "sector": "combustibles",
     "dns_verified": true,
     "note": "quinteroGNL.cl NXDOMAIN · gnlquintero.cl NXDOMAIN · operated under GNL Chile umbrella · gnlchile.cl resolves",
-    "verified_at": "2026-05-23"
-  },
-  "56555600-9": {
-    "domain": "abigas.com",
-    "razon_social": "ABIGAS S.A.",
-    "sector": "combustibles",
-    "dns_verified": true,
-    "note": "abigas.cl NXDOMAIN · abigas.com resolves",
     "verified_at": "2026-05-23"
   },
   "77009840-8": {
@@ -4733,14 +4739,6 @@
     "note": "deloitte.com resolves · deloitte.cl NXDOMAIN",
     "verified_at": "2026-05-23"
   },
-  "76255466-6": {
-    "domain": "sap.cl",
-    "razon_social": "SAP CHILE LIMITADA",
-    "sector": "infraestructura_digital",
-    "dns_verified": true,
-    "note": "sap.cl resolves",
-    "verified_at": "2026-05-23"
-  },
   "76307074-3": {
     "domain": "hcl.cl",
     "razon_social": "HCL TECHNOLOGIES CHILE SPA",
@@ -4845,14 +4843,6 @@
     "note": "defensacivil.cl resolves · confirmed A record · civil defense org",
     "verified_at": "2026-05-23"
   },
-  "77696828-5": {
-    "domain": "arcadiasolar.cl",
-    "razon_social": "ARCADIA GENERACIÓN SOLAR S.A.",
-    "sector": "energia_electrica",
-    "dns_verified": false,
-    "_note": "arcadiasolar.cl NXDOMAIN · arcadiageneracion.cl NXDOMAIN · solar SPE · no confirmed public domain",
-    "verified_at": "2026-05-23"
-  },
   "76975911-5": {
     "domain": "besalcotransmision.cl",
     "razon_social": "BESALCO TRANSMISIÓN SPA",
@@ -4861,28 +4851,12 @@
     "_note": "besalcotransmision.cl NXDOMAIN · Besalco transmission SPE · no confirmed standalone domain",
     "verified_at": "2026-05-23"
   },
-  "96766110-4": {
-    "domain": "energiacasablanca.cl",
-    "razon_social": "ENERGÍA DE CASABLANCA S.A.",
-    "sector": "energia_electrica",
-    "dns_verified": false,
-    "_note": "energiacasablanca.cl NXDOMAIN · eecasablanca.cl NXDOMAIN · no confirmed public domain",
-    "verified_at": "2026-05-23"
-  },
   "96866680-0": {
     "domain": "luzparral.cl",
     "razon_social": "LUZPARRAL S.A.",
     "sector": "energia_electrica",
     "dns_verified": false,
     "_note": "luzparral.cl NXDOMAIN · luzparral.com NXDOMAIN · luzlinares.cl NXDOMAIN · small distributor · no confirmed domain",
-    "verified_at": "2026-05-23"
-  },
-  "77282314-2": {
-    "domain": "transmisorcordillera.cl",
-    "razon_social": "TRANSMISORA ELÉCTRICA CORDILLERA SPA",
-    "sector": "energia_electrica",
-    "dns_verified": false,
-    "_note": "transmisorcordillera.cl NXDOMAIN · tcordillera.cl NXDOMAIN · no confirmed standalone domain",
     "verified_at": "2026-05-23"
   },
   "99576890-3": {
@@ -6912,13 +6886,6 @@
     "dns_verified": true,
     "verified_at": "2026-05-23"
   },
-  "76137106-1": {
-    "domain": "globallogic.cl",
-    "razon_social": "SOFTWARE, R&D SERVICES GLOBALLOGIC INC. CHILE LIMITADA",
-    "sector": "infraestructura_digital",
-    "dns_verified": true,
-    "verified_at": "2026-05-23"
-  },
   "76328123-K": {
     "domain": "stc.cl",
     "razon_social": "SOLUCIONES DE TECNOLOGIA Y COMUNICACIONES SPA",
@@ -7308,13 +7275,6 @@
   "76666113-0": {
     "domain": "whitestack.com",
     "razon_social": "WHITESTACK CHILE SPA",
-    "sector": "infraestructura_digital",
-    "dns_verified": true,
-    "verified_at": "2026-05-23"
-  },
-  "76363643-7": {
-    "domain": "widefense.cl",
-    "razon_social": "WIDEFENSE CHILE SPA",
     "sector": "infraestructura_digital",
     "dns_verified": true,
     "verified_at": "2026-05-23"

@@ -597,9 +597,9 @@ describe('v0.4.0 infraestructura_digital FULL UNIVERSE spot-checks', () => {
     );
   });
 
-  it('total table has ≥ 990 entries (909 official + migration batch)', () => {
+  it('total table has ≥ 985 entries (915 official Res87 + migration batch · post-v0.5.0 cleanup)', () => {
     const stats = getCoverageStats();
-    assert.ok(stats.total >= 990, `total entries must be ≥990, got ${stats.total}`);
+    assert.ok(stats.total >= 985, `total entries must be ≥985, got ${stats.total}`);
   });
 
   it('resolves 2080 Sistemas y Servicios (new infra_digital entry)', () => {
@@ -662,9 +662,9 @@ describe('v0.4.0 infraestructura_digital FULL UNIVERSE spot-checks', () => {
     assert.equal(r!.sector, 'infraestructura_digital');
   });
 
-  it('resolves GLOBALLOGIC INC. CHILE (new infra_digital entry)', () => {
-    const r = resolveBytable('76137106-1');
-    assert.ok(r, 'GlobalLogic should be in table');
+  it('resolves GLOBALLOGIC INC. CHILE (new infra_digital entry · post-v0.5.0 RUT correction)', () => {
+    const r = resolveBytable('76807300-0');
+    assert.ok(r, 'GlobalLogic should be in table (RUT corrected from 76137106-1 typo → 76807300-0 in v0.5.0)');
     assert.equal(r!.sector, 'infraestructura_digital');
   });
 
@@ -730,9 +730,9 @@ describe('v0.4.0 infraestructura_digital FULL UNIVERSE spot-checks', () => {
     assert.equal(r!.sector, 'infraestructura_digital');
   });
 
-  it('resolves WIDEFENSE CHILE SPA (second entity · 76363643-7)', () => {
-    const r = resolveBytable('76363643-7');
-    assert.ok(r, 'Widefense Chile SPA (76363643-7) should be in table');
+  it('resolves WIDEFENSE CHILE SPA (post-v0.5.0 RUT correction · 76363873-1)', () => {
+    const r = resolveBytable('76363873-1');
+    assert.ok(r, 'Widefense Chile SPA (76363873-1) should be in table (RUT corrected from 76363643-7 typo → 76363873-1 in v0.5.0)');
     assert.equal(r!.sector, 'infraestructura_digital');
   });
 

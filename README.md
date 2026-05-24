@@ -1,11 +1,11 @@
 # anci-oiv-resolver
 
-> Resolver canónico de nombres del registro chileno de Operadores de Importancia Vital (OIV) a sus dominios reales. Elimina los falsos positivos sistemáticos en investigación pasiva OSINT contra las 909 organizaciones reconocidas bajo la Ley 21.663 (Marco Nacional de Ciberseguridad).
+> Resolver canónico de nombres del registro chileno de Operadores de Importancia Vital (OIV) a sus dominios reales. Elimina los falsos positivos sistemáticos en investigación pasiva OSINT contra las 915 organizaciones reconocidas bajo la Ley 21.663 (Marco Nacional de Ciberseguridad).
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contacto_verificable-orange.svg)](#el-coverage-gap)
-[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-909_OIVs_mapped_(100%25)-brightgreen.svg)](#la-solución)
+[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-915_OIVs_mapped_(100%25)-brightgreen.svg)](#la-solución)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_de_10-brightgreen.svg)](#la-solución)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 [![CFP](https://img.shields.io/badge/LASCON_2026-en_evaluación-blue.svg)]()
@@ -14,7 +14,7 @@
 
 ## ¿Qué son los OIVs y por qué importa?
 
-Los **Operadores de Importancia Vital (OIVs)** son organizaciones reconocidas formalmente por el Estado de Chile como **críticas para la seguridad nacional**. La Ley 21.663 (Marco Nacional de Ciberseguridad · 2024) designa 909 organizaciones bajo esta categoría, incluyendo:
+Los **Operadores de Importancia Vital (OIVs)** son organizaciones reconocidas formalmente por el Estado de Chile como **críticas para la seguridad nacional**. La Ley 21.663 (Marco Nacional de Ciberseguridad · 2024) designa 915 organizaciones bajo esta categoría, incluyendo:
 
 | Sector | Ejemplos representativos |
 |--------|--------------------------|
@@ -46,16 +46,16 @@ Esta librería es útil para:
 - **Equipos de respuesta a incidentes** que correlacionan dominios con OIVs durante un incidente activo
 - **Reguladores y policy makers** que auditan la cobertura efectiva del marco normativo
 
-Si trabajas en alguna de estas áreas y has tenido que resolver "razón social ANCI → dominio real" manualmente, este tool lo automatiza para las **909 OIVs (100% del universo)** con verificación DNS honesta.
+Si trabajas en alguna de estas áreas y has tenido que resolver "razón social ANCI → dominio real" manualmente, este tool lo automatiza para las **915 OIVs (100% del universo)** con verificación DNS honesta.
 
 ## ¿Por qué construimos esto?
 
 Durante la investigación de la brecha de divulgación responsable en Chile (el "Coverage Gap" · ver paper companion), encontramos que **las herramientas automáticas que infieren dominios desde razones sociales fallan sistemáticamente**. El universo de OIVs registrados se distribuye así:
 
 ```
-909 OIVs registrados ANCI (Ley 21.663)
+915 OIVs registrados ANCI (Ley 21.663)
     │
-    └── 909 catalogados — este tool (100% universo)
+    └── 915 catalogados — este tool (100% universo)
         ├── 10 sectores cerrados 100%
         │   └── banca · telecomunicaciones · transporte · agua · empresas_estado
         │       combustibles · salud · administración_estado · energía_eléctrica
@@ -71,7 +71,7 @@ Esos errores de inferencia contaminan datasets de research académico, llenan in
 
 ## El problema
 
-De los **909 Operadores de Importancia Vital (OIVs)** registrados formalmente bajo la Ley 21.663 (Marco Nacional de Ciberseguridad), solo el **1.3% tiene un canal de contacto verificable** para recibir un reporte de divulgación responsable. Solo el 3.5% tiene un attack surface map público. Solo el 2.8% cumple con las condiciones mínimas para iniciar un proceso de disclosure coordinado bajo ISO/IEC 29147.
+De los **915 Operadores de Importancia Vital (OIVs)** registrados formalmente bajo la Ley 21.663 (Marco Nacional de Ciberseguridad), solo el **1.3% tiene un canal de contacto verificable** para recibir un reporte de divulgación responsable. Solo el 3.5% tiene un attack surface map público. Solo el 2.8% cumple con las condiciones mínimas para iniciar un proceso de disclosure coordinado bajo ISO/IEC 29147.
 
 Esta es la **primera capa estructural del Coverage Gap chileno**.
 
@@ -89,7 +89,7 @@ Sin un resolver canónico, cualquier herramienta que escanee OIVs chilenos gener
 
 ## La solución
 
-`anci-oiv-resolver` provee un mapping **RUT → dominio canónico** validado vía DNS, cubriendo las **909 de 909 OIVs (100%)** del universo oficial:
+`anci-oiv-resolver` provee un mapping **RUT → dominio canónico** validado vía DNS, cubriendo las **915 OIVs (100%)** del universo oficial:
 
 | Sector | Total | Verificado | Estado |
 |--------|-------|-----------|--------|
@@ -103,13 +103,13 @@ Sin un resolver canónico, cualquier herramienta que escanee OIVs chilenos gener
 | administracion_estado | 155/155 | 114/155 | 100% cerrado ⭐ |
 | energia_electrica | 147/147 | 60/147 | 100% cerrado ⭐ |
 | infraestructura_digital | 413/413 | 410/413 | 100% cerrado ⭐ v0.4.0 |
-| **TOTAL** | **909/909** | **~793/909** | **100% universo** |
+| **TOTAL** | **915/915** | **~793/915** | **100% universo** |
 
 > **~80% con dominios DNS verificados (A record). ~20% documentados honestamente**: NXDOMAIN · email-only (solo MX) · contratistas individuales sin web · compañías sin presencia pública. Sin sobreclaim de coverage técnico cuando no existe.
 
 Con fallback heurístico mejorado (normalización de acentos + strip de sufijos legales + brand-override map) cuando el RUT no está en la tabla.
 
-**909 OIVs catalogados · 100% universo ANCI · ~80% DNS-verificados · 10/10 sectores cerrados · OSINT pasivo · cero escaneo activo · v0.4.0**
+**915 OIVs catalogados · 100% universo ANCI · ~80% DNS-verificados · 10/10 sectores cerrados · OSINT pasivo · cero escaneo activo · v0.4.0**
 
 ## Instalación rápida
 
@@ -206,7 +206,7 @@ Exportadas para uso avanzado. Ver [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## El Coverage Gap
 
-**909 OIVs registrados. ~12 con contactos de disclosure documentados. ~32 con attack surface mapeado públicamente.**
+**915 OIVs registrados. ~12 con contactos de disclosure documentados. ~32 con attack surface mapeado públicamente.**
 
 Este es el Coverage Gap: la infraestructura crítica chilena opera en gran medida invisible para la comunidad de investigación de seguridad, no porque sea segura, sino porque la capa básica de reconocimiento (mapeo de dominios) nunca ha sido sistematizada.
 
@@ -266,7 +266,7 @@ Lee [CONTRIBUTING.md](CONTRIBUTING.md) para guidelines completos.
 
 - **v0.2.0 — PUBLICADO** — 367 entradas · 6 sectores cerrados al 100% · 40.4% cobertura universo
 - **v0.3.0 — PUBLICADO** — 644 entradas · 9 sectores cerrados al 100% · 70.8% cobertura universo
-- **v0.4.0 — PUBLICADO** — 909 OIVs catalogados · 100% universo ANCI · 10/10 sectores cerrados · ~80% DNS-verificados ⭐
+- **v0.4.0 — PUBLICADO** — 915 OIVs catalogados · 100% universo ANCI · 10/10 sectores cerrados · ~80% DNS-verificados ⭐
 - **Q3 2026** — v0.5.0 · CLI binary (`npx anci-oiv-resolver --rut X`) · reverse lookup · Zenodo DOI
 - **Q3 2026** — LASCON 2026 Austin TX (CFP en evaluación)
 - **Q4 2026** — Annual Report "State of OIV Cybersecurity Chile 2026"

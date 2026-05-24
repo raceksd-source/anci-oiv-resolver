@@ -2,7 +2,7 @@
 
 ## Scope
 
-This library implements passive domain resolution for Chilean Operadores de Importancia Vital (OIVs) registered under Ley 21.663 (Marco Nacional de Ciberseguridad de Chile, 2023). The registry published by ANCI (Agencia Nacional de Ciberseguridad) lists approximately 909 organizations across eleven critical infrastructure sectors.
+This library implements passive domain resolution for Chilean Operadores de Importancia Vital (OIVs) registered under Ley 21.663 (Marco Nacional de Ciberseguridad de Chile, 2023). The registry published by ANCI (Agencia Nacional de Ciberseguridad) lists approximately 915 organizations across eleven critical infrastructure sectors.
 
 ## Passive OSINT Principle
 
@@ -60,7 +60,7 @@ The known-domains table handles all documented cases above.
 
 ## Coverage Gap Context
 
-ANCI registered 909 OIVs as of May 2025. The Coverage Gap refers to the structural challenge that:
+ANCI registered 915 OIVs as of May 2025. The Coverage Gap refers to the structural challenge that:
 
 - Only ~1.3% of OIVs have a documented vulnerability disclosure contact
 - Only ~3.5% have any public attack surface mapping

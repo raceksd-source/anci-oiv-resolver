@@ -3,7 +3,7 @@
  *
  * Canonical Chilean OIV registry name → domain resolver.
  * Eliminates false-positive findings when running passive OSINT against
- * the 909 organizations registered under Ley 21.663 (Marco Nacional de Ciberseguridad).
+ * the 915 organizations registered under Ley 21.663 (Marco Nacional de Ciberseguridad).
  *
  * Resolution strategy (in order):
  *   1. RUT table lookup (known-domains.json · 77 entries · high confidence)

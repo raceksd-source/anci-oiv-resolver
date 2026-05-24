@@ -7,7 +7,7 @@
 
 import { resolveBatch, getCoverageStats } from '../src/index.js';
 
-// Sample of OIVs from different sectors — representative of the 909 OIV universe
+// Sample of OIVs from different sectors — representative of the 915 OIV universe
 const OIV_SAMPLE = [
   { rut: '97006000-6', razonSocial: 'BANCO DE CRÉDITO E INVERSIONES' },
   { rut: '97004000-5', razonSocial: 'BANCO DE CHILE' },
