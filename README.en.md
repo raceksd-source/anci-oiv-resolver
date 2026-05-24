@@ -1,11 +1,11 @@
 # anci-oiv-resolver
 
-> Canonical Chilean OIV registry name → domain resolver. Eliminates false-positive findings when running passive OSINT against the 909 organizations registered under Ley 21.663 (Marco Nacional de Ciberseguridad).
+> Canonical Chilean OIV registry name → domain resolver. Eliminates false-positive findings when running passive OSINT against the 915 organizations registered under Ley 21.663 (Marco Nacional de Ciberseguridad).
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contact-amber.svg)](#the-coverage-gap)
-[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-909_OIVs_(100%25)-brightgreen.svg)](#the-solution)
+[![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-915_OIVs_(100%25)-brightgreen.svg)](#the-solution)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_of_10-brightgreen.svg)](#the-solution)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 
@@ -13,7 +13,7 @@
 
 ## What are OIVs and why does this matter?
 
-**Operadores de Importancia Vital (OIVs)** — literally "Operators of Vital Importance" — are organizations formally recognized by the Chilean State as **critical to national security**. Ley 21.663 (Marco Nacional de Ciberseguridad · 2024) designates 909 organizations under this category, including:
+**Operadores de Importancia Vital (OIVs)** — literally "Operators of Vital Importance" — are organizations formally recognized by the Chilean State as **critical to national security**. Ley 21.663 (Marco Nacional de Ciberseguridad · 2024) designates 915 organizations under this category, including:
 
 | Sector | Representative examples |
 |--------|------------------------|
@@ -45,16 +45,16 @@ This library is useful for:
 - **Incident response teams** correlating domains with OIVs during an active incident
 - **Regulators and policy makers** auditing the effective coverage of the regulatory framework
 
-If you work in any of these areas and have had to manually resolve "ANCI legal name → real domain," this tool automates that for **all 909 OIVs (100% of the universe)** with honest per-entry DNS verification status.
+If you work in any of these areas and have had to manually resolve "ANCI legal name → real domain," this tool automates that for **all 915 OIVs (100% of the universe)** with honest per-entry DNS verification status.
 
 ## Why we built this
 
 During our research into Chile's responsible disclosure gap (the "Coverage Gap" — see companion paper), we found that **automated tools that infer domains from legal entity names fail systematically**. The registered OIV universe breaks down as follows:
 
 ```
-909 OIVs registered under ANCI (Ley 21.663)
+915 OIVs registered under ANCI (Ley 21.663)
     │
-    └── 909 catalogued — this tool (100% universe)
+    └── 915 catalogued — this tool (100% universe)
         ├── 10 sectors closed at 100%
         │   └── banking · telecoms · transport · water · state enterprises
         │       fuel · health · government admin · electricity
@@ -70,7 +70,7 @@ Those inference errors contaminate academic research datasets, deliver false rep
 
 ## El problema
 
-De los **909 operadores de importancia vital (OIVs)** registrados bajo Ley 21.663, solo el **1.3% tiene canal de contacto verificable** para reportar una vulnerabilidad. Solo el 3.5% tiene attack surface mapeado públicamente. **Esta es la primera capa estructural del Coverage Gap.**
+De los **915 operadores de importancia vital (OIVs)** registrados bajo Ley 21.663, solo el **1.3% tiene canal de contacto verificable** para reportar una vulnerabilidad. Solo el 3.5% tiene attack surface mapeado públicamente. **Esta es la primera capa estructural del Coverage Gap.**
 
 La segunda capa: **la inferencia heurística "razón social → dominio" produce falsos positivos sistemáticos**. Por ejemplo:
 
@@ -86,7 +86,7 @@ Without a canonical resolver, any tool that scans OIVs in Chile will fire findin
 
 ## The solution
 
-`anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, covering **all 909 of 909 OIVs (100%)** of the official registry:
+`anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, covering **all 915 OIVs (100%)** of the official registry:
 
 | Sector | Total | DNS Verified | Status |
 |--------|-------|-------------|--------|
@@ -100,15 +100,15 @@ Without a canonical resolver, any tool that scans OIVs in Chile will fire findin
 | administracion_estado | 155/155 | 114 | 100% closed ⭐ |
 | energia_electrica | 147/147 | 60 | 100% closed ⭐ |
 | infraestructura_digital | 413/413 | 410 | 100% closed ⭐ v0.4.0 |
-| **TOTAL** | **909/909** | **~793** | **100% universe** |
+| **TOTAL** | **915/915** | **~793** | **100% universe** |
 
 > **~80% DNS-verified (A record confirmed). ~20% honestly documented**: NXDOMAIN · email-only (MX only) · individual contractors · no public web. No overclaim of technical coverage where it does not exist.
 
-This dataset catalogues all 909 organizations formally designated as Operadores de Importancia Vital under Ley 21.663 (complete universe · 100% coverage). Approximately 80% of entries have publicly DNS-verified domains; the remaining 20% is documented honestly with their actual status (NXDOMAIN · email-only · defunct · or insufficient public information). No overclaim of technical coverage when it does not exist.
+This dataset catalogues all 915 organizations formally designated as Operadores de Importancia Vital under Ley 21.663 (complete universe · 100% coverage). Approximately 80% of entries have publicly DNS-verified domains; the remaining 20% is documented honestly with their actual status (NXDOMAIN · email-only · defunct · or insufficient public information). No overclaim of technical coverage when it does not exist.
 
 With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) when a RUT is not in the table.
 
-**909 OIVs catalogued · 100% ANCI universe · ~80% DNS-verified · 10/10 sectors closed · passive OSINT · zero active scanning · v0.4.0**
+**915 OIVs catalogued · 100% ANCI universe · ~80% DNS-verified · 10/10 sectors closed · passive OSINT · zero active scanning · v0.4.0**
 
 ## Quick start
 
@@ -198,7 +198,7 @@ npx tsx examples/cli-demo.ts --stats
 
 ## The Coverage Gap
 
-**909 OIVs registered. ~12 with documented disclosure contacts. ~32 with any public attack surface mapping.**
+**915 OIVs registered. ~12 with documented disclosure contacts. ~32 with any public attack surface mapping.**
 
 This is the Coverage Gap: Chilean critical infrastructure operates largely invisible to the security research community, not because it is secure, but because the basic reconnaissance layer (domain mapping) has never been systematized.
 
