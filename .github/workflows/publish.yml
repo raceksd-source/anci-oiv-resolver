@@ -97,9 +97,27 @@ jobs:
             exit 1
           fi
 
+      # Idempotency guard: if this exact version already exists on npm,
+      # skip the publish step (success) instead of failing with
+      # "cannot publish over previously published versions".
+      # Handles the case where `npm publish` ran manually before the tag was pushed
+      # (e.g., when a GitHub release is created post-hoc to trigger Zenodo DOI webhook).
+      - name: Check if version already published
+        id: version-check
+        run: |
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if npm view "${PKG_NAME}@${PKG_VERSION}" version > /dev/null 2>&1; then
+            echo "already-published=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::${PKG_NAME}@${PKG_VERSION} already on npm registry · skipping publish step"
+          else
+            echo "already-published=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # PRIMARY: Trusted Publishing (token-less, OIDC) + provenance via sigstore
       # Requires: Trusted Publisher configured at npmjs.com/package/anci-oiv-resolver/access
       - name: Publish to npm (Trusted Publishing + provenance)
+        if: steps.version-check.outputs.already-published != 'true'
         run: npm publish --provenance --access public
         env:
           NPM_CONFIG_PROVENANCE: 'true'
@@ -115,5 +133,9 @@ jobs:
       - name: Publish receipt
         run: |
           PKG_VERSION="$(node -p "require('./package.json').version")"
-          echo "Published anci-oiv-resolver@${PKG_VERSION} to npm"
+          if [ "${{ steps.version-check.outputs.already-published }}" = "true" ]; then
+            echo "anci-oiv-resolver@${PKG_VERSION} already on npm (publish step skipped · workflow succeeded)"
+          else
+            echo "Published anci-oiv-resolver@${PKG_VERSION} to npm"
+          fi
           echo "https://www.npmjs.com/package/anci-oiv-resolver/v/${PKG_VERSION}"
