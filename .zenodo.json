@@ -1,0 +1,46 @@
+{
+  "title": "anci-oiv-resolver: Canonical Chilean Critical Infrastructure Operator (OIV) Registry Resolver",
+  "description": "<p>Canonical name-to-domain resolver for the 915 Chilean Operadores de Importancia Vital (OIV) designated by Resolución Exenta N° 87 of the Agencia Nacional de Ciberseguridad (ANCI · 16-dic-2025) under Ley 21.663 (Marco Nacional de Ciberseguridad). Provides verified RUT → canonical domain mapping with DNS verification, sector classification, and 987 indexed entries (915 universe + migration batch). Apache 2.0 license · npm published · enables reproducible passive OSINT research on Chilean critical infrastructure without false-positive vendor reports.</p>",
+  "creators": [
+    {
+      "name": "Mellafe Zuvic, David",
+      "affiliation": "Independent Researcher · operating Reizan via AlmaAI SpA (RUT 78.387.715-5)",
+      "orcid": "0009-0001-3950-2505"
+    }
+  ],
+  "license": "Apache-2.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "cybersecurity",
+    "critical infrastructure",
+    "chile",
+    "ANCI",
+    "Ley 21.663",
+    "OIV",
+    "vulnerability disclosure",
+    "ISO/IEC 29147",
+    "OSINT",
+    "passive reconnaissance",
+    "LATAM",
+    "open source",
+    "npm",
+    "TypeScript",
+    "RUT resolver"
+  ],
+  "language": "eng",
+  "notes": "Companion tool to research published at https://reizan.io/papers · operated by AlmaAI SpA · RUT 78.387.715-5",
+  "communities": [],
+  "related_identifiers": [
+    {
+      "identifier": "https://www.npmjs.com/package/anci-oiv-resolver",
+      "relation": "isIdenticalTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://reizan.io/papers",
+      "relation": "isPartOf",
+      "resource_type": "publication-other"
+    }
+  ]
+}
