@@ -1,6 +1,6 @@
 {
   "name": "anci-oiv-resolver",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Canonical Chilean OIV registry name → domain resolver. Eliminates false-positive OSINT findings under Ley 21.663 (Marco Nacional de Ciberseguridad).",
   "type": "module",
   "main": "./dist/index.js",
