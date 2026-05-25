@@ -62,8 +62,8 @@ The known-domains table handles all documented cases above.
 
 ANCI registered 915 OIVs as of May 2025. The Coverage Gap refers to the structural challenge that:
 
-- Only ~1.3% of OIVs have a documented vulnerability disclosure contact
-- Only ~3.5% have any public attack surface mapping
+- Only a minimal fraction of OIVs have a documented vulnerability disclosure contact
+- A limited share have any public attack surface mapping
 - Domain-to-RUT mapping is a prerequisite for systematic passive reconnaissance
 
 This library addresses the domain-mapping prerequisite, enabling downstream tooling to run passive OSINT without generating false-positive findings against non-existent domains.

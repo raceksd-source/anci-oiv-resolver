@@ -4,7 +4,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
-[![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contacto_verificable-orange.svg)](#el-coverage-gap)
+[![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-brecha_estructural-orange.svg)](#el-coverage-gap)
 [![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-915_OIVs_mapped_(100%25)-brightgreen.svg)](#la-solución)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_de_10-brightgreen.svg)](#la-solución)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
@@ -71,7 +71,7 @@ Esos errores de inferencia contaminan datasets de research académico, llenan in
 
 ## El problema
 
-De los **915 Operadores de Importancia Vital (OIVs)** registrados formalmente bajo la Ley 21.663 (Marco Nacional de Ciberseguridad), solo el **1.3% tiene un canal de contacto verificable** para recibir un reporte de divulgación responsable. Solo el 3.5% tiene un attack surface map público. Solo el 2.8% cumple con las condiciones mínimas para iniciar un proceso de disclosure coordinado bajo ISO/IEC 29147.
+De los **915 Operadores de Importancia Vital (OIVs)** registrados formalmente bajo la Ley 21.663 (Marco Nacional de Ciberseguridad), **una fracción mínima cuenta con canal verificable de contacto** para recibir un reporte de divulgación responsable. La cobertura efectiva de attack surface público es limitada, y pocas organizaciones cumplen las condiciones mínimas para iniciar un proceso de disclosure coordinado conforme a los principios de ISO/IEC 29147.
 
 Esta es la **primera capa estructural del Coverage Gap chileno**.
 
@@ -206,7 +206,7 @@ Exportadas para uso avanzado. Ver [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## El Coverage Gap
 
-**915 OIVs registrados. ~12 con contactos de disclosure documentados. ~32 con attack surface mapeado públicamente.**
+**915 OIVs registrados. Una fracción cuenta con contactos de disclosure documentados o attack surface públicamente mapeado.**
 
 Este es el Coverage Gap: la infraestructura crítica chilena opera en gran medida invisible para la comunidad de investigación de seguridad, no porque sea segura, sino porque la capa básica de reconocimiento (mapeo de dominios) nunca ha sido sistematizada.
 

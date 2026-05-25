@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
-[![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-1.3%25_contact-amber.svg)](#the-coverage-gap)
+[![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-structural-amber.svg)](#the-coverage-gap)
 [![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-915_OIVs_(100%25)-brightgreen.svg)](#the-solution)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_of_10-brightgreen.svg)](#the-solution)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
@@ -70,7 +70,7 @@ Those inference errors contaminate academic research datasets, deliver false rep
 
 ## El problema
 
-De los **915 operadores de importancia vital (OIVs)** registrados bajo Ley 21.663, solo el **1.3% tiene canal de contacto verificable** para reportar una vulnerabilidad. Solo el 3.5% tiene attack surface mapeado públicamente. **Esta es la primera capa estructural del Coverage Gap.**
+De los **915 operadores de importancia vital (OIVs)** registrados bajo Ley 21.663, **una fracción mínima cuenta con canal verificable de contacto** para reportar una vulnerabilidad. La cobertura efectiva de attack surface público es limitada. **Esta es la primera capa estructural del Coverage Gap.**
 
 La segunda capa: **la inferencia heurística "razón social → dominio" produce falsos positivos sistemáticos**. Por ejemplo:
 
@@ -198,7 +198,7 @@ npx tsx examples/cli-demo.ts --stats
 
 ## The Coverage Gap
 
-**915 OIVs registered. ~12 with documented disclosure contacts. ~32 with any public attack surface mapping.**
+**915 OIVs registered. A small fraction have documented disclosure contacts or publicly mapped attack surface.**
 
 This is the Coverage Gap: Chilean critical infrastructure operates largely invisible to the security research community, not because it is secure, but because the basic reconnaissance layer (domain mapping) has never been systematized.
 
