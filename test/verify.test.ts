@@ -100,3 +100,167 @@ describe('batchVerify', () => {
     }
   );
 });
+
+// ──────────────────────────────────────────────────────────────────────────
+// v0.5.1 · multi-resolver fallback + richer status enum
+// ──────────────────────────────────────────────────────────────────────────
+
+describe('v0.5.1 · multi-resolver fallback', () => {
+  it(
+    'falls through to a public resolver when OS resolver fails and reports via',
+    { skip: SKIP_LIVE ? 'SKIP_LIVE_DNS set' : false },
+    async () => {
+      // On a hardened endpoint (DoH/NextDNS) the OS resolver returns ESERVFAIL
+      // for live domains; on a clean endpoint the OS resolver succeeds first.
+      // Either way, a live OIV domain MUST end up with status='live' and a
+      // valid `via` field.
+      const r = await verifyDomain('transbank.cl');
+      assert.ok(r.ok, 'transbank.cl must resolve through some resolver in the chain');
+      assert.equal(r.status, 'live');
+      assert.ok(r.via, '`via` must be set whenever status is defined');
+      assert.ok(
+        ['os', 'cloudflare', 'google', 'quad9'].includes(r.via!),
+        `via must be a known resolver, got ${r.via}`,
+      );
+      assert.ok(r.aRecords.length > 0, 'A records must be returned');
+    },
+  );
+
+  it(
+    'reports nxdomain (not serverr) for a guaranteed-unresolvable .invalid name',
+    { skip: SKIP_LIVE ? 'SKIP_LIVE_DNS set' : false },
+    async () => {
+      // RFC 2606 .invalid TLD: every public resolver returns ENOTFOUND.
+      // Whether the OS resolver returns ENOTFOUND or ESERVFAIL on a hardened
+      // endpoint, the public chain must converge on 'nxdomain'.
+      const r = await verifyDomain('this-domain-absolutely-does-not-exist-v051.invalid');
+      assert.equal(r.ok, false);
+      assert.equal(r.status, 'nxdomain', `expected nxdomain, got status=${r.status} via=${r.via} error=${r.error}`);
+    },
+  );
+
+  it(
+    'unlocks a domain that the OS resolver may mis-report (regression for Coverage Gap audit)',
+    { skip: SKIP_LIVE ? 'SKIP_LIVE_DNS set' : false },
+    async () => {
+      // aguasandinas.cl is one of the 13 domains in the Opus 4.7 v0.5.1 audit
+      // that returned ESERVFAIL on the founder's hardened endpoint but resolves
+      // correctly via Cloudflare/Google/Quad9. The fallback chain MUST recover.
+      const r = await verifyDomain('aguasandinas.cl');
+      assert.ok(
+        r.ok,
+        `aguasandinas.cl must resolve (got ok=${r.ok} status=${r.status} via=${r.via} error=${r.error})`,
+      );
+      assert.equal(r.status, 'live');
+    },
+  );
+});
+
+describe('v0.5.1 · status enum semantics', () => {
+  it('returns ok=true and status=live for live A-record domains', async () => {
+    const r = await verifyDomain('example.com');
+    if (SKIP_LIVE) {
+      // Skip-DNS path: just assert shape · status MAY be undefined under offline DNS
+      assert.ok(typeof r.ok === 'boolean');
+      return;
+    }
+    assert.equal(r.ok, true);
+    assert.equal(r.status, 'live');
+  });
+
+  it('always sets status alongside via when network is reachable', async () => {
+    const r = await verifyDomain('example.com');
+    if (!r.ok && r.status === undefined) {
+      // No network in this environment · acceptable, do not fail the suite.
+      return;
+    }
+    // status and via must agree: status set ⇒ via set, and vice versa
+    if (r.status !== undefined) {
+      assert.ok(r.via, 'via must be set whenever status is set');
+    }
+  });
+
+  it('preserves the legacy ok field for backwards compatibility', async () => {
+    const r = await verifyDomain('example.com');
+    // ok is true iff status === 'live' (mail_only and others map to ok=false)
+    if (r.status === 'live') assert.equal(r.ok, true);
+    else if (r.status !== undefined) assert.equal(r.ok, false);
+  });
+});
+
+describe('v0.5.1 · catalog dedup integrity', () => {
+  it('every domain shared by 2+ RUTs has a documented duplicate_audit entry', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const url = await import('node:url');
+    const dataPath = path.join(
+      path.dirname(url.fileURLToPath(import.meta.url)),
+      '..',
+      'data',
+      'known-domains.json',
+    );
+    const raw = JSON.parse(fs.readFileSync(dataPath, 'utf-8')) as Record<string, unknown>;
+
+    // Build domain → RUTs map from real entries (skip _meta keys)
+    const domainToRuts = new Map<string, string[]>();
+    for (const [k, v] of Object.entries(raw)) {
+      if (k.startsWith('_')) continue;
+      if (!v || typeof v !== 'object') continue;
+      const entry = v as { domain?: unknown };
+      if (typeof entry.domain !== 'string') continue;
+      const list = domainToRuts.get(entry.domain) ?? [];
+      list.push(k);
+      domainToRuts.set(entry.domain, list);
+    }
+
+    const meta = raw['_meta'] as { duplicate_audit?: Record<string, unknown> } | undefined;
+    const audit = meta?.duplicate_audit ?? {};
+    const missing: string[] = [];
+    for (const [domain, ruts] of domainToRuts.entries()) {
+      if (ruts.length > 1 && !(domain in audit)) missing.push(domain);
+    }
+    assert.equal(
+      missing.length,
+      0,
+      `Every shared domain must be in _meta.duplicate_audit. Missing: ${missing.join(', ')}`,
+    );
+  });
+
+  it('essat.cl is now assigned to exactly one RUT (Atacama, post-Opus v0.5.1 fix)', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const url = await import('node:url');
+    const dataPath = path.join(
+      path.dirname(url.fileURLToPath(import.meta.url)),
+      '..',
+      'data',
+      'known-domains.json',
+    );
+    const raw = JSON.parse(fs.readFileSync(dataPath, 'utf-8')) as Record<string, unknown>;
+    const ruts: string[] = [];
+    for (const [k, v] of Object.entries(raw)) {
+      if (k.startsWith('_')) continue;
+      const entry = v as { domain?: unknown };
+      if (entry && entry.domain === 'essat.cl') ruts.push(k);
+    }
+    assert.equal(ruts.length, 1, `essat.cl must map to exactly one RUT, got ${ruts.length}: ${ruts.join(', ')}`);
+    assert.equal(ruts[0], '91065000-9', 'essat.cl must belong to EMSSAT Atacama (91065000-9)');
+  });
+
+  it('EMSSAT Coquimbo (91071000-7) now maps to aguasdelvalle.com (live)', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const url = await import('node:url');
+    const dataPath = path.join(
+      path.dirname(url.fileURLToPath(import.meta.url)),
+      '..',
+      'data',
+      'known-domains.json',
+    );
+    const raw = JSON.parse(fs.readFileSync(dataPath, 'utf-8')) as Record<string, unknown>;
+    const entry = raw['91071000-7'] as { domain?: string; dns_verified?: boolean } | undefined;
+    assert.ok(entry, 'EMSSAT Coquimbo (91071000-7) must exist');
+    assert.equal(entry!.domain, 'aguasdelvalle.com', 'Coquimbo domain must be aguasdelvalle.com (Aguas del Valle group)');
+    assert.equal(entry!.dns_verified, true, 'aguasdelvalle.com is live · must be dns_verified=true');
+  });
+});

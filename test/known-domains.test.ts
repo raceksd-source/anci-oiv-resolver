@@ -43,12 +43,13 @@ describe('resolveBytable', () => {
     assert.equal(r!.confidence, 1.0);
   });
 
-  it('resolves Banco del Estado (note: .cl NXDOMAIN, confidence lower)', () => {
+  it('resolves Banco del Estado (bancoestado.cl · mail_only Layer-1 in v0.5.1)', () => {
     const r = resolveBytable('97030000-7');
     assert.ok(r);
     assert.equal(r!.domain, 'bancoestado.cl');
-    // dns_verified=false → confidence 0.85
-    assert.equal(r!.confidence, 0.85);
+    // v0.5.1: bancoestado.cl is mail_only (MX present, no A) → Layer-1 valid → dns_verified=true → confidence 1.0
+    // Previously (v0.5.0) this entry carried dns_verified=false and confidence 0.85.
+    assert.equal(r!.confidence, 1.0);
   });
 
   it('resolves ANCI (government cyber agency)', () => {
