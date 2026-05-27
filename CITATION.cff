@@ -7,6 +7,7 @@ authors:
     family-names: Mellafe Zuvic
     affiliation: "Independent Security Researcher · Chile"
     email: david@reizan.io
+    orcid: "https://orcid.org/0009-0001-3950-2505"
 identifiers:
   - type: url
     value: "https://github.com/raceksd-source/anci-oiv-resolver"
@@ -15,11 +16,15 @@ url: "https://dmzs.dev/research"
 abstract: >-
   Canonical Chilean OIV (Ley 21.663) registry name to domain resolver.
   Eliminates false-positive findings when running passive OSINT against
-  the 909 organizations registered under Chile's Marco Nacional de Ciberseguridad.
-  Provides a RUT → canonical domain mapping (77 verified entries, v0.1.0)
-  with DNS-verified fallback heuristic for unresolved entries.
-  Companion software to the working paper "Coverage Gap in Chilean Critical
-  Infrastructure Cybersecurity: An Automated OSINT Assessment" (Mellafe, 2026).
+  the 915 organizations registered under Chile's Marco Nacional de Ciberseguridad
+  (Resolución Exenta N° 87 ANCI · 16-Dic-2025).
+  Provides a RUT → canonical domain mapping with multi-resolver DNS verification
+  (OS → Cloudflare → Google → Quad9 fallback chain · v0.5.1) and richer
+  distinguished status enum (live · mail_only · nxdomain · registered_no_a ·
+  serverr · timeout · unknown) for peer-review-defensible reproducibility on
+  hardened-endpoint environments. Companion software to the working paper
+  "Coverage Gap in Chilean Critical Infrastructure Cybersecurity: An Automated
+  OSINT Assessment" (Mellafe, 2026).
 keywords:
   - cybersecurity
   - ciberseguridad
@@ -34,5 +39,5 @@ keywords:
   - anci
   - oiv
 license: Apache-2.0
-version: 0.1.0
-date-released: "2026-05-23"
+version: 0.5.1
+date-released: "2026-05-27"

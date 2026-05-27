@@ -6,6 +6,7 @@
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-structural-amber.svg)](#the-coverage-gap)
 [![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-915_OIVs_(100%25)-brightgreen.svg)](#the-solution)
+[![DNS Verified](https://img.shields.io/badge/Layer--1_Verified-83.5%25_(v0.5.1)-brightgreen.svg)](#verification-semantics-v051)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_of_10-brightgreen.svg)](#the-solution)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 
@@ -88,27 +89,43 @@ Without a canonical resolver, any tool that scans OIVs in Chile will fire findin
 
 `anci-oiv-resolver` provides a RUT → domain mapping validated against DNS, covering **all 915 OIVs (100%)** of the official registry:
 
-| Sector | Total | DNS Verified | Status |
+| Sector | Total | Layer-1 Verified (v0.5.1) | Status |
 |--------|-------|-------------|--------|
-| banca_finanzas | 34/34 | 31 | 100% closed ⭐ |
-| telecomunicaciones | 29/29 | 24 | 100% closed ⭐ |
-| transporte | 25/25 | 21 | 100% closed ⭐ |
-| agua | 25/25 | 9 | 100% closed ⭐ |
-| empresas_estado | 20/20 | 16 | 100% closed ⭐ |
-| combustibles | 25/25 | 22 | 100% closed ⭐ |
-| salud | 111/111 | 86 | 100% closed ⭐ |
-| administracion_estado | 155/155 | 114 | 100% closed ⭐ |
-| energia_electrica | 147/147 | 60 | 100% closed ⭐ |
-| infraestructura_digital | 413/413 | 410 | 100% closed ⭐ v0.4.0 |
-| **TOTAL** | **915/915** | **~793** | **100% universe** |
+| banca_finanzas | 34/34 | 34 (100%) | 100% closed ⭐ |
+| telecomunicaciones | 29/29 | 24 (82.8%) | 100% closed ⭐ |
+| transporte | 25/25 | 22 (88.0%) | 100% closed ⭐ |
+| agua | 25/25 | 12 (48.0%) | 100% closed ⭐ |
+| empresas_estado | 20/20 | 18 (90.0%) | 100% closed ⭐ |
+| combustibles | 25/25 | 18 (72.0%) | 100% closed ⭐ |
+| salud | 123/123 | 94 (76.4%) | 100% closed ⭐ |
+| administracion_estado | 146/146 | 122 (83.6%) | 100% closed ⭐ |
+| energia_electrica | 147/147 | 71 (48.3%) | 100% closed ⭐ |
+| infraestructura_digital | 413/413 | 409 (99.0%) | 100% closed ⭐ v0.4.0 |
+| **TOTAL** | **987 entries · 915 OIV universe** | **824 (83.5%)** | **100% universe** |
 
-> **~80% DNS-verified (A record confirmed). ~20% honestly documented**: NXDOMAIN · email-only (MX only) · individual contractors · no public web. No overclaim of technical coverage where it does not exist.
+> **83.5% Layer-1 verified (A-record `live` or MX-only `mail_only`). 16.5% honestly documented**: NXDOMAIN · no records · individual contractors · no public web. No overclaim of technical coverage where it does not exist.
 
-This dataset catalogues all 915 organizations formally designated as Operadores de Importancia Vital under Ley 21.663 (complete universe · 100% coverage). Approximately 80% of entries have publicly DNS-verified domains; the remaining 20% is documented honestly with their actual status (NXDOMAIN · email-only · defunct · or insufficient public information). No overclaim of technical coverage when it does not exist.
+This dataset catalogues all 915 organizations formally designated as Operadores de Importancia Vital under Ley 21.663 (complete universe · 100% coverage). The Layer-1 verification rate is 83.5% as of v0.5.1, distributed as `live` (A or AAAA record) plus `mail_only` (no A but MX present, registered mail-only domain). The remainder is documented per-entry with its actual status. No overclaim of technical coverage where it does not exist.
 
-With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) when a RUT is not in the table.
+With improved heuristic fallback (accent-normalize + stopword-strip + brand-override map) when a RUT is not in the table, and **multi-resolver fallback chain (OS → Cloudflare → Google → Quad9)** introduced in v0.5.1 so the same verification result is reproducible on hardened endpoints (DoH, NextDNS, corporate filters).
 
-**915 OIVs catalogued · 100% ANCI universe · ~80% DNS-verified · 10/10 sectors closed · passive OSINT · zero active scanning · v0.4.0**
+**915 OIVs catalogued · 100% ANCI universe · 83.5% Layer-1 verified · 10/10 sectors closed · passive OSINT · zero active scanning · v0.5.1**
+
+## Verification semantics (v0.5.1)
+
+Starting in v0.5.1 every catalog entry and every `verifyDomain()` return carries a distinguished `status`. The distinction matters because hardened-endpoint DNS (DoH, NextDNS, corporate filters) often misreports `NXDOMAIN` as `ESERVFAIL` and produces false negatives on perfectly live domains.
+
+| Status | Meaning | Counts as Layer-1 verified |
+|---|---|---|
+| `live` | At least one A or AAAA record | ✓ Yes |
+| `mail_only` | No A/AAAA but MX present (domain registered, mail-only) | ✓ Yes |
+| `registered_no_a` | `ENODATA` from public resolvers (registered · no A/MX) | ✗ No |
+| `nxdomain` | `ENOTFOUND` from public resolvers (domain does not exist) | ✗ No |
+| `serverr` | Every resolver returned `ESERVFAIL` (cannot conclude) | ✗ No |
+| `timeout` | Every resolver in the chain timed out | ✗ No |
+| `unknown` | Chain exhausted with no canonical code | ✗ No |
+
+`verifyDomain()` tries the OS resolver first (fast path) · on any non-authoritative failure it falls through **1.1.1.1 → 8.8.8.8 → 9.9.9.9**. Each result includes a `via` field that lets independent reviewers reproduce a finding against the same resolver chain.
 
 ## Quick start
 

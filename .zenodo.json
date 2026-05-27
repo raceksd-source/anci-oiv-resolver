@@ -1,6 +1,8 @@
 {
   "title": "anci-oiv-resolver: Canonical Chilean Critical Infrastructure Operator (OIV) Registry Resolver",
-  "description": "<p>Canonical name-to-domain resolver for the 915 Chilean Operadores de Importancia Vital (OIV) designated by Resolución Exenta N° 87 of the Agencia Nacional de Ciberseguridad (ANCI · 16-dic-2025) under Ley 21.663 (Marco Nacional de Ciberseguridad). Provides verified RUT → canonical domain mapping with DNS verification, sector classification, and 987 indexed entries (915 universe + migration batch). Apache 2.0 license · npm published · enables reproducible passive OSINT research on Chilean critical infrastructure without false-positive vendor reports.</p>",
+  "version": "0.5.1",
+  "publication_date": "2026-05-27",
+  "description": "<p>Canonical name-to-domain resolver for the 915 Chilean Operadores de Importancia Vital (OIV) designated by Resolución Exenta N° 87 of the Agencia Nacional de Ciberseguridad (ANCI · 16-dic-2025) under Ley 21.663 (Marco Nacional de Ciberseguridad). Provides verified RUT → canonical domain mapping with multi-resolver DNS verification (OS → Cloudflare → Google → Quad9 fallback chain · v0.5.1), sector classification, and 987 indexed entries (915 universe + migration batch). v0.5.1 introduces a richer distinguished status enum (live · mail_only · nxdomain · registered_no_a · serverr · timeout · unknown) and a documented duplicate audit for peer-review-defensible reproducibility on hardened-endpoint DNS environments (DoH, NextDNS, corporate filters). Apache 2.0 license · npm published · enables reproducible passive OSINT research on Chilean critical infrastructure without false-positive vendor reports. Layer-1 verification rate: 83.5% (824/987 entries · live A-record or mail-only MX).</p>",
   "creators": [
     {
       "name": "Mellafe Zuvic, David",
