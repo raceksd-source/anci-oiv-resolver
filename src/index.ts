@@ -18,7 +18,7 @@
 import { resolveBytable } from './known-domains.js';
 import { heuristicInfer } from './heuristic.js';
 import { verifyDomain } from './verify.js';
-import type { OIVDomainResolution, ResolveOptions } from './types.js';
+import type { OIVDomainResolution, ResolveOptions, VerifyResult } from './types.js';
 
 /**
  * Resolve the canonical web domain for a Chilean OIV organization.
@@ -40,11 +40,7 @@ export async function resolveOIVDomain(
   if (tableMatch) {
     if (options.verify) {
       const dns = await verifyDomain(tableMatch.domain);
-      return {
-        ...tableMatch,
-        verified: dns.ok,
-        mxRecords: dns.mxRecords.length > 0 ? dns.mxRecords : null,
-      };
+      return decorate(tableMatch, dns);
     }
     return { ...tableMatch, verified: null, mxRecords: null };
   }
@@ -54,14 +50,28 @@ export async function resolveOIVDomain(
 
   if (options.verify) {
     const dns = await verifyDomain(inferred.domain);
-    return {
-      ...inferred,
-      verified: dns.ok,
-      mxRecords: dns.mxRecords.length > 0 ? dns.mxRecords : null,
-    };
+    return decorate(inferred, dns);
   }
 
   return { ...inferred, verified: null, mxRecords: null };
+}
+
+/**
+ * Merge a verification result onto a partial resolution, conditionally setting
+ * the optional `status` and `via` fields (required by exactOptionalPropertyTypes).
+ */
+function decorate(
+  base: Omit<OIVDomainResolution, 'verified' | 'mxRecords'>,
+  dns: VerifyResult,
+): OIVDomainResolution {
+  const out: OIVDomainResolution = {
+    ...base,
+    verified: dns.ok,
+    mxRecords: dns.mxRecords.length > 0 ? dns.mxRecords : null,
+  };
+  if (dns.status !== undefined) out.status = dns.status;
+  if (dns.via !== undefined) out.via = dns.via;
+  return out;
 }
 
 /**
@@ -101,6 +111,8 @@ export type {
   OIVSector,
   ResolutionSource,
   VerifyResult,
+  VerifyStatus,
+  VerifyResolver,
   ResolveOptions,
   CoverageStats,
   KnownDomainEntry,
