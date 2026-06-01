@@ -101,7 +101,7 @@ export async function resolveBatch(
 
 // Re-export primitives for advanced usage
 export { resolveBytable, heuristicInfer, verifyDomain };
-export { getCoverageStats, getAllEntries, normalizeRut } from './known-domains.js';
+export { getCoverageStats, getAllEntries, normalizeRut, hasEntry } from './known-domains.js';
 export { normalizeAccents, inferDomainToken } from './heuristic.js';
 export { batchVerify } from './verify.js';
 

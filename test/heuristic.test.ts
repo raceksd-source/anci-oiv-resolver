@@ -4,7 +4,7 @@
 
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { heuristicInfer, inferDomainToken, normalizeAccents } from '../src/heuristic.js';
+import { heuristicInfer, inferDomainToken, normalizeAccents, inferTld } from '../src/heuristic.js';
 
 describe('normalizeAccents', () => {
   it('removes common Spanish accent marks', () => {
@@ -107,5 +107,61 @@ describe('heuristicInfer', () => {
 
   it('handles empty string without throwing', () => {
     assert.doesNotThrow(() => heuristicInfer(''));
+  });
+});
+
+// ──────────────────────────────────────────────────────────────────────────
+// audit/v0.5.2 · expanded gobPatterns regression guard
+// ──────────────────────────────────────────────────────────────────────────
+
+describe('inferTld · expanded .gob.cl stems (audit v0.5.2)', () => {
+  it('returns .gob.cl for "tesoreria" stem in administracion_estado (was .cl before fix)', () => {
+    assert.equal(inferTld('administracion_estado', 'tesoreria'), '.gob.cl');
+  });
+
+  it('returns .gob.cl for "dipres" stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'dipres'), '.gob.cl');
+  });
+
+  it('returns .gob.cl for "hacienda" stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'hacienda'), '.gob.cl');
+  });
+
+  it('returns .gob.cl for "fne" stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'fne'), '.gob.cl');
+  });
+
+  it('returns .gob.cl for "inapi" stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'inapi'), '.gob.cl');
+  });
+
+  it('returns .gob.cl for "dpp" stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'dpp'), '.gob.cl');
+  });
+
+  it('returns .gob.cl for "subtrans" stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'subtrans'), '.gob.cl');
+  });
+
+  it('returns .cl for non-gob stem in administracion_estado', () => {
+    assert.equal(inferTld('administracion_estado', 'registrocivil'), '.cl');
+  });
+
+  it('returns .cl for any stem outside administracion_estado', () => {
+    assert.equal(inferTld('salud', 'tesoreria'), '.cl');
+    assert.equal(inferTld('banca_finanzas', 'hacienda'), '.cl');
+  });
+
+  it('heuristicInfer produces tesoreria.gob.cl for Tesorería General in admin_estado', () => {
+    // Before fix: gobPatterns was a 6-item list, missing tesoreria → .cl
+    const r = heuristicInfer('TESORERÍA GENERAL DE LA REPÚBLICA', '', 'administracion_estado');
+    assert.equal(r.domain, 'tesoreria.gob.cl', `expected tesoreria.gob.cl, got ${r.domain}`);
+  });
+
+  it('heuristicInfer produces *.gob.cl (not *.cl) for Subsecretaría de Hacienda', () => {
+    // No brand override for this razon social, so heuristic concatenates tokens.
+    // The important thing is the TLD is .gob.cl, not .cl, because 'hacienda' is in GOB_CL_STEMS.
+    const r = heuristicInfer('SUBSECRETARÍA DE HACIENDA', '', 'administracion_estado');
+    assert.ok(r.domain.endsWith('.gob.cl'), `expected *.gob.cl TLD, got ${r.domain}`);
   });
 });

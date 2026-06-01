@@ -9,6 +9,7 @@
 [![DNS Verified](https://img.shields.io/badge/Layer--1_Verified-83.5%25_(v0.5.1)-brightgreen.svg)](#verification-semantics-v051)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_of_10-brightgreen.svg)](#the-solution)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
+[![CFP](https://img.shields.io/badge/LASCON_2026-under_review-blue.svg)]()
 
 [Versión en español](README.md)
 
