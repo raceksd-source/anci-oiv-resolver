@@ -18,6 +18,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - v0.6.0 · Add 12 missing administracion_estado OIVs (Res 87 reconciliation gap)
 - v0.6.x · Integrate Res 85 (April 2026) second procedure entries when published in DOM
 
+## [0.5.2] - 2026-06-01
+
+> Precision audit sprint for the Coverage Gap paper companion tool. All changes are
+> scope-limited to RUT→domain mapping accuracy and public API surface. No findings,
+> CVSS scores, or internal research data are exposed.
+
+### Fixed
+- **`src/heuristic.ts` · `GOB_CL_STEMS` expanded from 6 → 52 catalog-derived stems.**
+  The v0.5.1 list covered only 6 of the 55 `.gob.cl` OIV domains in the
+  `administracion_estado` sector, causing 49 government agencies to receive a
+  heuristic `.cl` TLD instead of `.gob.cl`. The corrected list was derived by
+  auditing every `administracion_estado` entry in the v0.5.1 catalog and
+  extracting the token stem for each `.gob.cl` domain. Affected stems include
+  `tesoreria`, `dipres`, `hacienda`, `fne`, `inapi`, `dpp`, `subtrans`, and
+  45 others. The fix is covered by 11 new regression tests in
+  `test/heuristic.test.ts` (suite "inferTld · expanded .gob.cl stems (audit v0.5.2)").
+
+### Added
+- **`hasEntry(rut: string): boolean` exported from package public API.**
+  Previously available internally but not re-exported through `src/index.ts`.
+  Consumers can now check whether a RUT has a table entry without calling
+  `resolveBytable` and testing for null. Export verified by the new
+  `public-api.test.ts` suite ("hasEntry is reachable from package index (audit v0.5.2 fix)").
+
+### Tests
+- 165 tests · 24 suites · 0 failures (up from 154 tests in v0.5.1).
+- New suite `inferTld · expanded .gob.cl stems (audit v0.5.2)` — 11 tests covering
+  representative .gob.cl stems, `.cl` non-gob fallback, and end-to-end
+  `heuristicInfer` for Tesorería General and Subsecretaría de Hacienda.
+- New test `hasEntry is reachable from package index (audit v0.5.2 fix)` in
+  `test/public-api.test.ts`.
+
+### Changed
+- `package.json` version 0.5.1 → **0.5.2**
+
 ## [0.5.1] - 2026-05-26
 
 > Pre-publish precision sprint preceding the Coverage Gap paper (2026-06-04). Companion to the Opus 4.7 MAX resolver precision audit (2026-05-26 · TLP:AMBER internal). Headline numbers in the paper are unchanged; this release upgrades peer-review defensibility and reproducibility for independent reviewers operating on hardened-endpoint DNS.

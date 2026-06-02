@@ -3,7 +3,7 @@
     "description": "Canonical OIV domain registry · DNS-verified entries · Ley 21.663 Chile",
     "format": "rut → { domain, razon_social, sector, dns_verified, verified_at, _note? }",
     "generated": "2026-05-26",
-    "version": "v0.5.1-resolver-precision",
+    "version": "v0.5.2",
     "total_entries": 987,
     "verified_entries": 824,
     "unverified_entries": 163,
