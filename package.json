@@ -18,7 +18,8 @@
     "test:no-dns": "SKIP_LIVE_DNS=1 tsx --test test/*.test.ts",
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && npm run typecheck:compat",
+    "typecheck:compat": "tsc --noEmit --strict --exactOptionalPropertyTypes --module NodeNext --moduleResolution NodeNext --target ES2022 --skipLibCheck test/types/compat-matrix.ts",
     "reverify:honest": "node scripts/reverify-multiresolver-honest.mjs",
     "bake-status": "npm run build && node scripts/bake-domain-status.mjs",
     "prepublishOnly": "npm run build && npm run test:no-dns"

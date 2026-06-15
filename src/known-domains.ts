@@ -10,7 +10,7 @@ import type {
   KnownDomainsFile,
   OIVDomainResolution,
   CoverageStats,
-  ResolveOptions,
+  ResolveOptionsWithStatus,
 } from './types.js';
 
 // Load and parse the known-domains JSON at module init (sync, one-shot)
@@ -105,7 +105,7 @@ export function hasEntry(rut: string): boolean {
  * table — identical to v0.5.2 behavior.
  */
 export function getAllEntries(
-  options: Pick<ResolveOptions, 'onlyResolving'> = {},
+  options: Pick<ResolveOptionsWithStatus, 'onlyResolving'> = {},
 ): Array<{ rut: string } & KnownDomainEntry> {
   const all = Array.from(getTable().entries()).map(([rut, entry]) => ({ rut, ...entry }));
   if (options.onlyResolving) return all.filter(isResolving);

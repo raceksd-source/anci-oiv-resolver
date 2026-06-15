@@ -18,7 +18,12 @@
 import { resolveBytable } from './known-domains.js';
 import { heuristicInfer } from './heuristic.js';
 import { verifyDomain } from './verify.js';
-import type { OIVDomainResolution, ResolveOptions, VerifyResult } from './types.js';
+import type {
+  OIVDomainResolution,
+  ResolveOptions,
+  ResolveOptionsWithStatus,
+  VerifyResult,
+} from './types.js';
 
 /**
  * Resolve the canonical web domain for a Chilean OIV organization.
@@ -31,11 +36,48 @@ import type { OIVDomainResolution, ResolveOptions, VerifyResult } from './types.
  *          v0.6.0 · returns `null` ONLY when `options.onlyResolving === true` and the
  *          (table-sourced) entry's baked `domain_status` is not `'resolving'`. Callers
  *          that do not opt in never receive `null` (v0.5.2 behavior unchanged).
+ *
+ * Backward-compat overloads (FIX v0.6.0): the v0.5.2 return type
+ * `Promise<OIVDomainResolution>` (NEVER null) is preserved for every call that does
+ * NOT set `onlyResolving: true`. Strict-mode consumers can dereference the result
+ * directly without a TS18047 ("possibly null") error. The nullable union is
+ * exposed ONLY to the explicit `{ onlyResolving: true }` opt-in.
  */
+// Overload 1 · no options → non-null (v0.5.2 contract, unchanged).
 export async function resolveOIVDomain(
   rut: string,
   razonSocial: string,
-  options: ResolveOptions = {}
+): Promise<OIVDomainResolution>;
+// Overload 2 · a plain `ResolveOptions` (which has NO `onlyResolving`), or one that
+// passes `onlyResolving` as `false` / `undefined` → non-null. Because the exported
+// `ResolveOptions` is `{ verify?: boolean }`, a value typed as `ResolveOptions`
+// (object-literal OR variable) is assignable to this option type, so it ALWAYS
+// selects this non-null overload — restoring the v0.5.2 contract. The
+// `onlyResolving?: false | undefined` member only widens this overload to also
+// accept an explicit `onlyResolving: false`.
+export async function resolveOIVDomain(
+  rut: string,
+  razonSocial: string,
+  options: ResolveOptions & { onlyResolving?: false | undefined },
+): Promise<OIVDomainResolution>;
+// Overload 3 · the ONLY nullable path: explicit { onlyResolving: true }. A plain
+// `ResolveOptions` can never reach here (it lacks the required `onlyResolving: true`),
+// so the nullable union is strictly opt-in.
+export async function resolveOIVDomain(
+  rut: string,
+  razonSocial: string,
+  options: ResolveOptions & { onlyResolving: true },
+): Promise<OIVDomainResolution | null>;
+// Implementation signature (union-typed; not part of the public overload set).
+// The option type explicitly includes `undefined` in `onlyResolving` so that, under
+// exactOptionalPropertyTypes, it is a supertype of all three overloads' option shapes
+// (omitted / false|undefined / true) — each overload is then assignable to it. (A bare
+// `onlyResolving?: boolean` would exclude the `undefined` value-type and reject the
+// `false | undefined` overload → TS2394.)
+export async function resolveOIVDomain(
+  rut: string,
+  razonSocial: string,
+  options: ResolveOptions & { onlyResolving?: boolean | undefined } = {}
 ): Promise<OIVDomainResolution | null> {
   // 1st pass: table lookup by RUT
   const tableMatch = resolveBytable(rut);
@@ -98,22 +140,36 @@ function decorate(
  */
 export async function resolveBatch(
   entries: Array<{ rut: string; razonSocial: string }>,
-  options: ResolveOptions = {}
+  options: ResolveOptionsWithStatus = {}
 ): Promise<OIVDomainResolution[]> {
+  // Branch on the onlyResolving opt-in so each internal call hits a CONCRETE
+  // overload: the non-filtering branch resolves through the non-null overloads
+  // (v0.5.2 behavior), and only the explicit { onlyResolving: true } branch can
+  // produce nulls (which are then dropped from the batch). This keeps the public
+  // overloads strictly typed for callers that pass a generic ResolveOptions.
+  const onlyResolving = options.onlyResolving === true;
+  const errEntry = (rut: string, razonSocial: string, err: unknown): OIVDomainResolution => ({
+    domain: '',
+    source: 'heuristic' as const,
+    rut,
+    razonSocial,
+    sector: 'unknown' as const,
+    verified: false,
+    mxRecords: null,
+    confidence: 0,
+    error: String(err),
+  } as OIVDomainResolution);
+
   const settled = await Promise.all(
     entries.map(({ rut, razonSocial }) =>
-      resolveOIVDomain(rut, razonSocial, options).catch(err => ({
-        domain: '',
-        source: 'heuristic' as const,
-        rut,
-        razonSocial,
-        sector: 'unknown' as const,
-        verified: false,
-        mxRecords: null,
-        confidence: 0,
-        error: String(err),
-      }))
-    )
+      onlyResolving
+        ? resolveOIVDomain(rut, razonSocial, { ...options, onlyResolving: true }).catch(err =>
+            errEntry(rut, razonSocial, err),
+          )
+        : resolveOIVDomain(rut, razonSocial, { ...options, onlyResolving: false }).catch(err =>
+            errEntry(rut, razonSocial, err),
+          ),
+    ),
   );
   // resolveOIVDomain returns null only under onlyResolving for non-resolving
   // entries; drop those so the batch omits them.
@@ -135,6 +191,7 @@ export type {
   VerifyStatus,
   VerifyResolver,
   ResolveOptions,
+  ResolveOptionsWithStatus,
   CoverageStats,
   KnownDomainEntry,
   DomainStatus,

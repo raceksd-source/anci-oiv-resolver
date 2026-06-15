@@ -179,16 +179,40 @@ export interface KnownDomainsFile {
   [rut: string]: KnownDomainEntry | unknown;
 }
 
+/**
+ * v0.5.2 PUBLIC contract — kept IDENTICAL on purpose (FIX v0.6.0 · backward-compat).
+ *
+ * This type intentionally does NOT carry `onlyResolving`. Adding a broad
+ * `onlyResolving?: boolean` here is what broke the v0.5.2 caller pattern under
+ * `--strict --exactOptionalPropertyTypes`: a variable typed as `ResolveOptions`
+ * then matches NEITHER the non-null overload (whose option type narrows
+ * `onlyResolving` to `false | undefined`) NOR the nullable `onlyResolving: true`
+ * overload, yielding `TS2769 No overload matches this call`.
+ *
+ * Keeping `ResolveOptions` as `{ verify?: boolean }` means a plain `ResolveOptions`
+ * value (literal OR variable) always selects a NON-null `resolveOIVDomain` overload,
+ * exactly like v0.5.2. The opt-in nullable `{ onlyResolving: true }` variant is
+ * expressed via {@link ResolveOptionsWithStatus} / an intersection overload instead.
+ */
 export interface ResolveOptions {
   /** Run DNS/MX verification against the resolved domain (async, adds latency) */
   verify?: boolean;
-  /**
-   * v0.6.0+ · Opt-in filter on the STATIC baked `domain_status`.
-   * When true, `resolveOIVDomain` returns `null` and `resolveBatch` /
-   * `getAllEntries` omit entries whose baked `domain_status` is `'phantom'`,
-   * `'defunct'`, or `'unverified'` (i.e. keep only `'resolving'`).
-   * Default `undefined`/`false` preserves v0.5.2 behavior exactly.
-   */
+}
+
+/**
+ * v0.6.0+ · `ResolveOptions` PLUS the opt-in static-status filter. Used by the
+ * COLLECTION APIs (`resolveBatch`, `getAllEntries`) where filtering is purely
+ * additive (it drops entries from an array — there is no single-result `null`
+ * hazard). For the SINGLE-result `resolveOIVDomain`, the `onlyResolving: true`
+ * opt-in is exposed through a dedicated intersection overload so that a plain
+ * `ResolveOptions` argument can never accidentally select the nullable path.
+ *
+ * When `onlyResolving === true`, `resolveBatch` / `getAllEntries` omit entries
+ * whose baked `domain_status` is `'phantom'`, `'defunct'`, or `'unverified'`
+ * (i.e. keep only `'resolving'`). Default `undefined`/`false` preserves v0.5.2
+ * behavior exactly.
+ */
+export interface ResolveOptionsWithStatus extends ResolveOptions {
   onlyResolving?: boolean;
 }
 

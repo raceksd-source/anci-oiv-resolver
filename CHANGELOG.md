@@ -30,11 +30,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Per-entry `domain_status` (4-state STATIC enum: `resolving | phantom | defunct | unverified`)**
-  baked into all 987 RUT rows. Mapped from the frozen 2026-05-26 `verification_status`
-  (live+mail_only → resolving, nxdomain → phantom, registered_no_a/serverr/timeout → unverified)
-  and re-confirmed by a clean public-only re-run. Distinct from the live runtime `VerifyStatus`
-  7-enum (which is unchanged). RUT-level distribution: **830 resolving / 148 phantom /
-  9 unverified / 0 defunct**.
+  baked into all 987 RUT rows. **Derived from the LIVE 2026-06-14 null-route-filtered
+  public-resolver re-run** (Cloudflare → Google → Quad9, OS/NextDNS leg skipped, 0.0.0.0
+  sentinels filtered; live/mail_only → resolving, nxdomain → phantom,
+  registered_no_a/serverr/timeout → unverified), **cross-validated against the frozen
+  2026-05-26 `verification_status` run** — NOT mapped from the frozen status. The
+  cross-validation enforces an asymmetric **corroboration rule**: `phantom` is assigned
+  only when the live 2026-06-14 run NXDOMAINs **and** the frozen 2026-05-26 status was NOT
+  live/mail_only (a corroborated-dead domain). A **divergence** (frozen live/mail_only but
+  the live run NXDOMAINs — the org-likely-moved case) is classified `unverified`, NEVER
+  `phantom`, and flagged for manual catalog review (no fabricated domain). Positive
+  recoveries (frozen non-verified → currently resolving) stay `resolving`. Distinct from
+  the live runtime `VerifyStatus` 7-enum (which is unchanged). RUT-level distribution:
+  **830 resolving / 147 phantom / 10 unverified / 0 defunct**.
 - **Per-entry `last_validated` (ISO-8601 day)** alongside the existing `verified_at`
   (not a rename). Plus optional `domain_status_via` recording the public resolver of record.
 - **`ResolveOptions.onlyResolving?: boolean`** — opt-in filter that restricts
@@ -55,32 +63,60 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Reconciled
 - Documented the **824** (catalog `dns_verified`) vs **465** (apparatus `resolving`) discrepancy
   as a different, NextDNS-contaminated universe. The catalog resolves at ~84% (830/987), not
-  52.7%. My phantom=148 EXACTLY matches the catalog's frozen 148 nxdomain; resolving=830 vs
-  frozen 824 is +6 honest recoveries. The 47.3%-phantom apparatus figure is a separate, additive
-  census-reliability metric and is **NOT** baked here. STRATIFIED DENOMINATOR DOCTRINE preserved:
-  915 = published legal universe · 987 = catalog RUT rows · 917 = catalog distinct domains ·
-  830 = RUT-level resolving · 765 = domain-level resolving.
+  52.7%. The live 2026-06-14 run found 148 NXDOMAINs at the RUT level, of which **147 are
+  corroborated phantom** (frozen status was already nxdomain) and **1 is a divergence**
+  (hbarrosluco.cl — frozen `live`, now NXDOMAIN — classified `unverified`, NOT phantom, under
+  the corroboration rule). resolving=830 vs frozen 824 is +6 honest recoveries. The
+  47.3%-phantom apparatus figure is a separate, additive census-reliability metric and is
+  **NOT** baked here. STRATIFIED DENOMINATOR DOCTRINE preserved: 915 = published legal universe ·
+  987 = catalog RUT rows · 917 = catalog distinct domains · 830 = RUT-level resolving ·
+  765 = domain-level resolving.
+
+### Fixed
+- **`resolveOIVDomain` return-type backward-compat (TypeScript overloads).** v0.6.0's initial
+  cut widened the single signature to `Promise<OIVDomainResolution | null>`, which broke
+  strict-mode v0.5.2 consumers (TS18047 "possibly null" on `r.domain`). Restored via TypeScript
+  **function overloads**: `resolveOIVDomain(rut, razonSocial)` and any call WITHOUT
+  `onlyResolving: true` (including `onlyResolving: false`/`undefined`) return
+  `Promise<OIVDomainResolution>` (NEVER null) — identical to v0.5.2; **only**
+  `resolveOIVDomain(rut, razonSocial, { onlyResolving: true })` returns the nullable
+  `Promise<OIVDomainResolution | null>`. The union-typed implementation signature is not part
+  of the public overload set. Verified by a strict-`tsc` consumer fixture in
+  `test/strict-consumer-types.test.ts`.
+- **Corroboration rule — a frozen-live govt/health org is NEVER baked `phantom`.** The honest
+  re-run found `hbarrosluco.cl` (Hospital Barros Luco; frozen `verification_status=live`,
+  `dns_verified=true`) now NXDOMAINs at all three public resolvers. It was previously baked
+  `phantom`, violating the "never mislabel live govt/health orgs as phantom" rule. The bake now
+  applies the asymmetric rule above: this divergence is reclassified `phantom → unverified`
+  (phantom drops 148→147, unverified rises 9→10) with an extended entry note flagging manual
+  catalog review; no domain is fabricated.
 
 ### Unchanged (backward-compat)
 - `dns_verified`, `verification_status`, `verification_resolver`, `verified_at` retained verbatim;
   confidence still keyed off `dns_verified` (1.0/0.85), NOT `domain_status` (bancoestado mail_only
   stays 1.0). 987 entries; `getCoverageStats` invariant (dnsVerified+dnsUnverified===total) intact.
   All v0.5.2 public-API signatures remain call-compatible; new fields are additive optionals and
-  `resolveOIVDomain` returns `null` only when the caller opts into `onlyResolving`.
+  `resolveOIVDomain` returns `null` only when the caller opts into `onlyResolving: true`.
 
 ### Deferred (follow-up)
-- `defunct` refinement (org-ceased vs domain-mis-guessed) over the 148 phantom rows — net-new
-  manual pass, tracked separately. The previously-planned CLI binary, `resolveByDomain`,
-  TXT/SPF/DMARC verify, sibling-RUT propagation, and +12 admin_estado OIVs remain on the v0.6.x
-  roadmap, decoupled from this data-quality slice.
+- `defunct` refinement (org-ceased vs domain-mis-guessed) over the 147 corroborated-phantom rows
+  — net-new manual pass, tracked separately. The 1 divergence row (`hbarrosluco.cl`,
+  `unverified`) is flagged in-entry for the same manual review. The previously-planned CLI binary,
+  `resolveByDomain`, TXT/SPF/DMARC verify, sibling-RUT propagation, and +12 admin_estado OIVs
+  remain on the v0.6.x roadmap, decoupled from this data-quality slice.
 
 ### Tests
-- New regression suite `test/domain-status.test.ts` (22 it-blocks): every entry has a valid
-  4-value `domain_status`; `onlyResolving:true` excludes phantom/defunct/unverified; the 9
-  quarantined govt/health domains are never phantom; `resolveOIVDomain` surfaces
-  `domain_status`+`last_validated` statically; the baked distribution equals 830/148/9/0; the
-  frozen `verification_status`/`dns_verified`/`verified_at` snapshot is untouched. Existing
-  ~165 it-blocks stay green.
+- `test/domain-status.test.ts`: every entry has a valid 4-value `domain_status`;
+  `onlyResolving:true` excludes phantom/defunct/unverified; the quarantined govt/health domains
+  are never phantom; `resolveOIVDomain` surfaces `domain_status`+`last_validated` statically; the
+  baked distribution equals **830/147/10/0**; `_meta.domain_status_distribution` matches the actual
+  row counts; the corroboration invariant holds (`live_govt_health_phantom_count == 0`, every
+  phantom is corroborated-dead); `hbarrosluco.cl` is `unverified` (not phantom) and
+  `clinicamagallanes.cl` stays `resolving`; the frozen
+  `verification_status`/`dns_verified`/`verified_at` snapshot is untouched.
+- `test/strict-consumer-types.test.ts`: a strict-`tsc` consumer fixture compiles clean against
+  the built `dist/` types (overloads restore the v0.5.2 non-null contract); `dist/index.d.ts`
+  declares the non-null + nullable-`onlyResolving` overloads. Existing v0.5.x it-blocks stay green.
 
 ### Changed
 - `package.json` version `0.5.2` → **`0.6.0`**; `_meta.version` `v0.5.2` → `v0.6.0`;

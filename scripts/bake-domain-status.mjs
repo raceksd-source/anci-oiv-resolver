@@ -17,9 +17,23 @@
 // MAPPING (per the v0.6.0 design / gate recommendation):
 //   reverified status 'resolving'  (mr live | mail_only) → domain_status 'resolving'
 //   reverified status 'phantom'    (mr nxdomain)         → domain_status 'phantom'
+//                                                          BUT see CORROBORATION RULE
 //   reverified status 'unverified' (registered_no_a/serverr/timeout/unknown)
 //                                                        → domain_status 'unverified'
 //   'defunct' is RESERVED / manual-only and NEVER auto-assigned here.
+//
+// CORROBORATION RULE (v0.6.0 FIX · asymmetric, honest — phantom REQUIRES
+// corroboration so a frozen-live govt/health org is NEVER baked phantom):
+//   - 'phantom' is assigned ONLY when the honest re-run says nxdomain AND the
+//     frozen verification_status was NOT live/mail_only (i.e. it was already
+//     nxdomain / never-resolved). A corroborated-dead domain stays phantom.
+//   - DIVERGENCE (frozen live/mail_only BUT current nxdomain) → 'unverified'
+//     (NOT phantom). This is the org-likely-moved case: honest (it is not
+//     currently resolving, so NOT 'resolving') but not a false 'phantom /
+//     never-existed' brand. The entry note is extended to flag a manual catalog
+//     review; the domain is NEVER fabricated/changed.
+//   - Positive recoveries (frozen non-verified → current resolving) stay
+//     resolving (honest, safe). Inconclusive (timeout/serverr/...) stay unverified.
 //
 // The join is domain → RUT, CASE-INSENSITIVE (the reverified keys are
 // lowercased; the one casing artifact hospitaldeLota.cl recovers to resolving).
@@ -96,10 +110,19 @@ console.log(
 // 3. Load the catalog and bake every RUT row.
 const catalog = JSON.parse(fs.readFileSync(CATALOG_PATH, 'utf-8'));
 
+// Frozen verification_status values that mean the domain WAS resolving on
+// 2026-05-26. A current-nxdomain row whose frozen status is one of these is a
+// DIVERGENCE (org likely moved), NOT a corroborated phantom.
+const FROZEN_LIVE = new Set(['live', 'mail_only']);
+const DIVERGENCE_NOTE =
+  'domain may have changed since 2026-05-26 — manual catalog review (frozen verification_status was live/mail_only but the 2026-06-14 public-resolver re-run NXDOMAINs; classified unverified, NOT phantom)';
+
 const dist = { resolving: 0, phantom: 0, defunct: 0, unverified: 0 };
 let matched = 0;
 let fallback = 0;
+let divergences = 0;
 const unmatchedSamples = [];
+const divergenceSamples = [];
 
 for (const [rut, value] of Object.entries(catalog)) {
   if (rut.startsWith('_')) continue;
@@ -109,12 +132,27 @@ for (const [rut, value] of Object.entries(catalog)) {
   let status;
   let via;
   let lastValidated;
+  let divergence = false;
 
   if (rec && VALID_STATUS.has(rec.status)) {
     status = rec.status;
     lastValidated = LAST_VALIDATED;
     if (typeof rec.via === 'string' && VALID_VIA.has(rec.via)) via = rec.via;
     matched++;
+
+    // CORROBORATION RULE: phantom REQUIRES corroboration. If the honest re-run
+    // says phantom (nxdomain) but the frozen verification_status was live/mail_only,
+    // this is a DIVERGENCE — reclassify to 'unverified' (never a false phantom) and
+    // flag the entry for manual catalog review. The domain is NEVER fabricated.
+    if (status === 'phantom' && FROZEN_LIVE.has(value.verification_status)) {
+      status = 'unverified';
+      via = undefined; // the 'public' nxdomain consensus is not a resolving via
+      divergence = true;
+      divergences++;
+      if (divergenceSamples.length < 10) {
+        divergenceSamples.push(`${rut}=${value.domain} (frozen ${value.verification_status})`);
+      }
+    }
   } else {
     // Cannot validate this row from the honest source → quarantine as
     // 'unverified' (NEVER phantom) and fall back to the row's frozen verified_at
@@ -130,10 +168,33 @@ for (const [rut, value] of Object.entries(catalog)) {
   if (via !== undefined) value.domain_status_via = via;
   else delete value.domain_status_via; // keep idempotent on re-bake
 
+  // Divergence note: add or extend WITHOUT clobbering an existing factual note and
+  // WITHOUT fabricating a new domain. Idempotent — never appends the flag twice.
+  if (divergence) {
+    const existing = typeof value.note === 'string' ? value.note : '';
+    if (!existing.includes('manual catalog review')) {
+      value.note = existing ? `${existing} · ${DIVERGENCE_NOTE}` : DIVERGENCE_NOTE;
+    }
+  }
+
   dist[status]++;
 }
 
 const total = dist.resolving + dist.phantom + dist.defunct + dist.unverified;
+
+// Recount the live-govt/health-phantom violations directly from the baked rows
+// (the asymmetric corroboration invariant): NO row with a frozen
+// verification_status in {live, mail_only} may carry domain_status='phantom'.
+let liveGovtHealthPhantomCount = 0;
+const phantomViolations = [];
+for (const [rut, value] of Object.entries(catalog)) {
+  if (rut.startsWith('_')) continue;
+  if (!value || typeof value !== 'object' || typeof value.domain !== 'string') continue;
+  if (value.domain_status === 'phantom' && FROZEN_LIVE.has(value.verification_status)) {
+    liveGovtHealthPhantomCount++;
+    if (phantomViolations.length < 10) phantomViolations.push(`${rut}=${value.domain}`);
+  }
+}
 
 // 4. Update _meta: version bump + generated + domain_status_distribution + method note.
 const meta = catalog._meta ?? (catalog._meta = {});
@@ -146,24 +207,47 @@ meta.domain_status_distribution = {
   unverified: dist.unverified,
 };
 meta.domain_status_method =
-  'STATIC per-entry DNS-resolvability baked from data/domain-status-reverified.json — ' +
-  'honest, null-route-filtered, PUBLIC-only multi-resolver chain (Cloudflare → Google → Quad9), ' +
-  'OS/NextDNS leg SKIPPED, 0.0.0.0/127.0.0.1/::/::1 sentinels filtered. ' +
-  'Mapping: live+mail_only → resolving, nxdomain → phantom, ' +
+  'STATIC per-entry DNS-resolvability DERIVED from the live 2026-06-14 ' +
+  'null-route-filtered, PUBLIC-only multi-resolver re-run (Cloudflare → Google → Quad9), ' +
+  'OS/NextDNS leg SKIPPED, 0.0.0.0/127.0.0.1/::/::1 sentinels filtered ' +
+  '(data/domain-status-reverified.json), CROSS-VALIDATED against the frozen 2026-05-26 ' +
+  'verification_status run. Mapping: live+mail_only → resolving, ' +
   'registered_no_a/serverr/timeout/unknown → unverified (NEVER phantom). ' +
-  "'defunct' is reserved/manual-only and never auto-assigned in v0.6.0. " +
+  'CORROBORATION RULE for nxdomain: baked phantom ONLY if the frozen verification_status was ' +
+  'NOT live/mail_only (corroborated-dead); a DIVERGENCE (frozen live/mail_only but current ' +
+  'nxdomain — org likely moved) is baked unverified (NEVER phantom) and flagged for manual ' +
+  "catalog review. 'defunct' is reserved/manual-only and never auto-assigned in v0.6.0. " +
   'Confidence remains keyed off dns_verified (1.0/0.85), NOT domain_status.';
+meta.domain_status_corroboration = {
+  rule:
+    'phantom REQUIRES corroboration: a live 2026-06-14 NXDOMAIN is baked phantom ONLY when the ' +
+    'frozen 2026-05-26 verification_status was NOT live/mail_only. A divergence (frozen ' +
+    'live/mail_only but current nxdomain) is baked unverified and flagged for manual review.',
+  divergence_count: divergences,
+  live_govt_health_phantom_count: liveGovtHealthPhantomCount,
+};
 
 console.log('\n=== BAKE RESULT (RUT-level) ===');
 console.log(JSON.stringify(dist, null, 2));
 console.log(`total rows baked: ${total} · matched from honest source: ${matched} · fallback/unverified: ${fallback}`);
+console.log(`divergences reclassified phantom→unverified (frozen live/mail_only, current nxdomain): ${divergences}`);
+if (divergenceSamples.length > 0) {
+  console.log(`divergence samples: ${divergenceSamples.join(', ')}`);
+}
 if (unmatchedSamples.length > 0) {
   console.log(`fallback samples: ${unmatchedSamples.join(', ')}`);
 }
+console.log(`live_govt_health_phantom_count: ${liveGovtHealthPhantomCount}`);
 
 // 5. Guardrails — refuse to write an obviously-wrong bake.
 if (total < 985) fail(`baked ${total} rows, expected >= 985 — refusing to write`);
 if (dist.defunct !== 0) fail(`defunct must be 0 (manual-only) but got ${dist.defunct} — refusing to write`);
+if (liveGovtHealthPhantomCount !== 0) {
+  fail(
+    `live_govt_health_phantom_count must be 0 (corroboration rule) but got ` +
+      `${liveGovtHealthPhantomCount}: ${phantomViolations.join(', ')} — refusing to write`,
+  );
+}
 
 if (DRY_RUN) {
   console.log('\n--dry-run: catalog NOT written.');

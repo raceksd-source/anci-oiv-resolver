@@ -97,7 +97,11 @@ describe('v0.6.0 · baked domain_status on every catalog entry', () => {
     assert.equal(bad.length, 0, `entries with bad last_validated: ${bad.slice(0, 10).join(', ')}`);
   });
 
-  it('RUT-level domain_status distribution is 830 resolving / 148 phantom / 9 unverified / 0 defunct', () => {
+  it('RUT-level domain_status distribution is 830 resolving / 147 phantom / 10 unverified / 0 defunct (corroboration rule applied)', () => {
+    // v0.6.0 corroboration fix: hbarrosluco.cl (frozen live, current nxdomain) is a
+    // DIVERGENCE and is reclassified phantom→unverified, so phantom drops 148→147 and
+    // unverified rises 9→10. The 147 remaining phantoms are all corroborated-dead
+    // (current nxdomain AND frozen verification_status was already nxdomain).
     const raw = loadRaw();
     const dist: Record<string, number> = { resolving: 0, phantom: 0, defunct: 0, unverified: 0 };
     for (const [k, v] of Object.entries(raw)) {
@@ -107,9 +111,109 @@ describe('v0.6.0 · baked domain_status on every catalog entry', () => {
       if (e.domain_status) dist[e.domain_status] = (dist[e.domain_status] ?? 0) + 1;
     }
     assert.equal(dist.resolving, 830, `resolving must be 830, got ${dist.resolving}`);
-    assert.equal(dist.phantom, 148, `phantom must be 148, got ${dist.phantom}`);
-    assert.equal(dist.unverified, 9, `unverified must be 9, got ${dist.unverified}`);
+    assert.equal(dist.phantom, 147, `phantom must be 147, got ${dist.phantom}`);
+    assert.equal(dist.unverified, 10, `unverified must be 10, got ${dist.unverified}`);
     assert.equal(dist.defunct, 0, `defunct must be 0 (never auto-assigned in v0.6.0), got ${dist.defunct}`);
+  });
+
+  it('recounted _meta.domain_status_distribution EXACTLY matches the actual baked row counts', () => {
+    const raw = loadRaw();
+    const actual: Record<string, number> = { resolving: 0, phantom: 0, defunct: 0, unverified: 0 };
+    for (const [k, v] of Object.entries(raw)) {
+      if (k.startsWith('_')) continue;
+      const e = v as { domain?: unknown; domain_status?: string };
+      if (!e || typeof e !== 'object' || typeof e.domain !== 'string') continue;
+      if (e.domain_status) actual[e.domain_status] = (actual[e.domain_status] ?? 0) + 1;
+    }
+    const meta = raw['_meta'] as { domain_status_distribution?: Record<string, number> };
+    assert.ok(meta.domain_status_distribution, '_meta.domain_status_distribution must exist');
+    const m = meta.domain_status_distribution!;
+    assert.equal(m.resolving, actual.resolving, `_meta.resolving=${m.resolving} != actual ${actual.resolving}`);
+    assert.equal(m.phantom, actual.phantom, `_meta.phantom=${m.phantom} != actual ${actual.phantom}`);
+    assert.equal(m.unverified, actual.unverified, `_meta.unverified=${m.unverified} != actual ${actual.unverified}`);
+    assert.equal(m.defunct ?? 0, actual.defunct, `_meta.defunct=${m.defunct} != actual ${actual.defunct}`);
+  });
+
+  it('corroboration rule: NO entry with frozen verification_status in {live,mail_only} carries domain_status=phantom (count 0)', () => {
+    const raw = loadRaw();
+    const offenders: string[] = [];
+    for (const [k, v] of Object.entries(raw)) {
+      if (k.startsWith('_')) continue;
+      const e = v as {
+        domain?: string;
+        domain_status?: string;
+        verification_status?: string;
+      };
+      if (!e || typeof e !== 'object' || typeof e.domain !== 'string') continue;
+      if (
+        e.domain_status === 'phantom' &&
+        (e.verification_status === 'live' || e.verification_status === 'mail_only')
+      ) {
+        offenders.push(`${k}=${e.domain} (frozen ${e.verification_status})`);
+      }
+    }
+    assert.equal(
+      offenders.length,
+      0,
+      `live/mail_only orgs mislabeled phantom: ${offenders.slice(0, 10).join(', ')}`,
+    );
+  });
+
+  it('every phantom is corroborated-dead: frozen verification_status was NOT live/mail_only', () => {
+    const raw = loadRaw();
+    const uncorroborated: string[] = [];
+    let phantomCount = 0;
+    for (const [k, v] of Object.entries(raw)) {
+      if (k.startsWith('_')) continue;
+      const e = v as { domain?: string; domain_status?: string; verification_status?: string };
+      if (!e || typeof e !== 'object' || typeof e.domain !== 'string') continue;
+      if (e.domain_status === 'phantom') {
+        phantomCount++;
+        if (e.verification_status === 'live' || e.verification_status === 'mail_only') {
+          uncorroborated.push(`${k}=${e.domain}`);
+        }
+      }
+    }
+    assert.ok(phantomCount > 0, 'expected at least one corroborated phantom');
+    assert.equal(uncorroborated.length, 0, `uncorroborated phantoms: ${uncorroborated.join(', ')}`);
+  });
+
+  it('hbarrosluco.cl (Hospital Barros Luco · frozen live) is NOT phantom — reclassified unverified', () => {
+    const raw = loadRaw();
+    const e = raw['61606606-4'] as {
+      domain?: string;
+      domain_status?: string;
+      verification_status?: string;
+      note?: string;
+    };
+    assert.ok(e, 'hbarrosluco.cl entry (RUT 61606606-4) must exist');
+    assert.equal(e.domain, 'hbarrosluco.cl');
+    assert.equal(e.verification_status, 'live', 'frozen verification_status stays live (untouched)');
+    assert.notEqual(e.domain_status, 'phantom', 'frozen-live govt/health org must NEVER be phantom');
+    // Honest: it is not currently resolving, so divergence → unverified (NOT a false phantom).
+    assert.ok(
+      e.domain_status === 'unverified' || e.domain_status === 'resolving',
+      `hbarrosluco.cl must be unverified (or resolving), got ${e.domain_status}`,
+    );
+    assert.equal(e.domain_status, 'unverified', 'divergence case → unverified');
+    // The divergence note flags a manual catalog review without fabricating a new domain.
+    assert.ok(
+      typeof e.note === 'string' && /manual catalog review/i.test(e.note),
+      `divergence entry must flag manual catalog review, got note=${String(e.note)}`,
+    );
+    assert.ok(
+      /2026-05-26/.test(e.note ?? ''),
+      'divergence note should reference the frozen 2026-05-26 run',
+    );
+    assert.equal(e.domain, 'hbarrosluco.cl', 'must NOT fabricate a new domain');
+  });
+
+  it('positive recovery clinicamagallanes.cl (frozen nxdomain → current resolving) stays resolving', () => {
+    const raw = loadRaw();
+    const e = raw['96567920-0'] as { domain?: string; domain_status?: string };
+    assert.ok(e, 'clinicamagallanes.cl entry must exist');
+    assert.equal(e.domain, 'clinicamagallanes.cl');
+    assert.equal(e.domain_status, 'resolving', 'positive recoveries stay resolving (honest, safe)');
   });
 
   it('phantom is NEVER assigned to the 9 quarantined inconclusive govt/health domains', () => {
@@ -150,8 +254,8 @@ describe('v0.6.0 · baked domain_status on every catalog entry', () => {
     const meta = raw['_meta'] as { domain_status_distribution?: Record<string, number> };
     assert.ok(meta.domain_status_distribution, '_meta.domain_status_distribution must exist');
     assert.equal(meta.domain_status_distribution!.resolving, 830);
-    assert.equal(meta.domain_status_distribution!.phantom, 148);
-    assert.equal(meta.domain_status_distribution!.unverified, 9);
+    assert.equal(meta.domain_status_distribution!.phantom, 147);
+    assert.equal(meta.domain_status_distribution!.unverified, 10);
     assert.equal(meta.domain_status_distribution!.defunct ?? 0, 0);
   });
 });

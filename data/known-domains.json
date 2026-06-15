@@ -1062,11 +1062,16 @@
     },
     "domain_status_distribution": {
       "resolving": 830,
-      "phantom": 148,
+      "phantom": 147,
       "defunct": 0,
-      "unverified": 9
+      "unverified": 10
     },
-    "domain_status_method": "STATIC per-entry DNS-resolvability baked from data/domain-status-reverified.json — honest, null-route-filtered, PUBLIC-only multi-resolver chain (Cloudflare → Google → Quad9), OS/NextDNS leg SKIPPED, 0.0.0.0/127.0.0.1/::/::1 sentinels filtered. Mapping: live+mail_only → resolving, nxdomain → phantom, registered_no_a/serverr/timeout/unknown → unverified (NEVER phantom). 'defunct' is reserved/manual-only and never auto-assigned in v0.6.0. Confidence remains keyed off dns_verified (1.0/0.85), NOT domain_status."
+    "domain_status_method": "STATIC per-entry DNS-resolvability DERIVED from the live 2026-06-14 null-route-filtered, PUBLIC-only multi-resolver re-run (Cloudflare → Google → Quad9), OS/NextDNS leg SKIPPED, 0.0.0.0/127.0.0.1/::/::1 sentinels filtered (data/domain-status-reverified.json), CROSS-VALIDATED against the frozen 2026-05-26 verification_status run. Mapping: live+mail_only → resolving, registered_no_a/serverr/timeout/unknown → unverified (NEVER phantom). CORROBORATION RULE for nxdomain: baked phantom ONLY if the frozen verification_status was NOT live/mail_only (corroborated-dead); a DIVERGENCE (frozen live/mail_only but current nxdomain — org likely moved) is baked unverified (NEVER phantom) and flagged for manual catalog review. 'defunct' is reserved/manual-only and never auto-assigned in v0.6.0. Confidence remains keyed off dns_verified (1.0/0.85), NOT domain_status.",
+    "domain_status_corroboration": {
+      "rule": "phantom REQUIRES corroboration: a live 2026-06-14 NXDOMAIN is baked phantom ONLY when the frozen 2026-05-26 verification_status was NOT live/mail_only. A divergence (frozen live/mail_only but current nxdomain) is baked unverified and flagged for manual review.",
+      "divergence_count": 1,
+      "live_govt_health_phantom_count": 0
+    }
   },
   "97030000-7": {
     "domain": "bancoestado.cl",
@@ -5541,11 +5546,11 @@
     "razon_social": "HOSPITAL BARROS LUCO TRUDEAU",
     "sector": "salud",
     "dns_verified": true,
-    "note": "hbarrosluco.cl resolves · hospitalbarrosluco.cl also resolves",
+    "note": "hbarrosluco.cl resolves · hospitalbarrosluco.cl also resolves · domain may have changed since 2026-05-26 — manual catalog review (frozen verification_status was live/mail_only but the 2026-06-14 public-resolver re-run NXDOMAINs; classified unverified, NOT phantom)",
     "verified_at": "2026-05-26",
     "verification_status": "live",
     "verification_resolver": "cloudflare",
-    "domain_status": "phantom",
+    "domain_status": "unverified",
     "last_validated": "2026-06-14"
   },
   "61607301-K": {

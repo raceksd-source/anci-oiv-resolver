@@ -175,6 +175,33 @@ for (const r of results) {
   mrStatusCounts[r.mr_status] = (mrStatusCounts[r.mr_status] || 0) + 1;
 }
 
+// ---- CORROBORATION cross-validation (v0.6.0 FIX) ----
+// The honest per-domain `status` above is pure live-DNS truth (e.g. a frozen-live
+// org whose domain now NXDOMAINs is honestly 'phantom' at the DNS layer). The BAKE,
+// however, applies an asymmetric corroboration rule: phantom REQUIRES corroboration
+// from the frozen 2026-05-26 run. A current-nxdomain domain whose frozen
+// verification_status was live/mail_only is a DIVERGENCE → baked 'unverified' (NOT
+// phantom). We record the bake_classification + divergence flag here so this file
+// cross-validates the live 2026-06-14 run against the frozen 2026-05-26 run.
+const FROZEN_LIVE = new Set(['live', 'mail_only']);
+function bakeClassify(r) {
+  if (r.honest === 'phantom' && FROZEN_LIVE.has(r.frozen_status)) {
+    return { bake: 'unverified', divergence: true };
+  }
+  return { bake: r.honest, divergence: false };
+}
+let divergenceCount = 0;
+const divergenceList = [];
+for (const r of results) {
+  const bc = bakeClassify(r);
+  r.bake_classification = bc.bake;
+  r.divergence = bc.divergence;
+  if (bc.divergence) {
+    divergenceCount++;
+    divergenceList.push({ domain: r.domain, frozen_status: r.frozen_status, razon_social: r.razon_social, rut: r.rut });
+  }
+}
+
 // ---- Apparatus-phantom subset reconciliation (false-phantom rate) ----
 const apparatusPhantomInCatalog = results.filter((r) => apparatusPhantom.has(r.domain));
 const fpResolving = apparatusPhantomInCatalog.filter((r) => r.honest === 'resolving');
@@ -190,10 +217,13 @@ const outFile = 'data/domain-status-reverified.json';
 const perDomain = {};
 for (const r of results) {
   perDomain[r.domain] = {
-    status: r.honest,                 // resolving | phantom | unverified
+    status: r.honest,                 // resolving | phantom | unverified  (pure live-DNS truth)
     resolving_bool: r.honest === 'resolving',
     via: r.mr_via,
     mr_status: r.mr_status,            // detailed: live|mail_only|nxdomain|registered_no_a|serverr|timeout|unknown
+    frozen_status: r.frozen_status,    // frozen 2026-05-26 verification_status (cross-validation input)
+    bake_classification: r.bake_classification, // what the BAKE assigns after the corroboration rule
+    divergence: r.divergence,          // true iff honest phantom but frozen live/mail_only (org likely moved)
     checked_at_note: CHECKED_AT_NOTE,
   };
 }
@@ -205,6 +235,11 @@ const payload = {
     catalog_distinct_domains: domains.length,
     honest_counts: honestCounts,
     mr_status_counts: mrStatusCounts,
+    corroboration: {
+      rule: 'phantom REQUIRES corroboration: a live 2026-06-14 NXDOMAIN is baked phantom ONLY if the frozen 2026-05-26 verification_status was NOT live/mail_only. DIVERGENCE (frozen live/mail_only but current nxdomain) is baked unverified (NOT phantom) and flagged for manual catalog review. Positive recoveries stay resolving.',
+      divergence_count: divergenceCount,
+      divergences: divergenceList,
+    },
     apparatus_phantom_in_catalog: apparatusPhantomInCatalog.length,
     apparatus_phantom_confirmed_genuine: fpGenuine.length,
     apparatus_phantom_actually_resolving: fpResolving.length,
