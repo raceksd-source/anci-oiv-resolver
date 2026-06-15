@@ -1,0 +1,6446 @@
+{
+  "_meta": {
+    "description": "HONEST multi-resolver re-verification of the anci-oiv-resolver catalog domains for the v0.6 domain_status bake gate.",
+    "method": "Pinned PUBLIC resolvers only (Cloudflare->Google->Quad9), OS/NextDNS leg SKIPPED, 0.0.0.0 null-route filtered, consensus, inconclusive!=phantom.",
+    "checked_at_note": "reverified-2026-06-14",
+    "catalog_distinct_domains": 917,
+    "honest_counts": {
+      "resolving": 765,
+      "phantom": 143,
+      "unverified": 9
+    },
+    "mr_status_counts": {
+      "mail_only": 28,
+      "live": 737,
+      "nxdomain": 143,
+      "serverr": 3,
+      "registered_no_a": 6
+    },
+    "apparatus_phantom_in_catalog": 119,
+    "apparatus_phantom_confirmed_genuine": 113,
+    "apparatus_phantom_actually_resolving": 1,
+    "apparatus_phantom_inconclusive": 5,
+    "false_phantom_rate_pct": 5.04
+  },
+  "domains": {
+    "bancoestado.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bci.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancochile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "santander.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bice.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancosecurity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancoconsorcio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itau.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancoripley.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancofalabella.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancointernacional.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "scotiabankchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "coopeuch.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bolsadesantiago.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cclv.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "combanc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "redbanc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transbank.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mercadopago.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dcv.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bancoestado.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bicevida.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "confuturo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "consorcio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "iswitch.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mastercard.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "metlife.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pentavida.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "principal.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vidasecurity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "visa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "entel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "movistar.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vtr.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "wom.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "claro.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gtdmanquehue.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gtd.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "silica.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "telxius.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "starlink.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "austronet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ciriontech.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nomade.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ingbell.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "will.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ctr.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gallyas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "miinternet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "stel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "comunicacionrural.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dbterra.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intersur.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "serverr",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pacificocable.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "registered_no_a",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "servzonal.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aesandes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "colbun.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "chilquinta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cge.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "codelco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enap.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arauco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eneldistribucion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transelec.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "coordinadorelectrico.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "saesa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "frontel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "luzosorno.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "codiner.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pacifichydro.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "collahuasi.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "angloamerican.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pelambres.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "engie.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "barrick.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "luzlinares.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eeaysen.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "electricalitoral.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cgedistribucion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicalascondes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "davila.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicasantamaria.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicabicentenario.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicavespucio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicacolonial.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicabupa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaisamedica.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaatacama.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaensenada.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicalosandes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaiquique.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicarenaca.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaalemana.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "redsalud.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "achs.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mutual.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ist.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalregional.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "uandes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minsal.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicabupaantofagasta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaciudaddelmar.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicalircay.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sanatorioaleman.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "andessalud.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicaandessaludconcepcion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalbarrosluco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "meds.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ispch.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalfricke.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalantofagasta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalelcarmen.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalosorno.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalpuertomontt.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicabiobio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicapuertovaras.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicapuertomontt.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nuevaclinicacordillera.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicamiraflores.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ucchristus.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "integramedica.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldelprofesor.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inversalud.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "falp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssaconcagua.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssarica.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssatacama.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssaysen.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssbiobio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sscoquimbo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmaule.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssosorno.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sstalcahuano.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssarauco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fonasa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalbasesanjoseosorno.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "clinicamagallanes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sii.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "anci.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "senapred.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "registrocivil.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aduana.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mercadopublico.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ine.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cmfchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "carabineros.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pdichile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sag.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gendarmeria.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ejercito.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "armada.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fach.mil.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "uchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ips.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dpp.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tesoreria.gob.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "registered_no_a",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dipres.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "uaf.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sea.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cne.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "capredena.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cenabast.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cde.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "conadi.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cplt.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dt.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fne.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fosis.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inapi.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "isl.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sernac.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sernageomin.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sernatur.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "extranjeria.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "senda.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hacienda.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "subtrans.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sernameg.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "serviciocivil.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sml.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "monumentos.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cajval.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cajbiobio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cajmetro.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cajnorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "defensorianinez.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ddc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dipreca.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dgmn.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fidae.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "injuv.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "junji.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "junaeb.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "odepa.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "interior.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "economia.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "educacionpublica.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "supersalud.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minvu.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mma.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sma.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "serviu.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "spensiones.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "suseso.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "siss.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "supereduc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cned.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "seguridadpublica.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "metro.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "correoschile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "efe.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "asmar.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enaer.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "famae.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "casademoneda.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fdi.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sasipa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertoantofagasta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertoarica.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertoaustral.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertochacabuco.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertocoquimbo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertoiquique.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "empormontt.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertosanantonio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertotalcahuano.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puertovalparaiso.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "latamairlines.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dtpm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nuevopudahuel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "autopistacentral.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "libertadores.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "costaneranorte.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vespucionorte.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vespuciosur.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rutadelmaipo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dgac.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ferrocarriles.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aeropuertosantiago.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "epchile.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguasandinas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguasaraucania.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguasdelaltiplano.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguasdelvalle.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguasmagallanes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essbio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essal.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "esval.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguaschacabuco.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguaschanar.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "registered_no_a",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "acciona.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguascordillera.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aguasnuevosurmaule.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "emoras.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essat.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "esaysen.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essar.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essrios.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essoh.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "essam.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "esant.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "esiqsa.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gys.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "copec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "abastible.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lipigas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gasco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "shellchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "metrogas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sonacol.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gnlchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "terpel.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "primax.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "serverr",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "oxiquim.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gasandes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gasnaturalfenosa.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "registered_no_a",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intergas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gassur.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gasvalpo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enami.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gasnortegrande.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gaspatagonia.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kallpacombustibles.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "antuco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "altavoz.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "microsystem.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sonda.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "accenture.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ibm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "microsoft.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ntt.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transtecnia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arkavia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ascenty.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "acepta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "indra.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "softwareone.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "globalconexus.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "entelgy.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "coasin.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tata.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "oracle.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "emco.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ani.gob.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cchen.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bcn.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mop.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minsegpres.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "csirtejercito.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "subdere.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "msgg.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minrel.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minjusticia.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "defensa.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "subrei.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalnaval.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalfach.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "shoa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enaex.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sqm.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "huachipato.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hph.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalsanjuandedios.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hbarrosluco.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaltemuco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalsanborjanorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cmcarica.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fundacionsaludelteniente.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalsanbernardo.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sslosrios.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalbiprovincialquillota.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "carlosvanburen.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalclaudiovicuna.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldelsur.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalguillegrantbenavente.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hcsba.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hcvm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldecastro.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldelinares.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldelota.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalrobertodelrio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalsanfernando.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaltome.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "urgencias.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "delsalvador.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalhernanhenriquez.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalcoquimbo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalcalama.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldrecuadopereira.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalexequielgonzalez.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalfrancoravera.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalfelixbulnes.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalluiscalvo.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalangol.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldra.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitallashigueras.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalmetropolitano.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalregionalcoyhaique.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldecurico.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "puntaarenas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalsancarlos.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldecoronel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldemelipilla.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalvictoria.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitaldelosandes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalsantiagooriente.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hospitalelpino.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "imared.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "asenjo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "institutodegeriatria.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rehabilitacion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "institutopsiquiatrico.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "traumatologico.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "serviclinicaiquique.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "costaneraspa.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssaraucanianorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssaraucaniasur.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sschiloe.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "serverr",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssconcepcion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmagallanes.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "registered_no_a",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "saludohiggins.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssreloncavi.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sstarapaca.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssvq.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssvinadelmarquillota.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssnuble.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmn.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmo.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmor.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssms.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ssmso.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "reinsercionjuvenil.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sename.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "proteccionniñez.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minagri.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bienesnacionales.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minciencia.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ddhh.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mineduc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "educacionparvularia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "educacionsuperior.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minenergia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ministeriodesarrollosocial.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "niñez.gob.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cultura.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minmineria.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "subpesca.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "previsionsocial.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mds.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "subtel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "subturismo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mindep.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "patrimoniocultural.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "trabajo.gob.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "casinos.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "utta.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cisdf.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "desarrollotecnologias.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "presidencia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aeronauticacivil.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "igmchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aela.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "altomaipo.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "avenirsolarchile.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "besalco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bfchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "centralcardones.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cerrodominador.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cmnevada.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transmisordelnorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "altonorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "conafe.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativaelectrica.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativaelectricachillan.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativaelectricacharrua.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativalosangeles.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativapaillaco.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativallanquihue.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cooperativaruriobueno.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "copihue.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "edelnortransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eletrans.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transemel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eecasablanca.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eecolina.cl": {
+      "status": "unverified",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "registered_no_a",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eemagallanes.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pehuenche.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eepuentealto.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enlasa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fotovoltaicanortegrande.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "guacoldaenergia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hidroconfluencia.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "imelsaenergia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "interchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kdmchile.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mantoscopper.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "molycop.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nuevaatacama.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "on-group.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arrayanspa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rednorte.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sonnedix.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tecnocap.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "torino.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "wpd.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "alfatransmisora.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "altojahuel.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "anamariatransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "andesgeneracion.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "andessolar.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arcadiasolar.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "casablancat.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "centella.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "charrua.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "conejosolar.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "santamarta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "condorenergia.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "diegodealmagrotransmisora.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mataquito.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "distribuidoraelectrica.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "energiacasablanca.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "espinos.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "generadoraantilhue.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "generadoradelpacifico.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "generadorametropolitana.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lahiguera.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "huemulenergia.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inversionesfotovoltaicas.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kelti.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lahigueratransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "litoraltransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "luzparraltransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mataquitotransmisora.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mlptransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nuevaatakamasolar.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "parqueeolicopttalca.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "quillagua.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "luzdelnorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "plantasolartocopilla.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pozodalmonte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "primeenergia.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rednorte2.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sistemalostransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sistematransmisioncentro.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sistematransmisionnorte.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sistematransmisionsur.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "australtransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "generadoraaustral.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transmitorametro.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "solarelena.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tamakaya.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tamaricosolar.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tolchentransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transmisorcordillera.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transmisoraparinas.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transquinta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tsgf.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "zaldivartransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cochraneenergia.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eecapullo.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tiltil.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transmisortangs.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lacedadatransmisora.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "edgeconnex.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "caboleones.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "unisys.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "softland.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "redhat.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kyndryl.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "equinix.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "globallogic.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "equifax.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sap.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tivit.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "stefanini.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "novis.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intercity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ironmountain.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intersystems.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "newtenberg.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "solnet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "modyo.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "neosecure.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "widefense.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fintual.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fintoc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "flow.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "defontana.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "buk.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "unholster.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "infosys.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cognizant.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "deloitte.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hcl.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "koywe.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dlocal.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "imed.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aws.amazon.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "google.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "scala.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "thalesgroup.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "axity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rayen.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "usercode.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "defensacivil.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "besalcotransmision.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "luzparral.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "enap.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "abigas.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "2080.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "abancert.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "accuhealth.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "acktib.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "activeit.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "adaptivesecurity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "adistec.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "adyp.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "advansolution.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "agile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "agnov.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aiuken.es": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "akzio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aldaris.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "alignment.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "altia.es": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "amfseguridad.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "anachronics.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "anacondaweb.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "anida.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "anticipa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "apiux.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "binarybag.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arinc.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "artech.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arsbyr.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "neosoft.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dsc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "proredes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kesp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "assertiva.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aurinet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "autentia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "avalora.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "avant-tech.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "avantic.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aveva.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "avvale.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "axessnetworks.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ayesa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "azurian.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "babel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "base4sec.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "baseline.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bffspa.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bigsecurity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bizland.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bluesmile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "blueyonder.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "botlab.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "bragi.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "braincorp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "browse.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "businesscontinuity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cmasc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "casamayor.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cass.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "catena.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "celeoredes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "celtis.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "certinet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "connectis.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "telsur.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cibercloud.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "citymovil.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cjg.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "claipayments.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cloudhesive.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cmetrix.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "columbuschile.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "areapartner.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "compunet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cing.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cyc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "concordia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "conecta.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "andesdigital.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "aligare.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cunix.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arkhotech.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "conversys.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "conytec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "3vmcorp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "covenco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "crearchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "creasys.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ccs.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dahuachile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fuentealba.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dcs.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "datamart.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "datco.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "davinco.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dcbm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dedalus.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "abex.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "foris.ai": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "diargo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "djc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "docustore.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dox.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dreamlab.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "dsm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ebd.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "epki.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "emoney.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "epartner.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "easesores.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ebanx.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "editrade.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "electrodata.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "empresaconectada.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "globaldata.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "egs.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "e-certchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "emtec.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "engenis.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hpe.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "eec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "etc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "esign.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "espex.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "evertec.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "evolution.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "exxis.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fabricapp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "facele.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fdd.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fedok.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fintree.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fractalia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "globalcatalog.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gig.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "globalnet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "globe.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "green4t.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "metrowan.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "grupozgh.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "gtelecom.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "guadaltel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "haulmer.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hitachivantara.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hiway.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "humanapis.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "iafis.org": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "idemia.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "igt.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "igx.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "act.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inmotion.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inmotionsupport.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "infoworld.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "infocorp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ittl.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tier1.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "idesoftware.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "iia.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netdatabio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "scadatech.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "isc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "iacc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "innovanet.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "innovit.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inntesec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "inovabiz.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "insidesecurity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "insside.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intechnologies.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itq.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intelligence-security.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intergrade.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "intsercom.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itconsultants.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "arkadios.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "it-experience.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itsec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itsecure.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itvis.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "jagchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "junngla.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kse.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kushki.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kuvasz.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lebox.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "linets.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "loespejodatacenter.cl": {
+      "status": "phantom",
+      "resolving_bool": false,
+      "via": "public",
+      "mr_status": "nxdomain",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lynx.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lynxenergia.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "magnet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mainsoft.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "materiagris.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "meetcard.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mekano.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mekanosige.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "minsait.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mkc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mquest.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nuvo.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "trellix.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "mwl.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nastec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "neox.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nettrust.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netaxion.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netcoins.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netdata.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netmetrix.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netprovider.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nivel4.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nizzo.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "noovus.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "novaservices.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "nuvei.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "odata.com.br": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "oitech.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "omnix.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "onyxtech.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "orion2000.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "oznet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "powerdata.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "pretorian.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "procesac.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "prodigio.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "provectis.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ptc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "qualityservices.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "realtime.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "redtogreen.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "redin.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rflex.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "rheoli.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sya.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "snc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sgto.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "scaladatacenters.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "security-advisor.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "seidor.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sein.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sencinet.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "scm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "valposystems.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "monitoreo.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cuatroi.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "govms.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "hostname.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "systemproject.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sl.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netfin.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ademanda.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "itdchile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "netsus.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sgssolutions.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "siptel.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "siscotec.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "amadeus.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "serq.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tibox.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sistemasexpertos.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transformapp.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sixmanager.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "smartelectric.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "smartss.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "appa.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fusiona.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "microserv.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "siglo21.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "axiobase.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ransecurity.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "databasis.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ees.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "advisorit.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "lazos.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ligarius.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "oneconsultores.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ubeda.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "softegrity.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "softserve.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "stc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sen.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "kudaw.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "coordenada.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "order.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "solutoria.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "solvonetworks.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "soportepc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "sparkoo.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "st.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "stacks.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "starkcloud.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "softtek.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tcam.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "techone.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "google",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tecnet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "interside.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tys.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tecnologiachile.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ticsalud.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tecnova.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tein.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "telynet.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "cctech.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "fiot.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "telemining.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "teltonika.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "theoptimal.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "thomassigne.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tigestion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ticservices.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tichile.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "ticmoai.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tigabytes.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tna.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tns.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "toc.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "toku.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "transactionline.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tsys.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "tth.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "uber.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "unilink.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vas.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vass.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vcsoft.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vectorservicios.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "verbux.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "verifone.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "via56.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vitasolutions.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vu.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vzion.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "public-mx",
+      "mr_status": "mail_only",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "vzor.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "whale-cloud.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "whitestack.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "wisevision.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "wm.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "xms.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "zengroup.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "zerofox.com": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    },
+    "zippy.cl": {
+      "status": "resolving",
+      "resolving_bool": true,
+      "via": "cloudflare",
+      "mr_status": "live",
+      "checked_at_note": "reverified-2026-06-14"
+    }
+  }
+}

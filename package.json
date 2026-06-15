@@ -1,6 +1,6 @@
 {
   "name": "anci-oiv-resolver",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Canonical Chilean OIV registry name → domain resolver. Eliminates false-positive OSINT findings under Ley 21.663 (Marco Nacional de Ciberseguridad).",
   "type": "module",
   "main": "./dist/index.js",
@@ -19,6 +19,8 @@
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
     "typecheck": "tsc --noEmit",
+    "reverify:honest": "node scripts/reverify-multiresolver-honest.mjs",
+    "bake-status": "npm run build && node scripts/bake-domain-status.mjs",
     "prepublishOnly": "npm run build && npm run test:no-dns"
   },
   "keywords": [

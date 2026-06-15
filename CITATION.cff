@@ -22,9 +22,14 @@ abstract: >-
   (OS → Cloudflare → Google → Quad9 fallback chain · v0.5.1) and richer
   distinguished status enum (live · mail_only · nxdomain · registered_no_a ·
   serverr · timeout · unknown) for peer-review-defensible reproducibility on
-  hardened-endpoint environments. Companion software to the working paper
+  hardened-endpoint environments. v0.6.0 adds a static, per-entry
+  DNS-resolvability stratum (domain_status: resolving · phantom · defunct ·
+  unverified) baked from an honest, null-route-filtered public-resolver
+  re-verification of the catalogue's own domains (830 resolving / 148 phantom /
+  9 unverified at the RUT level); this stratum is additive and does not alter
+  the paper's published headline figures. Companion software to the working paper
   "Coverage Gap in Chilean Critical Infrastructure Cybersecurity: An Automated
-  OSINT Assessment" (Mellafe, 2026).
+  OSINT Assessment" (Mellafe, 2026), whose reproduction cite remains v0.5.2.
 keywords:
   - cybersecurity
   - ciberseguridad
@@ -39,5 +44,5 @@ keywords:
   - anci
   - oiv
 license: Apache-2.0
-version: 0.5.2
-date-released: "2026-06-01"
+version: 0.6.0
+date-released: "2026-06-14"

@@ -7,16 +7,84 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned
-- v0.6.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
-- v0.6.0 · Reverse lookup (`resolveByDomain`)
-- v0.6.0 · TXT record verify (SPF/DMARC/security.txt)
-- v0.6.0 · Sibling-RUT propagation (Aguas Andinas group, AES Gener group, CAP group, etc.)
-- v0.6.0 · Parent-company mapping table for shared corporate infrastructure
-- v0.6.0 · CT-log cross-check via `crt.sh` for NXDOMAIN historical signal
-- v0.6.0 · Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
-- v0.6.0 · Add 12 missing administracion_estado OIVs (Res 87 reconciliation gap)
-- v0.6.x · Integrate Res 85 (April 2026) second procedure entries when published in DOM
+### Planned (v0.6.x roadmap · decoupled from the v0.6.0 data-quality slice)
+- CLI binary (`npx anci-oiv-resolver --rut X`)
+- Reverse lookup (`resolveByDomain`)
+- TXT record verify (SPF/DMARC/security.txt)
+- Sibling-RUT propagation (Aguas Andinas group, AES Gener group, CAP group, etc.)
+- Parent-company mapping table for shared corporate infrastructure
+- CT-log cross-check via `crt.sh` for NXDOMAIN historical signal
+- Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
+- Add 12 missing administracion_estado OIVs (Res 87 reconciliation gap)
+- `defunct` refinement (org-ceased vs domain-mis-guessed) over the 148 phantom rows — net-new manual pass
+- Integrate Res 85 (April 2026) second procedure entries when published in DOM
+
+## [0.6.0] - 2026-06-14
+
+> Data-quality stratum sprint. Adds a STATIC per-entry DNS-resolvability classification
+> (`domain_status`) baked from an honest, null-route-filtered public-resolver
+> re-verification of the package's own catalog. Purely additive and backward-compatible:
+> the Coverage Gap paper's reproduction cite remains **v0.5.2** and no published headline
+> (915 legal / 1.7% security.txt / 98.3% Coverage Gap / 98.7% catalogue-mapping /
+> 23.5% stack-age) is changed.
+
+### Added
+- **Per-entry `domain_status` (4-state STATIC enum: `resolving | phantom | defunct | unverified`)**
+  baked into all 987 RUT rows. Mapped from the frozen 2026-05-26 `verification_status`
+  (live+mail_only → resolving, nxdomain → phantom, registered_no_a/serverr/timeout → unverified)
+  and re-confirmed by a clean public-only re-run. Distinct from the live runtime `VerifyStatus`
+  7-enum (which is unchanged). RUT-level distribution: **830 resolving / 148 phantom /
+  9 unverified / 0 defunct**.
+- **Per-entry `last_validated` (ISO-8601 day)** alongside the existing `verified_at`
+  (not a rename). Plus optional `domain_status_via` recording the public resolver of record.
+- **`ResolveOptions.onlyResolving?: boolean`** — opt-in filter that restricts
+  `resolveBatch`/`getAllEntries` to `domain_status === 'resolving'` and makes
+  `resolveOIVDomain` return `null` for non-resolving (or heuristic-only) entries.
+  Default off = identical v0.5.2 behavior.
+- **`OIVDomainResolution.domain_status` and `.last_validated`** surfaced from the static
+  table without requiring `verify:true`. Heuristic-sourced resolutions leave them `undefined`.
+- **`scripts/bake-domain-status.mjs` + `npm run bake-status`** — NEW write-back tool wrapping
+  the null-route-filtered public-only verifier (Cloudflare → Google → Quad9, OS/NextDNS leg
+  skipped, 0.0.0.0 filtered). The stock OS-first `verifyDomain` is never the bake source while
+  NextDNS is on the host. Also adds `npm run reverify:honest` (diff-only honest re-run).
+- **`type DomainStatus`** exported from the public types surface (`src/index.ts`).
+  Also exports the `isResolving` predicate helper.
+- **`_meta.domain_status_distribution`** counts (analogous to `_meta.layer1_breakdown`) plus
+  a `_meta.domain_status_method` note documenting the null-route-filtered public-only chain.
+
+### Reconciled
+- Documented the **824** (catalog `dns_verified`) vs **465** (apparatus `resolving`) discrepancy
+  as a different, NextDNS-contaminated universe. The catalog resolves at ~84% (830/987), not
+  52.7%. My phantom=148 EXACTLY matches the catalog's frozen 148 nxdomain; resolving=830 vs
+  frozen 824 is +6 honest recoveries. The 47.3%-phantom apparatus figure is a separate, additive
+  census-reliability metric and is **NOT** baked here. STRATIFIED DENOMINATOR DOCTRINE preserved:
+  915 = published legal universe · 987 = catalog RUT rows · 917 = catalog distinct domains ·
+  830 = RUT-level resolving · 765 = domain-level resolving.
+
+### Unchanged (backward-compat)
+- `dns_verified`, `verification_status`, `verification_resolver`, `verified_at` retained verbatim;
+  confidence still keyed off `dns_verified` (1.0/0.85), NOT `domain_status` (bancoestado mail_only
+  stays 1.0). 987 entries; `getCoverageStats` invariant (dnsVerified+dnsUnverified===total) intact.
+  All v0.5.2 public-API signatures remain call-compatible; new fields are additive optionals and
+  `resolveOIVDomain` returns `null` only when the caller opts into `onlyResolving`.
+
+### Deferred (follow-up)
+- `defunct` refinement (org-ceased vs domain-mis-guessed) over the 148 phantom rows — net-new
+  manual pass, tracked separately. The previously-planned CLI binary, `resolveByDomain`,
+  TXT/SPF/DMARC verify, sibling-RUT propagation, and +12 admin_estado OIVs remain on the v0.6.x
+  roadmap, decoupled from this data-quality slice.
+
+### Tests
+- New regression suite `test/domain-status.test.ts` (22 it-blocks): every entry has a valid
+  4-value `domain_status`; `onlyResolving:true` excludes phantom/defunct/unverified; the 9
+  quarantined govt/health domains are never phantom; `resolveOIVDomain` surfaces
+  `domain_status`+`last_validated` statically; the baked distribution equals 830/148/9/0; the
+  frozen `verification_status`/`dns_verified`/`verified_at` snapshot is untouched. Existing
+  ~165 it-blocks stay green.
+
+### Changed
+- `package.json` version `0.5.2` → **`0.6.0`**; `_meta.version` `v0.5.2` → `v0.6.0`;
+  `_meta.generated` → `2026-06-14`. `CITATION.cff` and `.zenodo.json` version + date bumped.
 
 ## [0.5.2] - 2026-06-01
 

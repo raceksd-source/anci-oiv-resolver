@@ -17,6 +17,25 @@ export type OIVSector =
 
 export type ResolutionSource = 'known-domains' | 'heuristic';
 
+/**
+ * v0.6.0 · STATIC per-entry DNS-resolvability classification baked into every
+ * RUT row of `data/known-domains.json`.
+ *
+ *   resolving  — domain has a live A/AAAA record OR an MX record (registered + reachable)
+ *   phantom    — domain returns NXDOMAIN (ENOTFOUND consensus from PUBLIC resolvers)
+ *   defunct    — RESERVED / manual-only: the organization itself ceased to exist
+ *                (vs. a mis-guessed domain). NEVER auto-assigned in v0.6.0.
+ *   unverified — inconclusive (registered_no_a / serverr / timeout / unknown);
+ *                NEVER collapsed into `phantom` so live govt/health orgs with
+ *                apex-A-less DNS are not mislabeled.
+ *
+ * This is a STATIC annotation distinct from the live runtime {@link VerifyStatus}
+ * 7-enum. It is surfaced WITHOUT requiring `verify:true`. The mapping from the
+ * frozen 2026-05-26 `verification_status` is: live+mail_only → resolving,
+ * nxdomain → phantom, everything-else → unverified.
+ */
+export type DomainStatus = 'resolving' | 'phantom' | 'defunct' | 'unverified';
+
 export interface OIVDomainResolution {
   /** Resolved domain (e.g. "bci.cl") */
   domain: string;
@@ -53,6 +72,18 @@ export interface OIVDomainResolution {
    * `undefined` when verify=false.
    */
   via?: VerifyResolver;
+  /**
+   * v0.6.0+ · STATIC per-entry DNS-resolvability classification, surfaced from
+   * the known-domains table WITHOUT requiring `verify:true`. See {@link DomainStatus}.
+   * `undefined` for heuristic-sourced resolutions (no fabricated static claim).
+   */
+  domain_status?: DomainStatus;
+  /**
+   * v0.6.0+ · ISO-8601 day string (e.g. "2026-06-14") of the static re-verification
+   * that produced `domain_status`. Added ALONGSIDE the existing `verified_at`,
+   * never renamed. `undefined` for heuristic-sourced resolutions.
+   */
+  last_validated?: string;
 }
 
 /**
@@ -113,6 +144,26 @@ export interface KnownDomainEntry {
   sector: string;
   dns_verified: boolean;
   note?: string;
+  /** v0.5.1+ · frozen 2026-05-26 runtime verification status (never renamed). */
+  verification_status?: VerifyStatus;
+  /** v0.5.1+ · frozen 2026-05-26 resolver of record (never renamed). */
+  verification_resolver?: string;
+  /** v0.5.1+ · frozen 2026-05-26 verification date (never renamed). */
+  verified_at?: string;
+  /**
+   * v0.6.0+ · STATIC DNS-resolvability classification baked from the honest,
+   * null-route-filtered public-resolver re-verification. Optional so external
+   * JSON consumers and tests that build partial entries still typecheck.
+   */
+  domain_status?: DomainStatus;
+  /** v0.6.0+ · ISO-8601 day of the `domain_status` bake (alongside `verified_at`). */
+  last_validated?: string;
+  /**
+   * v0.6.0+ · the PUBLIC resolver that produced the honest classification
+   * (mirrors {@link VerifyResolver} minus 'os'; the OS/NextDNS leg is excluded
+   * as the contamination vector). Optional / informational.
+   */
+  domain_status_via?: string;
 }
 
 export interface KnownDomainsFile {
@@ -131,6 +182,14 @@ export interface KnownDomainsFile {
 export interface ResolveOptions {
   /** Run DNS/MX verification against the resolved domain (async, adds latency) */
   verify?: boolean;
+  /**
+   * v0.6.0+ · Opt-in filter on the STATIC baked `domain_status`.
+   * When true, `resolveOIVDomain` returns `null` and `resolveBatch` /
+   * `getAllEntries` omit entries whose baked `domain_status` is `'phantom'`,
+   * `'defunct'`, or `'unverified'` (i.e. keep only `'resolving'`).
+   * Default `undefined`/`false` preserves v0.5.2 behavior exactly.
+   */
+  onlyResolving?: boolean;
 }
 
 export interface CoverageStats {
