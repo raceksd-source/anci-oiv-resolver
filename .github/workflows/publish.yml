@@ -64,6 +64,14 @@ jobs:
       - name: Install dependencies (clean)
         run: npm ci
 
+      - name: Build
+        run: npm run build
+
+      - name: Verify build artifacts
+        run: |
+          test -f dist/index.js || (echo "::error::dist/index.js missing" && exit 1)
+          test -f dist/index.d.ts || (echo "::error::dist/index.d.ts missing" && exit 1)
+
       - name: Typecheck
         run: npm run typecheck
 
@@ -74,14 +82,6 @@ jobs:
         run: npm run test:no-dns
         env:
           SKIP_LIVE_DNS: '1'
-
-      - name: Build
-        run: npm run build
-
-      - name: Verify build artifacts
-        run: |
-          test -f dist/index.js || (echo "::error::dist/index.js missing" && exit 1)
-          test -f dist/index.d.ts || (echo "::error::dist/index.d.ts missing" && exit 1)
 
       - name: Verify tag matches package.json version
         run: |
