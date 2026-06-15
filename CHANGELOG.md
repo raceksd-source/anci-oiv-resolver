@@ -7,14 +7,197 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned
-- v0.6.0 · CLI binary (`npx anci-oiv-resolver --rut X`)
-- v0.6.0 · Reverse lookup (`resolveByDomain`)
-- v0.6.0 · TXT record verify (SPF/DMARC/security.txt)
-- v0.6.0 · Zenodo software DOI live
-- v0.6.0 · Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
-- v0.6.0 · Add 12 missing administracion_estado OIVs (Res 87 reconciliation gap)
-- v0.6.x · Integrate Res 85 (April 2026) second procedure entries when published in DOM
+### Planned (v0.6.x roadmap · decoupled from the v0.6.0 data-quality slice)
+- CLI binary (`npx anci-oiv-resolver --rut X`)
+- Reverse lookup (`resolveByDomain`)
+- TXT record verify (SPF/DMARC/security.txt)
+- Sibling-RUT propagation (Aguas Andinas group, AES Gener group, CAP group, etc.)
+- Parent-company mapping table for shared corporate infrastructure
+- CT-log cross-check via `crt.sh` for NXDOMAIN historical signal
+- Monthly DNS cron · auto-flag entries that go NXDOMAIN post-add
+- Add 12 missing administracion_estado OIVs (Res 87 reconciliation gap)
+- `defunct` refinement (org-ceased vs domain-mis-guessed) over the 148 phantom rows — net-new manual pass
+- Integrate Res 85 (April 2026) second procedure entries when published in DOM
+
+## [0.6.0] - 2026-06-14
+
+> Data-quality stratum sprint. Adds a STATIC per-entry DNS-resolvability classification
+> (`domain_status`) baked from an honest, null-route-filtered public-resolver
+> re-verification of the package's own catalog. Purely additive and backward-compatible:
+> the Coverage Gap paper's reproduction cite remains **v0.5.2** and no published headline
+> (915 legal / 1.7% security.txt / 98.3% Coverage Gap / 98.7% catalogue-mapping /
+> 23.5% stack-age) is changed.
+
+### Added
+- **Per-entry `domain_status` (4-state STATIC enum: `resolving | phantom | defunct | unverified`)**
+  baked into all 987 RUT rows. **Derived from the LIVE 2026-06-14 null-route-filtered
+  public-resolver re-run** (Cloudflare → Google → Quad9, OS/NextDNS leg skipped, 0.0.0.0
+  sentinels filtered; live/mail_only → resolving, nxdomain → phantom,
+  registered_no_a/serverr/timeout → unverified), **cross-validated against the frozen
+  2026-05-26 `verification_status` run** — NOT mapped from the frozen status. The
+  cross-validation enforces an asymmetric **corroboration rule**: `phantom` is assigned
+  only when the live 2026-06-14 run NXDOMAINs **and** the frozen 2026-05-26 status was NOT
+  live/mail_only (a corroborated-dead domain). A **divergence** (frozen live/mail_only but
+  the live run NXDOMAINs — the org-likely-moved case) is classified `unverified`, NEVER
+  `phantom`, and flagged for manual catalog review (no fabricated domain). Positive
+  recoveries (frozen non-verified → currently resolving) stay `resolving`. Distinct from
+  the live runtime `VerifyStatus` 7-enum (which is unchanged). RUT-level distribution:
+  **830 resolving / 147 phantom / 10 unverified / 0 defunct**.
+- **Per-entry `last_validated` (ISO-8601 day)** alongside the existing `verified_at`
+  (not a rename). Plus optional `domain_status_via` recording the public resolver of record.
+- **`ResolveOptions.onlyResolving?: boolean`** — opt-in filter that restricts
+  `resolveBatch`/`getAllEntries` to `domain_status === 'resolving'` and makes
+  `resolveOIVDomain` return `null` for non-resolving (or heuristic-only) entries.
+  Default off = identical v0.5.2 behavior.
+- **`OIVDomainResolution.domain_status` and `.last_validated`** surfaced from the static
+  table without requiring `verify:true`. Heuristic-sourced resolutions leave them `undefined`.
+- **`scripts/bake-domain-status.mjs` + `npm run bake-status`** — NEW write-back tool wrapping
+  the null-route-filtered public-only verifier (Cloudflare → Google → Quad9, OS/NextDNS leg
+  skipped, 0.0.0.0 filtered). The stock OS-first `verifyDomain` is never the bake source while
+  NextDNS is on the host. Also adds `npm run reverify:honest` (diff-only honest re-run).
+- **`type DomainStatus`** exported from the public types surface (`src/index.ts`).
+  Also exports the `isResolving` predicate helper.
+- **`_meta.domain_status_distribution`** counts (analogous to `_meta.layer1_breakdown`) plus
+  a `_meta.domain_status_method` note documenting the null-route-filtered public-only chain.
+
+### Reconciled
+- Documented the **824** (catalog `dns_verified`) vs **465** (apparatus `resolving`) discrepancy
+  as a different, NextDNS-contaminated universe. The catalog resolves at ~84% (830/987), not
+  52.7%. The live 2026-06-14 run found 148 NXDOMAINs at the RUT level, of which **147 are
+  corroborated phantom** (frozen status was already nxdomain) and **1 is a divergence**
+  (hbarrosluco.cl — frozen `live`, now NXDOMAIN — classified `unverified`, NOT phantom, under
+  the corroboration rule). resolving=830 vs frozen 824 is +6 honest recoveries. The
+  47.3%-phantom apparatus figure is a separate, additive census-reliability metric and is
+  **NOT** baked here. STRATIFIED DENOMINATOR DOCTRINE preserved: 915 = published legal universe ·
+  987 = catalog RUT rows · 917 = catalog distinct domains · 830 = RUT-level resolving ·
+  765 = domain-level resolving.
+
+### Fixed
+- **`resolveOIVDomain` return-type backward-compat (TypeScript overloads).** v0.6.0's initial
+  cut widened the single signature to `Promise<OIVDomainResolution | null>`, which broke
+  strict-mode v0.5.2 consumers (TS18047 "possibly null" on `r.domain`). Restored via TypeScript
+  **function overloads**: `resolveOIVDomain(rut, razonSocial)` and any call WITHOUT
+  `onlyResolving: true` (including `onlyResolving: false`/`undefined`) return
+  `Promise<OIVDomainResolution>` (NEVER null) — identical to v0.5.2; **only**
+  `resolveOIVDomain(rut, razonSocial, { onlyResolving: true })` returns the nullable
+  `Promise<OIVDomainResolution | null>`. The union-typed implementation signature is not part
+  of the public overload set. Verified by a strict-`tsc` consumer fixture in
+  `test/strict-consumer-types.test.ts`.
+- **Corroboration rule — a frozen-live govt/health org is NEVER baked `phantom`.** The honest
+  re-run found `hbarrosluco.cl` (Hospital Barros Luco; frozen `verification_status=live`,
+  `dns_verified=true`) now NXDOMAINs at all three public resolvers. It was previously baked
+  `phantom`, violating the "never mislabel live govt/health orgs as phantom" rule. The bake now
+  applies the asymmetric rule above: this divergence is reclassified `phantom → unverified`
+  (phantom drops 148→147, unverified rises 9→10) with an extended entry note flagging manual
+  catalog review; no domain is fabricated.
+
+### Unchanged (backward-compat)
+- `dns_verified`, `verification_status`, `verification_resolver`, `verified_at` retained verbatim;
+  confidence still keyed off `dns_verified` (1.0/0.85), NOT `domain_status` (bancoestado mail_only
+  stays 1.0). 987 entries; `getCoverageStats` invariant (dnsVerified+dnsUnverified===total) intact.
+  All v0.5.2 public-API signatures remain call-compatible; new fields are additive optionals and
+  `resolveOIVDomain` returns `null` only when the caller opts into `onlyResolving: true`.
+
+### Deferred (follow-up)
+- `defunct` refinement (org-ceased vs domain-mis-guessed) over the 147 corroborated-phantom rows
+  — net-new manual pass, tracked separately. The 1 divergence row (`hbarrosluco.cl`,
+  `unverified`) is flagged in-entry for the same manual review. The previously-planned CLI binary,
+  `resolveByDomain`, TXT/SPF/DMARC verify, sibling-RUT propagation, and +12 admin_estado OIVs
+  remain on the v0.6.x roadmap, decoupled from this data-quality slice.
+
+### Tests
+- `test/domain-status.test.ts`: every entry has a valid 4-value `domain_status`;
+  `onlyResolving:true` excludes phantom/defunct/unverified; the quarantined govt/health domains
+  are never phantom; `resolveOIVDomain` surfaces `domain_status`+`last_validated` statically; the
+  baked distribution equals **830/147/10/0**; `_meta.domain_status_distribution` matches the actual
+  row counts; the corroboration invariant holds (`live_govt_health_phantom_count == 0`, every
+  phantom is corroborated-dead); `hbarrosluco.cl` is `unverified` (not phantom) and
+  `clinicamagallanes.cl` stays `resolving`; the frozen
+  `verification_status`/`dns_verified`/`verified_at` snapshot is untouched.
+- `test/strict-consumer-types.test.ts`: a strict-`tsc` consumer fixture compiles clean against
+  the built `dist/` types (overloads restore the v0.5.2 non-null contract); `dist/index.d.ts`
+  declares the non-null + nullable-`onlyResolving` overloads. Existing v0.5.x it-blocks stay green.
+
+### Changed
+- `package.json` version `0.5.2` → **`0.6.0`**; `_meta.version` `v0.5.2` → `v0.6.0`;
+  `_meta.generated` → `2026-06-14`. `CITATION.cff` and `.zenodo.json` version + date bumped.
+
+## [0.5.2] - 2026-06-01
+
+> Precision audit sprint for the Coverage Gap paper companion tool. All changes are
+> scope-limited to RUT→domain mapping accuracy and public API surface. No findings,
+> CVSS scores, or internal research data are exposed.
+
+### Fixed
+- **`src/heuristic.ts` · `GOB_CL_STEMS` expanded from 6 → 52 catalog-derived stems.**
+  The v0.5.1 list covered only 6 of the 55 `.gob.cl` OIV domains in the
+  `administracion_estado` sector, causing 49 government agencies to receive a
+  heuristic `.cl` TLD instead of `.gob.cl`. The corrected list was derived by
+  auditing every `administracion_estado` entry in the v0.5.1 catalog and
+  extracting the token stem for each `.gob.cl` domain. Affected stems include
+  `tesoreria`, `dipres`, `hacienda`, `fne`, `inapi`, `dpp`, `subtrans`, and
+  45 others. The fix is covered by 11 new regression tests in
+  `test/heuristic.test.ts` (suite "inferTld · expanded .gob.cl stems (audit v0.5.2)").
+
+### Added
+- **`hasEntry(rut: string): boolean` exported from package public API.**
+  Previously available internally but not re-exported through `src/index.ts`.
+  Consumers can now check whether a RUT has a table entry without calling
+  `resolveBytable` and testing for null. Export verified by the new
+  `public-api.test.ts` suite ("hasEntry is reachable from package index (audit v0.5.2 fix)").
+
+### Tests
+- 165 tests · 24 suites · 0 failures (up from 154 tests in v0.5.1).
+- New suite `inferTld · expanded .gob.cl stems (audit v0.5.2)` — 11 tests covering
+  representative .gob.cl stems, `.cl` non-gob fallback, and end-to-end
+  `heuristicInfer` for Tesorería General and Subsecretaría de Hacienda.
+- New test `hasEntry is reachable from package index (audit v0.5.2 fix)` in
+  `test/public-api.test.ts`.
+
+### Changed
+- `package.json` version 0.5.1 → **0.5.2**
+
+## [0.5.1] - 2026-05-26
+
+> Pre-publish precision sprint preceding the Coverage Gap paper (2026-06-04). Companion to the Opus 4.7 MAX resolver precision audit (2026-05-26 · TLP:AMBER internal). Headline numbers in the paper are unchanged; this release upgrades peer-review defensibility and reproducibility for independent reviewers operating on hardened-endpoint DNS.
+
+### Fixed (CRITICAL · multi-resolver reproducibility)
+- **`src/verify.ts` · multi-resolver fallback chain.** The v0.5.0 verifier called Node's `dns.resolve4()` with no resolver specified, inheriting the OS-default resolver. On hardened endpoints (DoH, NextDNS, corporate DNS filters) the OS resolver returns `ESERVFAIL` for live domains, producing false-negative `unverified` flags. v0.5.1 attempts the OS resolver first (fast path), then progressively falls back through **1.1.1.1 / 1.0.0.1 (Cloudflare) → 8.8.8.8 / 8.8.4.4 (Google) → 9.9.9.9 / 149.112.112.112 (Quad9)**. Empirically validated: 17 catalog entries previously reported as `dns_verified: false` flipped to `live` after applying the fallback chain, including `bec.cl`, `enap.com`, `davila.cl`, `uchile.cl`, `falp.cl`, and `minsal.cl`.
+- **`data/known-domains.json` · `essat.cl` collision.** The `essat.cl` domain was incorrectly assigned to both EMSSAT Atacama (RUT 91065000-9) and EMSSAT Coquimbo (RUT 91071000-7), which are different legal entities. Per the Opus 4.7 audit and independent verification (Cloudflare DNS: 44.195.229.203, 52.200.66.12), Coquimbo's correct canonical domain is `aguasdelvalle.com` (Aguas del Valle group). Coquimbo reassigned to `aguasdelvalle.com` (live · A records confirmed via 1.1.1.1). Atacama retains `essat.cl` as a placeholder pending domain discovery.
+
+### Added
+- **Richer `VerifyResult` enum (`status` and `via` fields).** Every call to `verifyDomain()` now returns a distinguished `status` of `live` / `mail_only` / `registered_no_a` / `nxdomain` / `serverr` / `timeout` / `unknown`, plus a `via` field naming which resolver (`os` / `cloudflare` / `google` / `quad9` / `exhausted`) produced the result. The legacy `ok: boolean` field is preserved for backwards compatibility (true iff `status === 'live'`).
+- **`VerifyStatus` and `VerifyResolver` types** exported from the package public API.
+- **MX-only Layer-1 path.** Domains with no A/AAAA but at least one MX record are now classified `status: 'mail_only'` and counted as Layer-1 verified (registered domain operating mail-only). 25 catalog entries flipped from `dns_verified: false` to `dns_verified: true` under this new semantic, including `bancoestado.cl`, `redbanc.cl`, `armada.cl`, `aduana.cl`, `presidencia.cl`, `mop.gob.cl`.
+- **`_meta.duplicate_audit`** in `data/known-domains.json` · documents all 59 domain groups shared by 2+ RUTs with `kind` (e.g. `corporate_group_shared_infra`, `portuario_cross_sector`, `health_network_shared_brand`, `gov_ministerial_pair`) and per-group `rationale`. Designed for reviewer defensibility — every duplicate has a documented justification.
+- **`_meta.layer1_breakdown`** in `data/known-domains.json` · per-status entry counts (`live`, `mail_only`, `nxdomain`, `registered_no_a`, `serverr`, `timeout`).
+- **`verification_status`, `verification_resolver` fields** on every catalog entry, populated by the full re-verification run on 2026-05-26.
+- **4 regression test groups** in `test/verify.test.ts`: multi-resolver fallback, NXDOMAIN vs ESERVFAIL discrimination, Coverage-Gap-audit domain unlock, status enum semantics, catalog dedup integrity, essat.cl collision regression guard.
+
+### Changed
+- `_meta.version`: `v0.5.0-cleanup` → **`v0.5.1-resolver-precision`**
+- `_meta.verified_entries`: 793 → **824** (Layer-1 verified · post-multi-resolver + mail_only unlock)
+- `_meta.unverified_entries`: 202 → **163**
+- `_meta.verification_pct`: 79.7% → **83.5%**
+- `_meta.generated`: 2026-05-24 → 2026-05-26
+- `package.json` version 0.5.0 → **0.5.1**
+- README badges and verification-rate language updated to reflect Layer-1 semantics.
+- README adds "Verification semantics (v0.5.1)" section explaining the 7-state status enum.
+
+### Empirical validation
+- Re-verified 987/987 catalog entries with the new multi-resolver chain. Run completed in 220 seconds on a NextDNS-DoH-protected Mac mini M4 (concurrency = 8). Resolver distribution post-run: 941 entries via Cloudflare, 45 via Quad9, 1 via Google. The OS resolver returned definitive answers for 0 entries on this hardened endpoint, demonstrating exactly the precision-loss path the audit identified.
+- Catalog diff vs v0.5.0:
+  - **+17** newly live (multi-resolver unlock · Cloudflare A records succeeded where OS resolver had returned ESERVFAIL)
+  - **+25** newly mail_only (MX-only Layer-1 unlock)
+  - **−8** ground-truth state changes (domains that genuinely went dark between 2026-05-23 and 2026-05-26 · independently confirmed via `dig @1.1.1.1`)
+
+### Paper-impact disclosure
+- Headline numbers in *The Coverage Gap: Chile's Cyber Disclosure Framework vs USA/EU/UK* (publish 2026-06-04) are unchanged at integer rounding (1.3% Layer-1 disclosure-contact coverage, 63% email-auth misconfiguration, 8-year regulatory gap). The DNS-verification rate moves from 79.7% to 83.5%; paper §4.2 will add one sentence distinguishing "catalogue coverage" (entity present in table) from "Layer-1 verification" (the table's domain currently resolves with A or MX records).
+- Paper Reference 11 bumps from `anci-oiv-resolver v0.5.0` to **`v0.5.1`** with new Zenodo DOI minted on release.
+
+### Known gaps (deferred to v0.6.0)
+- 12 administracion_estado OIVs present in Res 87 but absent from this catalogue (reconciliation pending)
+- `sap.cl` domain is mapped to two unrelated RUTs (`SAP CHILE LIMITADA` ERP vendor + `SERVICIOS DE ADMINISTRACIÓN PREVISIONAL S.A.` financial services). Documented as `kind: unrelated_homonym` in `_meta.duplicate_audit` pending discovery of an authoritative second domain.
 
 ## [0.5.0] - 2026-05-24
 
@@ -202,5 +385,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - empresas_estado: 6/20
 - **TOTAL: 171 entries · 18.8% of 909 OIVs registered**
 
-[Unreleased]: https://github.com/raceksd-source/anci-oiv-resolver/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/raceksd-source/anci-oiv-resolver/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.5.1
+[0.5.0]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.5.0
+[0.4.0]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.4.0
+[0.3.0]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.3.0
+[0.2.0]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.2.0
+[0.1.1]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.1.1
 [0.1.0]: https://github.com/raceksd-source/anci-oiv-resolver/releases/tag/v0.1.0

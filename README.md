@@ -6,6 +6,7 @@
 [![npm](https://img.shields.io/badge/npm-anci--oiv--resolver-red.svg)](https://www.npmjs.com/package/anci-oiv-resolver)
 [![Coverage Gap](https://img.shields.io/badge/Coverage_Gap-brecha_estructural-orange.svg)](#el-coverage-gap)
 [![Domain Coverage](https://img.shields.io/badge/Domain_Coverage-915_OIVs_mapped_(100%25)-brightgreen.svg)](#la-solución)
+[![DNS Verified](https://img.shields.io/badge/Layer--1_Verified-83.5%25_(v0.5.1)-brightgreen.svg)](#semántica-de-verificación-v051)
 [![Sectors Closed](https://img.shields.io/badge/Sectors_Closed-10_de_10-brightgreen.svg)](#la-solución)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](package.json)
 [![CFP](https://img.shields.io/badge/LASCON_2026-en_evaluación-blue.svg)]()
@@ -91,25 +92,43 @@ Sin un resolver canónico, cualquier herramienta que escanee OIVs chilenos gener
 
 `anci-oiv-resolver` provee un mapping **RUT → dominio canónico** validado vía DNS, cubriendo las **915 OIVs (100%)** del universo oficial:
 
-| Sector | Total | Verificado | Estado |
+| Sector | Total | Layer-1 Verificado (v0.5.1) | Estado |
 |--------|-------|-----------|--------|
-| banca_finanzas | 34/34 | 31/34 | 100% cerrado ⭐ |
-| telecomunicaciones | 29/29 | 24/29 | 100% cerrado ⭐ |
-| transporte | 25/25 | 21/25 | 100% cerrado ⭐ |
-| agua | 25/25 | 9/25 | 100% cerrado ⭐ |
-| empresas_estado | 20/20 | 16/20 | 100% cerrado ⭐ |
-| combustibles | 25/25 | 22/25 | 100% cerrado ⭐ |
-| salud | 111/111 | 86/111 | 100% cerrado ⭐ |
-| administracion_estado | 155/155 | 114/155 | 100% cerrado ⭐ |
-| energia_electrica | 147/147 | 60/147 | 100% cerrado ⭐ |
-| infraestructura_digital | 413/413 | 410/413 | 100% cerrado ⭐ v0.4.0 |
-| **TOTAL** | **915/915** | **~793/915** | **100% universo** |
+| banca_finanzas | 34/34 | 34/34 (100%) | 100% cerrado ⭐ |
+| telecomunicaciones | 29/29 | 24/29 (82.8%) | 100% cerrado ⭐ |
+| transporte | 25/25 | 22/25 (88.0%) | 100% cerrado ⭐ |
+| agua | 25/25 | 12/25 (48.0%) | 100% cerrado ⭐ |
+| empresas_estado | 20/20 | 18/20 (90.0%) | 100% cerrado ⭐ |
+| combustibles | 25/25 | 18/25 (72.0%) | 100% cerrado ⭐ |
+| salud | 123/123 | 94/123 (76.4%) | 100% cerrado ⭐ |
+| administracion_estado | 146/146 | 122/146 (83.6%) | 100% cerrado ⭐ |
+| energia_electrica | 147/147 | 71/147 (48.3%) | 100% cerrado ⭐ |
+| infraestructura_digital | 413/413 | 409/413 (99.0%) | 100% cerrado ⭐ v0.4.0 |
+| **TOTAL** | **987 entries · 915 OIV universe** | **824/987 (83.5%)** | **100% universo** |
 
-> **~80% con dominios DNS verificados (A record). ~20% documentados honestamente**: NXDOMAIN · email-only (solo MX) · contratistas individuales sin web · compañías sin presencia pública. Sin sobreclaim de coverage técnico cuando no existe.
+> Conteo Layer-1 cuenta dominios con A-record (`live`) más mail-only-MX (`mail_only`) como Layer-1 válido. Ver sección "Semántica de verificación".
 
-Con fallback heurístico mejorado (normalización de acentos + strip de sufijos legales + brand-override map) cuando el RUT no está en la tabla.
+> **83.5% Layer-1 verificados (A record o MX-only) · 16.5% documentados honestamente**: NXDOMAIN · sin registros · contratistas individuales sin web. Sin sobreclaim de coverage técnico cuando no existe.
 
-**915 OIVs catalogados · 100% universo ANCI · ~80% DNS-verificados · 10/10 sectores cerrados · OSINT pasivo · cero escaneo activo · v0.4.0**
+Con fallback heurístico mejorado (normalización de acentos + strip de sufijos legales + brand-override map) cuando el RUT no está en la tabla, y **resolver multi-cadena (OS → Cloudflare → Google → Quad9)** en v0.5.1 para reproducibilidad en endpoints con DNS endurecido.
+
+**915 OIVs catalogados · 100% universo ANCI · 83.5% Layer-1 verificados · 10/10 sectores cerrados · OSINT pasivo · cero escaneo activo · v0.5.1**
+
+## Semántica de verificación (v0.5.1)
+
+A partir de v0.5.1 cada entrada del catálogo y cada llamada a `verifyDomain()` reporta un `status` distinguido. La distinción es necesaria porque, en endpoints con DNS endurecido (DoH, NextDNS, filtros corporativos), el resolver del SO confunde `NXDOMAIN` con `ESERVFAIL` y produce falsos negativos para dominios perfectamente vivos.
+
+| Status | Significado | Contado como Layer-1 verificado |
+|---|---|---|
+| `live` | Al menos un registro A o AAAA | ✓ Sí |
+| `mail_only` | Sin A/AAAA pero con MX (dominio registrado · mail-only) | ✓ Sí |
+| `registered_no_a` | `ENODATA` en resolvers públicos (registrado · sin A ni MX) | ✗ No |
+| `nxdomain` | `ENOTFOUND` en resolvers públicos (dominio no existe) | ✗ No |
+| `serverr` | Todos los resolvers respondieron `ESERVFAIL` (indeterminable) | ✗ No |
+| `timeout` | Todos los resolvers en la cadena timed out | ✗ No |
+| `unknown` | Cadena agotada sin código canónico | ✗ No |
+
+`verifyDomain()` intenta primero el resolver del SO (rápido) · si falla con cualquier código distinto de `ENOTFOUND` autoritativo, cae a través de **1.1.1.1 → 8.8.8.8 → 9.9.9.9**. Cada resultado incluye un campo `via` indicando qué resolver lo produjo, lo que permite a revisores independientes reproducir el hallazgo con la misma cadena de resolvers.
 
 ## Instalación rápida
 

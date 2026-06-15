@@ -169,14 +169,35 @@ export function inferDomainToken(razonSocial: string): string {
 }
 
 /**
+ * Exhaustive list of token stems derived from the known-domains catalog that
+ * use the .gob.cl TLD. Checked against every administracion_estado entry
+ * in the v0.5.1 catalog (2026-06-01 audit).
+ *
+ * When a heuristic token exactly matches one of these stems the TLD is
+ * overridden to `.gob.cl` instead of the default `.cl`.
+ * Kept as a flat array for O(n) scan — the list is small and stable.
+ */
+const GOB_CL_STEMS: ReadonlyArray<string> = [
+  'anci', 'ani', 'casademoneda', 'conadi', 'cultura', 'defensa',
+  'dgac', 'dipreca', 'dipres', 'dpp', 'dt', 'economia',
+  'educacionpublica', 'extranjeria', 'fne', 'fosis', 'gendarmeria',
+  'hacienda', 'inapi', 'injuv', 'interior', 'ips', 'isl',
+  'junaeb', 'junji', 'minciencia', 'minjusticia', 'minrel', 'minvu',
+  'mma', 'monumentos', 'mop', 'msgg', 'niñez', 'odepa',
+  'sag', 'sea', 'seguridadpublica', 'senapred', 'senda', 'sernameg',
+  'sernatur', 'serviciocivil', 'serviu', 'sma', 'sml',
+  'subdere', 'subrei', 'subtrans', 'supersalud', 'tesoreria', 'trabajo',
+];
+
+/**
  * Determine TLD suffix based on sector context.
  * Chilean government agencies typically use .gob.cl or .cl
  */
 export function inferTld(sector: string, token: string): string {
   if (sector === 'administracion_estado') {
-    // Services already known to use .gob.cl
-    const gobPatterns = ['senapred', 'sag', 'gendarmeria', 'sea', 'ips', 'anci'];
-    if (gobPatterns.some(p => token.includes(p))) {
+    // Use the exhaustive catalog-derived stem list instead of the original
+    // 6-entry list that missed 47 of the 55 .gob.cl domains.
+    if (GOB_CL_STEMS.some(p => token === p || token.includes(p))) {
       return '.gob.cl';
     }
   }
