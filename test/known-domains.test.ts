@@ -8,6 +8,7 @@ import { describe, it } from 'node:test';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { resolveBytable, normalizeRut, getCoverageStats, hasEntry } from '../src/known-domains.js';
+import { computeKnownDomainsSha256, stableStringify } from '../src/integrity.js';
 
 function createKnownDomainsFixture(options: {
   prefix: string;
@@ -17,14 +18,24 @@ function createKnownDomainsFixture(options: {
   mkdirSync(join(root, 'src'), { recursive: true });
   mkdirSync(join(root, 'data'), { recursive: true });
   copyFileSync(new URL('../src/known-domains.ts', import.meta.url), join(root, 'src', 'known-domains.ts'));
+  copyFileSync(new URL('../src/integrity.ts', import.meta.url), join(root, 'src', 'integrity.ts'));
   copyFileSync(new URL('../src/types.ts', import.meta.url), join(root, 'src', 'types.ts'));
   if (options.data) {
     writeFileSync(
       join(root, 'data', 'known-domains.json'),
       JSON.stringify(options.data, null, 2),
     );
+    const integrity = computeKnownDomainsSha256(options.data);
+    writeFileSync(
+      join(root, 'data', 'MANIFEST.json'),
+      `${stableStringify({
+        dataset_row_count: integrity.rowCount,
+        dataset_sha256: integrity.actualSha256,
+      }, 2)}\n`,
+    );
   } else {
     copyFileSync(new URL('../data/known-domains.json', import.meta.url), join(root, 'data', 'known-domains.json'));
+    copyFileSync(new URL('../data/MANIFEST.json', import.meta.url), join(root, 'data', 'MANIFEST.json'));
   }
   return root;
 }

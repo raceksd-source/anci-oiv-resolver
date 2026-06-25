@@ -19,6 +19,7 @@ import {
   getAllEntries,
   normalizeRut,
   hasEntry,                 // audit v0.5.2: was missing from public API
+  assertDatasetIntegrity,
   normalizeAccents,
   inferDomainToken,
 } from '../src/index.js';
@@ -77,6 +78,10 @@ describe('public API surface · all named exports reachable from index', () => {
     // This test will fail at import if the export is missing.
     assert.ok(hasEntry('97006000-6'), 'BCI RUT should be in table');
     assert.equal(hasEntry('00000000-0'), false);
+  });
+
+  it('assertDatasetIntegrity is callable', () => {
+    assert.equal(assertDatasetIntegrity().rowCount, getCoverageStats().total);
   });
 
   it('normalizeAccents is callable', () => {

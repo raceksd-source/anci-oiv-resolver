@@ -6,6 +6,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ensureDatasetIntegrity } from './integrity.js';
 import { isOIVSector } from './types.js';
 import type {
   KnownDomainEntry,
@@ -26,6 +27,7 @@ function normalizeEntrySector(sector: unknown, rut: string): OIVSector {
 }
 
 function loadTable(): Map<string, KnownDomainEntry> {
+  ensureDatasetIntegrity();
   const raw: KnownDomainsFile = JSON.parse(readFileSync(DATA_PATH, 'utf-8'));
   const map = new Map<string, KnownDomainEntry>();
 

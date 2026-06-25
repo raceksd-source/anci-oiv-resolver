@@ -179,6 +179,7 @@ export async function resolveBatch(
 // Re-export primitives for advanced usage
 export { resolveBytable, heuristicInfer, verifyDomain };
 export { getCoverageStats, getAllEntries, normalizeRut, hasEntry, isResolving } from './known-domains.js';
+export { assertDatasetIntegrity, ensureDatasetIntegrity, DatasetIntegrityError } from './integrity.js';
 export { normalizeAccents, inferDomainToken } from './heuristic.js';
 export { batchVerify } from './verify.js';
 
