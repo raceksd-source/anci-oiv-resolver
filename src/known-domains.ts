@@ -3,29 +3,45 @@
  * Canonical RUT → domain mapping for Chilean OIVs (Ley 21.663)
  */
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { ensureDatasetIntegrity } from './integrity.js';
+import { isOIVSector } from './types.js';
 import type {
   KnownDomainEntry,
   KnownDomainsFile,
   OIVDomainResolution,
   CoverageStats,
   ResolveOptionsWithStatus,
+  OIVSector,
 } from './types.js';
 
 // Load and parse the known-domains JSON at module init (sync, one-shot)
-const DATA_PATH = join(new URL('.', import.meta.url).pathname, '..', 'data', 'known-domains.json');
+const DATA_PATH = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'known-domains.json');
+
+function normalizeEntrySector(sector: unknown, rut: string): OIVSector {
+  if (isOIVSector(sector)) return sector;
+  console.warn(`[anci-oiv-resolver] Unknown OIV sector "${String(sector)}" for ${rut}; using "unknown".`);
+  return 'unknown';
+}
 
 function loadTable(): Map<string, KnownDomainEntry> {
+  ensureDatasetIntegrity();
   const raw: KnownDomainsFile = JSON.parse(readFileSync(DATA_PATH, 'utf-8'));
   const map = new Map<string, KnownDomainEntry>();
 
   for (const [key, value] of Object.entries(raw)) {
     if (key.startsWith('_')) continue;
-    const entry = value as KnownDomainEntry;
-    if (entry && typeof entry === 'object' && 'domain' in entry) {
+    if (value && typeof value === 'object' && 'domain' in value) {
       // Normalize RUT: uppercase, trim
-      map.set(normalizeRut(key), entry);
+      const normalizedRut = normalizeRut(key);
+      const rawEntry = value as KnownDomainEntry;
+      const entry: KnownDomainEntry = {
+        ...rawEntry,
+        sector: normalizeEntrySector((value as { sector?: unknown }).sector, normalizedRut),
+      };
+      map.set(normalizedRut, entry);
     }
   }
   return map;
@@ -68,7 +84,7 @@ export function resolveBytable(
     source: 'known-domains',
     rut: normalized,
     razonSocial: entry.razon_social,
-    sector: entry.sector as OIVDomainResolution['sector'],
+    sector: entry.sector,
     // confidence stays keyed off dns_verified (1.0 / 0.85) — NOT domain_status —
     // to preserve the published v0.5.2 test contract (bancoestado mail_only=1.0).
     confidence: entry.dns_verified ? 1.0 : 0.85,

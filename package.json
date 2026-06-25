@@ -13,6 +13,8 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:manifest": "tsx scripts/build-manifest.ts",
+    "verify:integrity": "tsx scripts/verify-integrity.ts",
     "test": "tsx --test test/*.test.ts",
     "test:live": "tsx --test test/*.test.ts",
     "test:no-dns": "SKIP_LIVE_DNS=1 tsx --test test/*.test.ts",
@@ -58,7 +60,7 @@
     "url": "https://github.com/raceksd-source/anci-oiv-resolver/issues"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.12.4",

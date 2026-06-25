@@ -174,7 +174,8 @@ const resolved = await resolveBatch(oivs, { verify: true });
 import { getCoverageStats } from 'anci-oiv-resolver';
 
 const stats = getCoverageStats();
-// → { total: 995, bySector: { infraestructura_digital: { count: 416, dnsVerified: 410 }, banca_finanzas: { count: 34 }, salud: { count: 111 }, administracion_estado: { count: 155 }, energia_electrica: { count: 150 }, ... }, dnsVerified: 793, dnsUnverified: 202 }
+// stats.total is the runtime catalog count (currently 987)
+// → { total: 987, bySector: { infraestructura_digital: { count: 416 }, banca_finanzas: { count: 34 }, ... }, dnsVerified: 824, dnsUnverified: 163 }
 ```
 
 ### CLI demo

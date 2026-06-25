@@ -9,7 +9,8 @@
  * Always combine with verify.ts in production to confirm DNS existence.
  */
 
-import type { OIVDomainResolution } from './types.js';
+import { isOIVSector } from './types.js';
+import type { OIVDomainResolution, OIVSector } from './types.js';
 
 /** Spanish/legal stopwords that rarely appear in domain names */
 const STOPWORDS = new Set([
@@ -41,6 +42,11 @@ const LEGAL_SUFFIXES = [
   'empresa de los ferrocarriles del estado',
   'empresa de correos de chile',
 ];
+
+const esc = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const LEGAL_SUFFIX_PATTERNS = LEGAL_SUFFIXES.map(
+  suffix => new RegExp(`(^|\\s)${esc(suffix)}(?=\\s|$)`, 'gi'),
+);
 
 /** Well-known brand abbreviation expansions. Maps short ANCI name → actual domain token. */
 const BRAND_OVERRIDES: Record<string, string> = {
@@ -145,12 +151,12 @@ export function inferDomainToken(razonSocial: string): string {
 
   // 2. Strip legal suffixes
   let cleaned = lower;
-  for (const suffix of LEGAL_SUFFIXES) {
-    cleaned = cleaned.replace(new RegExp(`\\b${suffix}\\b`, 'gi'), ' ');
+  for (const suffixPattern of LEGAL_SUFFIX_PATTERNS) {
+    cleaned = cleaned.replace(suffixPattern, ' ');
   }
 
-  // 3. Remove punctuation except spaces
-  cleaned = cleaned.replace(/[^a-záéíóúüñ\s]/g, ' ');
+  // 3. Remove punctuation except spaces, preserving numeric brand tokens.
+  cleaned = cleaned.replace(/[^a-z0-9áéíóúüñ\s]/g, ' ');
 
   // 4. Normalize accents
   cleaned = normalizeAccents(cleaned);
@@ -197,11 +203,15 @@ export function inferTld(sector: string, token: string): string {
   if (sector === 'administracion_estado') {
     // Use the exhaustive catalog-derived stem list instead of the original
     // 6-entry list that missed 47 of the 55 .gob.cl domains.
-    if (GOB_CL_STEMS.some(p => token === p || token.includes(p))) {
+    if (GOB_CL_STEMS.some(p => token === p || (p.length >= 5 && token.includes(p)))) {
       return '.gob.cl';
     }
   }
   return '.cl';
+}
+
+function normalizeSector(sector: string): OIVSector {
+  return isOIVSector(sector) ? sector : 'unknown';
 }
 
 /**
@@ -222,7 +232,7 @@ export function heuristicInfer(
     source: 'heuristic',
     rut,
     razonSocial,
-    sector: sector as OIVDomainResolution['sector'],
+    sector: normalizeSector(sector),
     confidence: 0.45,
   };
 }
