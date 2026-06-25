@@ -194,7 +194,8 @@ Returns coverage statistics across sectors (useful for reporting).
 
 ```typescript
 const stats = getCoverageStats();
-// → { total: 367, bySector: { banca_finanzas: { count: 34, dnsVerified: 30 }, combustibles: { count: 25, ... }, ... }, ... }
+// stats.total is the runtime catalog count (currently 987)
+// → { total: 987, bySector: { banca_finanzas: { count: 34 }, combustibles: { count: 25 }, ... }, ... }
 ```
 
 ### `resolveBytable(rut)` / `heuristicInfer(razonSocial)` / `verifyDomain(domain)`

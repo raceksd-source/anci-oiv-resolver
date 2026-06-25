@@ -3,8 +3,36 @@
  */
 
 import assert from 'node:assert/strict';
+import { copyFileSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { resolveBytable, normalizeRut, getCoverageStats, hasEntry } from '../src/known-domains.js';
+
+function createKnownDomainsFixture(options: {
+  prefix: string;
+  data?: Record<string, unknown>;
+}): string {
+  const root = mkdtempSync(join(process.cwd(), options.prefix));
+  mkdirSync(join(root, 'src'), { recursive: true });
+  mkdirSync(join(root, 'data'), { recursive: true });
+  copyFileSync(new URL('../src/known-domains.ts', import.meta.url), join(root, 'src', 'known-domains.ts'));
+  copyFileSync(new URL('../src/types.ts', import.meta.url), join(root, 'src', 'types.ts'));
+  if (options.data) {
+    writeFileSync(
+      join(root, 'data', 'known-domains.json'),
+      JSON.stringify(options.data, null, 2),
+    );
+  } else {
+    copyFileSync(new URL('../data/known-domains.json', import.meta.url), join(root, 'data', 'known-domains.json'));
+  }
+  return root;
+}
+
+async function importKnownDomainsFixture(root: string) {
+  const href = pathToFileURL(join(root, 'src', 'known-domains.ts')).href;
+  return import(`${href}?fixture=${Date.now()}-${Math.random()}`);
+}
 
 describe('normalizeRut', () => {
   it('strips dots and uppercases verifier digit', () => {
@@ -19,6 +47,54 @@ describe('normalizeRut', () => {
 });
 
 describe('resolveBytable', () => {
+  it('loads the table when the installed package path contains a space', async () => {
+    const root = createKnownDomainsFixture({ prefix: 'tmp known domains path ' });
+    try {
+      const mod = await importKnownDomainsFixture(root);
+      const r = mod.resolveBytable('97006000-6');
+      assert.equal(r?.domain, 'bci.cl');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('coerces unknown catalog sectors to unknown and warns at load time', async () => {
+    const root = createKnownDomainsFixture({
+      prefix: 'tmp-known-domains-sector-',
+      data: {
+        _meta: {
+          description: 'test fixture',
+          format: 'rut -> domain',
+          generated: '2026-06-25',
+          version: 'test',
+          total_entries: 1,
+          coverage_note: 'test fixture',
+          sectors: ['legacy_sector'],
+        },
+        '12345678-5': {
+          domain: 'example.cl',
+          razon_social: 'EXAMPLE',
+          sector: 'legacy_sector',
+          dns_verified: true,
+        },
+      },
+    });
+    const originalWarn = console.warn;
+    const warnings: string[] = [];
+    console.warn = (message?: unknown) => {
+      warnings.push(String(message));
+    };
+    try {
+      const mod = await importKnownDomainsFixture(root);
+      const r = mod.resolveBytable('12345678-5');
+      assert.equal(r?.sector, 'unknown');
+      assert.match(warnings.join('\n'), /Unknown OIV sector "legacy_sector"/);
+    } finally {
+      console.warn = originalWarn;
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('resolves BCI correctly (verifies BCI false-positive fix)', () => {
     const r = resolveBytable('97006000-6');
     assert.ok(r, 'BCI should be in table');

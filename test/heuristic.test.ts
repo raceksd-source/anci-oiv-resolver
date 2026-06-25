@@ -56,9 +56,19 @@ describe('inferDomainToken', () => {
     assert.ok(!token.includes('sa'), 'S.A. suffix should be stripped');
   });
 
+  it('does not treat SXAX as the dotted S.A. legal suffix', () => {
+    const token = inferDomainToken('EMPRESA SXAX FOO');
+    assert.equal(token, 'empresasxaxfoo');
+  });
+
   it('strips SPA legal suffix', () => {
     const token = inferDomainToken('VTR COMUNICACIONES SPA');
     assert.ok(!token.includes('spa'), 'SPA suffix should be stripped');
+  });
+
+  it('preserves digits while stripping punctuation', () => {
+    const token = inferDomainToken('EMPRESA 2080 S.A.');
+    assert.equal(token, 'empresa2080');
   });
 
   it('produces lowercase output', () => {
@@ -145,6 +155,14 @@ describe('inferTld · expanded .gob.cl stems (audit v0.5.2)', () => {
 
   it('returns .cl for non-gob stem in administracion_estado', () => {
     assert.equal(inferTld('administracion_estado', 'registrocivil'), '.cl');
+  });
+
+  it('does not map tokens containing the short dt stem to .gob.cl', () => {
+    assert.equal(inferTld('administracion_estado', 'consultoradtx'), '.cl');
+  });
+
+  it('does not map tokens containing the short ips stem to .gob.cl', () => {
+    assert.equal(inferTld('administracion_estado', 'equipsolutions'), '.cl');
   });
 
   it('returns .cl for any stem outside administracion_estado', () => {

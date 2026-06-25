@@ -3,17 +3,27 @@
  * Canonical Chilean OIV domain resolution under Ley 21.663
  */
 
-export type OIVSector =
-  | 'banca_finanzas'
-  | 'telecomunicaciones'
-  | 'energia_electrica'
-  | 'salud'
-  | 'administracion_estado'
-  | 'empresas_estado'
-  | 'agua_saneamiento'
-  | 'transporte'
-  | 'combustibles'
-  | 'unknown';
+export const OIV_SECTORS = [
+  'banca_finanzas',
+  'telecomunicaciones',
+  'energia_electrica',
+  'salud',
+  'administracion_estado',
+  'empresas_estado',
+  'agua',
+  'transporte',
+  'combustibles',
+  'infraestructura_digital',
+  'unknown',
+] as const;
+
+export type OIVSector = typeof OIV_SECTORS[number];
+
+const OIV_SECTOR_SET = new Set<string>(OIV_SECTORS);
+
+export function isOIVSector(value: unknown): value is OIVSector {
+  return typeof value === 'string' && OIV_SECTOR_SET.has(value);
+}
 
 export type ResolutionSource = 'known-domains' | 'heuristic';
 
@@ -62,6 +72,8 @@ export interface OIVDomainResolution {
   mxRecords: string[] | null;
   /** Confidence 0–1: 1.0 for table lookups, lower for heuristic */
   confidence: number;
+  /** Error message for per-entry batch failures. */
+  error?: string;
   /**
    * v0.5.1+ · Distinguished verification status when verify=true.
    * `undefined` when verify=false. See {@link VerifyStatus}.
@@ -141,7 +153,7 @@ export interface VerifyResult {
 export interface KnownDomainEntry {
   domain: string;
   razon_social: string;
-  sector: string;
+  sector: OIVSector;
   dns_verified: boolean;
   note?: string;
   /** v0.5.1+ · frozen 2026-05-26 runtime verification status (never renamed). */

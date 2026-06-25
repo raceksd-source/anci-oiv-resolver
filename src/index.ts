@@ -6,7 +6,7 @@
  * the 915 organizations registered under Ley 21.663 (Marco Nacional de Ciberseguridad).
  *
  * Resolution strategy (in order):
- *   1. RUT table lookup (known-domains.json · 77 entries · high confidence)
+ *   1. RUT table lookup (known-domains.json · getCoverageStats().total entries · high confidence)
  *   2. Heuristic inference from razón social (accent-normalize + stopword-strip)
  *
  * @example
@@ -150,15 +150,15 @@ export async function resolveBatch(
   const onlyResolving = options.onlyResolving === true;
   const errEntry = (rut: string, razonSocial: string, err: unknown): OIVDomainResolution => ({
     domain: '',
-    source: 'heuristic' as const,
+    source: 'heuristic',
     rut,
     razonSocial,
-    sector: 'unknown' as const,
+    sector: 'unknown',
     verified: false,
     mxRecords: null,
     confidence: 0,
     error: String(err),
-  } as OIVDomainResolution);
+  });
 
   const settled = await Promise.all(
     entries.map(({ rut, razonSocial }) =>
