@@ -60,7 +60,7 @@
     "url": "https://github.com/raceksd-source/anci-oiv-resolver/issues"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.12.4",
