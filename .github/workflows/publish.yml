@@ -37,7 +37,7 @@ jobs:
           egress-policy: audit
 
       - name: Checkout (tag ref)
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.inputs.tag || github.ref }}
           fetch-depth: 0
